@@ -1,0 +1,9 @@
+{
+    "title" : "Migrant App -  make integration easy",   
+    "home": {    
+        "title": "Title",
+        "sub-title": "sub-title",
+        "home-text": "this text must explain de purpose of the app and motivate the signup"
+        
+    }
+}

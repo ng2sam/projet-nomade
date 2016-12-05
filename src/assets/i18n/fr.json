@@ -1,0 +1,8 @@
+{
+    "title" : "Migrant App -  faciliter l'intégration",   
+    "home": {    
+        "title": "Titre",
+        "sub-title": "sous titre",
+        "home-text": "text de la home page qui doit expliquer l'app et pk il faut signup"
+    }
+}
