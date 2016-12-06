@@ -4,7 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 	
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../pages';
 
 
 
