@@ -8,8 +8,7 @@
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:serve-custom": "ionic-app-scripts serve --nobrowser --address localhost",
     "json-server:start": "json-server --watch api/db.json",
-    "start" : "concurrently --kill-others \"npm run json-server:start\" \"npm run ionic:serve-custom\""
-    
+    "start": "concurrently --kill-others \"npm run json-server:start\" \"npm run ionic:serve-custom\""
   },
   "dependencies": {
     "@angular/common": "2.1.1",
@@ -23,6 +22,7 @@
     "@angular/platform-server": "2.1.1",
     "@ionic/storage": "1.1.6",
     "@ngrx/core": "^1.2.0",
+    "@ngrx/effects": "^2.0.0",
     "@ngrx/store": "^2.2.1",
     "ionic-angular": "2.0.0-rc.3",
     "ionic-native": "2.2.3",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.45",
+    "@ngrx/store-devtools": "^3.2.2",
     "typescript": "2.0.6"
   }
 }
