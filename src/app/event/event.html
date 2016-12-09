@@ -1,0 +1,21 @@
+
+<ion-header>  
+  <ion-navbar>
+    <ion-title>
+      🎂  Birthdays  🎉
+    </ion-title>
+    <ion-buttons end>
+      <button>
+          <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>  
+  <page-event-list
+      [events]="events | async"
+      [selectedEvent]="selectedEvent"
+      (onSelect)="select($event)"
+  ></page-event-list>
+</ion-content>  

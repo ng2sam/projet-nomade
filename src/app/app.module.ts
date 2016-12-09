@@ -1,18 +1,22 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { Http } from '@angular/http';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
-import { provideStore, StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
+//import { Http } from '@angular/http';
+import { IonicApp, IonicModule } from 'ionic-angular';
+//import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
+/*import { provideStore, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';*/
 import { MyApp } from './app.component';
-import { AboutPage, ContactPage, HomePage, TabsPage, EventPage, EventListPage } from '../pages';
+import { SharedModule } from './shared';
+import { TabsModule } from './tabs';
+
+//import { EventModule } from './event';
+/*import { AboutPage, ContactPage, HomePage, TabsPage, EventPage, EventListPage } from '../pages';
 import { EventService  } from '../providers';
 import { EventActions } from '../actions';  
 import { EventsReducer } from '../reducers';  
-import { EventEffects  } from '../effects';  
+import { EventEffects  } from '../effects';  */
 
-const pages:Array<any> = [
+/*const pages:Array<any> = [
   AboutPage,
   ContactPage,
   HomePage,
@@ -22,33 +26,33 @@ const pages:Array<any> = [
 ];
 const pipes:Array<any> = [];
 
-const components:Array<any> = [];
-const ionicAppConfig:Object = {
+const components: Array<any> = [];*/
+const ionicAppConfig: Object = {
   tabsPlacement: 'bottom',
   mode: 'md'
 };
-const providers:Array<any> = [TranslateService, EventService, EventActions];
+
+/*const providers: Array<any> = [TranslateService];
 
 export function createTranslateLoader(http: Http) {
-    return new TranslateStaticLoader(http, 'assets/i18n', '.json');
-}
+  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+}*/
 
 
 @NgModule({
-  declarations: [MyApp, ...pages, ...components, ...pipes],
+  declarations: [MyApp/*, ...pages, ...components, ...pipes*/],
+
   imports: [
     IonicModule.forRoot(MyApp, ionicAppConfig),
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    }),
+    SharedModule,
+    TabsModule, 
+    //SharedModule,EventModule, /*, TabsModule, EventModule,*/ //seulement les module top-nivo
+    /*IonicModule.forRoot(MyApp, ionicAppConfig)
     EffectsModule.runAfterBootstrap(EventEffects),
     StoreModule.provideStore({ events: EventsReducer }),
-    StoreDevtoolsModule.instrumentOnlyWithExtension()
+    StoreDevtoolsModule.instrumentOnlyWithExtension()*/
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, ...pages],
-  providers: [{provide: ErrorHandler,  useClass: IonicErrorHandler}, ...providers]
+  entryComponents: [MyApp/*, ...pages*/]
 })
-export class AppModule {}
+export class AppModule { }
