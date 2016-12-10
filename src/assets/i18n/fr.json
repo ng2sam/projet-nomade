@@ -4,5 +4,13 @@
         "title": "Titre",
         "sub-title": "sous titre",
         "home-text": "text de la home page qui doit expliquer l'app et pk il faut signup"
+    },
+    "home-menu": {
+        "directory" :"Services utiles",
+        "informations" : "A propos de Genève",
+        "language-help" : "aide au language",
+        "events": "mes évenements",
+        "messages" : "mes méssages",
+        "settings" : "paramètre"  
     }
 }

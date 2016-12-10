@@ -4,7 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 	
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
-import { TabsPage } from './tabs';
+import { HomePage } from './home';
 
 
 
@@ -12,7 +12,7 @@ import { TabsPage } from './tabs';
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = HomePage;
   
   constructor(platform: Platform, public translate: TranslateService) {
     platform.ready().then(() => {
