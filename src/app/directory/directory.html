@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>directory</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>  
+  <page-directory-list
+      [contacts]="contactsByCategorie | async"
+      [selectedContact]="selectedContact"
+      (onSelect)="select($event)"
+  ></page-directory-list>
+</ion-content> 

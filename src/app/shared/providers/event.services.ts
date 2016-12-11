@@ -4,19 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
-
-import {Store} from '@ngrx/store';  
-
-import { AppState } from './app-state';  
-import { IEvent } from '../models';  
-import { EventActions } from '../actions'; 
+import { IEvent } from '../models';
 
 const API_URL = 'http://localhost:3000/events/';
 
 
 @Injectable()
 export class EventServices {
-    
+
     constructor(private _http: Http) {
      }
 
@@ -49,7 +44,8 @@ export class EventServices {
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
-    }  
+    }
+
    /* getAll(): Observable<IEvent[]> {
         return this._http.get(this._apiUrl+"/events")
             .map((res: Response) =>res.json()) 
@@ -98,7 +94,7 @@ export class EventServices {
         return Observable.throw(error.json().error || 'Server error');
     }*/
 
-//--
+// --
 /*
   addEvent(event: IEvent): void {
     this.store.dispatch(

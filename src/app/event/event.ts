@@ -1,16 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { NavController } from 'ionic-angular'; 
+import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 import { Store } from '@ngrx/store';
 import { EventActions } from '../shared/actions';
-import { IEvent } from '../shared/models'
-import { AppState } from '../shared/providers'; 
-/*
-  Generated class for the Event page.
+import { IEvent } from '../shared/models';
+import { AppState } from '../shared/providers';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-event',
   templateUrl: './event.html',
@@ -18,15 +13,14 @@ import { AppState } from '../shared/providers';
 })
 export class EventPage {
 
-    events:  Observable<any>; //Observable<IEvent[]>;
+    events:  Observable<any>; // Observable<IEvent[]>;
     addingEvent: boolean = false;
     selectedEvent: IEvent;
 
     constructor(public navCtrl: NavController,
-                private _eventActions : EventActions,
+                private _eventActions: EventActions,
                 private store: Store<AppState>) {
                   this.events = this.store.select('events');
-                  
     }
 
   ionViewDidLoad() {
@@ -55,6 +49,6 @@ export class EventPage {
   }
 
   gotoDetail() {
-      //this.router.navigate(['/detail/', this.selectedEvent.id]);
+      // this.router.navigate(['/detail/', this.selectedEvent.id]);
   }
 }

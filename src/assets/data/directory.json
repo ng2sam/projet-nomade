@@ -1,0 +1,151 @@
+[
+    {
+        "categorie": "SOCIAL ET JURIDIQUE",
+        "contacts": [
+            {
+                "id": 1,
+                "name": "Aumônerie genenvoise oecumenique auprès des requérents d'asile et des Réfugiés",
+                "description": "Défense / appui des requérants d’asile et cours de français",
+                "adress": "Chemin de Poussy 1, 1214 Vernier",
+                "tel": "022 930 00 89"
+            },
+            {
+                "id": 2,
+                "name": "CARITAS Genève",
+                "description": "Service social et consultations juridiques",
+                "adress": "",
+                "tel": "022 708 04 44"
+            },
+            {
+                "id": 3,
+                "name": "CCSI Centre Contact Suisses-Immigrés",
+                "description": "Promotion du dialogue entre Suisses et immigrés. Consultations juridiques",
+                "adress": "",
+                "tel": "022 304 48 60"
+            },
+            {
+                "id": 4,
+                "name": "CSP Centre Social Protestant",
+                "description": "Service social et consultations juridiques",
+                "adress": "",
+                "tel": "022 807 07 00"
+            }
+        ]
+    },
+   {
+        "categorie": "SANTE",
+        "contacts": [
+            {
+                "id": 5,
+                "name": "PROGRAMME SANTE MIGRANTS",
+                "description": "Consultation médicale pour personnes étant ou ayant été dans le processus d’asile",
+                "adress": "",
+                "tel": "022 372 33 33"
+            },
+            {
+                "id": 6,
+                "name": "Service de médecine internationale et humanitaire",
+                "description": "Médecine des voyages et migration",
+                "adress": "",
+                "tel": "022 372 96 10"
+            },
+            {
+                "id": 7,
+                "name": "UMSCO",
+                "description": "Unité mobile des soins communautaires et de prise en charge médico-psycho-sociale pour toute personne en situation précaire",
+                "adress": "",
+                "tel": "022 382 53 11"
+            }
+        ]
+    },
+   {
+        "categorie": "SOUTIEN PSYCHOLOGIQUE",
+        "contacts": [
+            {
+                "id": 8,
+                "name": "Appartenances Genève",
+                "description": "Thérapie, prévention et formation dans le domaine de la santé mentale des personnes migrantes",
+                "adress": "",
+                "tel": "022 781 02 05"
+            },
+            {
+                "id": 9,
+                "name": "ASSOCIATION GENEVOISE POUR L'ETHNOPSYCHIATRIE",
+                "description": "Consultations psychothérapeutiques pour migrants",
+                "adress": "",
+                "tel": "022 311 34 11"
+            }
+        ]
+    },
+   {
+        "categorie": "ECOLE ET EDUCATION",
+        "contacts": [
+            {
+                "id": 10,
+                "name": "École de parents du cycle d'orientation",
+                "description": "Informations et appui aux parents. Cours de français",
+                "adress": "",
+                "tel": "022 733 12 00"
+            },
+            {
+                "id": 11,
+                "name": "Service des classes d'accueil - Direction générale du Cycle d'Orientation",
+                "description": "Accueil et appui des élèves migrants.",
+                "adress": "",
+                "tel": "022 388 53 00"
+            }
+        ]
+    },
+   {
+        "categorie": "INTEGRATION",
+        "contacts": [
+            {
+                "id": 12,
+                "name": "Bureau de l'intégration des étrangers",
+                "description": "Promotion de l’intégration des étrangers. Appui aux projets émanant d’associations",
+                "adress": "",
+                "tel": "022 327 84 99"
+            },
+            {
+                "id": 13,
+                "name": "OCP - Office Cantonal de la population",
+                "description": "Administration cantonale responsable de la régularisation des conditions de séjour et de travail à Genève",
+                "adress": "",
+                "tel": "022 388 53 00"
+            },
+            {
+                "id": 14,
+                "name": "OFFICE FEDERAL DES MIGRATIONS",
+                "description": "Administration fédérale réglant les conditions à remplir pour être admis en Suisse, y séjourner et y travailler.",
+                "adress": "",
+                "tel": "031 325 11 11"
+            }
+        ]
+    },
+   {
+        "categorie": "CULTURE ET FORMATION D'ADULTES",
+        "contacts": [
+            {
+                "id": 15,
+                "name": "CAMARADA",
+                "description": "Lieu de rencontres et d’échanges pour femmes migrantes, cours de français et programme d’insertion professionnelle",
+                "adress": "",
+                "tel": "022 344 03 39"
+            },
+            {
+                "id": 16,
+                "name": "FEDERATION MAISON KULTURA",
+                "description": "Espace de rencontre interculturel et cours de français",
+                "adress": "",
+                "tel": "022 340 71 11"
+            },
+            {
+                "id": 17,
+                "name": "CENTRE FEMMES MEYRIN",
+                "description": "Cours de français et activités pour femmes migrantes",
+                "adress": "",
+                "tel": "022 777 77 07"
+            }
+        ]
+    }
+]

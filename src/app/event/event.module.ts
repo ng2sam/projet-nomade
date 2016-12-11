@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from "../shared/shared.module";
 import { IonicModule } from 'ionic-angular';
-import { EventPage } from "./event";
-import { EventListPage } from "./pages/event-list/event-list"; 
+import { EventPage } from './event';
+import { EventListPage } from './pages/event-list/event-list';
 
 
-const pages:Array<any> = [
+const pages: Array<any> = [
   EventPage,
   EventListPage
 ];

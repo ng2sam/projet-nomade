@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular'; 
+import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 
 @Component({
@@ -8,17 +8,14 @@ import { Observable } from 'rxjs/rx';
 })
 export class HomePage {
 
-    eventsMenu:  Observable<any>; //Observable<IEvent[]>;
+    eventsMenu:  Observable<any>; // Observable<IEvent[]>;
     selectedEventMenu: string;
 
     constructor(public navCtrl: NavController) {
-                  
     }
 
   ionViewDidLoad() {
     console.log('Hello Home Page');
-   
-
   }
 
 
@@ -28,6 +25,6 @@ export class HomePage {
   }
 
   gotoDetail() {
-      //this.router.navigate(['/detail/', this.selectedEvent.id]);
+      // this.router.navigate(['/detail/', this.selectedEvent.id]);
   }
 }

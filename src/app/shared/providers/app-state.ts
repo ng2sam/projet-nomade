@@ -1,5 +1,5 @@
 import { IEvent } from '../models';
 
-export interface AppState {  
+export interface AppState {
     events: IEvent[];
 }

@@ -1,8 +1,8 @@
-import {ActionReducer, Action} from '@ngrx/store';  
+import {Action} from '@ngrx/store';  
 import { EventActions } from '../actions';
 import { IEvent } from '../models';
 import * as _ from 'lodash';
-//(state: IEvent[] = [], {payload, type}: Action) {  
+// (state: IEvent[] = [], {payload, type}: Action) {  
      /*switch (type) {
     case EventActions.CREATE_EVENT_SUCCESS:
       return [ ...state, payload.event ];
@@ -23,6 +23,7 @@ import * as _ from 'lodash';
     default:
       return state;
     }*/
+
 export function EventsReducer (state: IEvent[] = [], action: Action) {
     switch (action.type) {
         case EventActions.LOAD_EVENTS_SUCCESS: {

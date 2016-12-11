@@ -4,18 +4,28 @@ import {Action} from '@ngrx/store';
 import { IEvent } from '../models';
 
 
-//typage a faire
+// typage a faire
 @Injectable()
 export class EventActions {
 
      static LOAD_EVENTS = '[Event] Load Events';
+     static LOAD_EVENTS_SUCCESS = '[Event] Load Events Success';
+     static GET_EVENT = '[Event] Get Event';
+     static GET_EVENT_SUCCESS = '[Event] Get Event Success';
+     static RESET_BLANK_EVENT = '[Event] Reset Blank Event';
+     static SAVE_EVENT = '[Event] Save Event';
+     static SAVE_EVENT_SUCCESS = '[Event] Save Event Success';
+    static ADD_EVENT = '[Event] Add Event';
+    static ADD_EVENT_SUCCESS = '[Event] Add Event Success';
+    static DELETE_EVENT = '[Event] Delete Event';
+    static DELETE_EVENT_SUCCESS = '[Event] Delete Event Success';
+
     loadEvents(): Action {
         return {
             type: EventActions.LOAD_EVENTS
         };
     }
 
-    static LOAD_EVENTS_SUCCESS = '[Event] Load Events Success';
     loadEventsSuccess(events: IEvent[]): Action {
         return {
             type: EventActions.LOAD_EVENTS_SUCCESS,
@@ -23,7 +33,6 @@ export class EventActions {
         };
     }
 
-    static GET_EVENT = '[Event] Get Event';
     getEvent(id): Action {
         return {
             type: EventActions.GET_EVENT,
@@ -31,7 +40,6 @@ export class EventActions {
         };
     }
 
-    static GET_EVENT_SUCCESS = '[Event] Get Event Success';
     getEventSuccess(event): Action {
         return {
             type: EventActions.GET_EVENT_SUCCESS,
@@ -39,14 +47,12 @@ export class EventActions {
         };
     }
 
-    static RESET_BLANK_EVENT = '[Event] Reset Blank Event';
     resetBlankEvent(): Action {
         return {
             type: EventActions.RESET_BLANK_EVENT
         };
     }
 
-    static SAVE_EVENT = '[Event] Save Event';
     saveEvent(event): Action {
         return {
             type: EventActions.SAVE_EVENT,
@@ -54,7 +60,6 @@ export class EventActions {
         };
     }
 
-    static SAVE_EVENT_SUCCESS = '[Event] Save Event Success';
     saveEventSuccess(event): Action {
         return {
             type: EventActions.SAVE_EVENT_SUCCESS,
@@ -62,7 +67,6 @@ export class EventActions {
         };
     }
 
-    static ADD_EVENT = '[Event] Add Event';
     addEvent(event): Action {
         return {
             type: EventActions.ADD_EVENT,
@@ -70,7 +74,6 @@ export class EventActions {
         };
     }
 
-    static ADD_EVENT_SUCCESS = '[Event] Add Event Success';
     addEventSuccess(event): Action {
         return {
             type: EventActions.ADD_EVENT_SUCCESS,
@@ -78,7 +81,6 @@ export class EventActions {
         };
     }
 
-    static DELETE_EVENT = '[Event] Delete Event';
     deleteEvent(event): Action {
         return {
             type: EventActions.DELETE_EVENT,
@@ -86,7 +88,6 @@ export class EventActions {
         };
     }
 
-    static DELETE_EVENT_SUCCESS = '[Event] Delete Event Success';
     deleteEventSuccess(event): Action {
         return {
             type: EventActions.DELETE_EVENT_SUCCESS,

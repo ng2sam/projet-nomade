@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
-// import {Observable} from 'rxjs/rx';
-import { Observable } from 'rxjs/Observable';
-import { AppState, EventServices } from '../providers';
-import { IEvent } from '../models';
+import { EventServices } from '../providers';
 import { EventActions } from '../actions';
 
 import 'rxjs/add/observable/of';
@@ -21,21 +17,7 @@ export class EventEffects {
     private _eventActions: EventActions
   ) { }
 
-  /*allEvents$ = this._eventService.getAll()
-      .map(events => this._eventAction.loadEventsSuccess(events));
-
-  changedEvents$ = this._eventService.getChanges()
-      .map(change => {
-          if (change._deleted) {
-              return this._eventAction.deleteEventSuccess(change._id);
-          }
-          else {
-              return this._eventAction.addUpdateEventSuccess(change);
-          }
-      });
-
-  @Effect() getBirthdays$ = Observable.concat(this.allEvents$, this.changedEvents$);*/
-
+    // tslint:disable-next-line:member-ordering
     @Effect() loadEvents$ = this.actions$
         .ofType(EventActions.LOAD_EVENTS)
         .switchMap(() => this._eventService.getEvents())

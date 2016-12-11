@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { SharedModule} from "../shared/shared.module";
+import { SharedModule} from '../shared/shared.module';
 import { IonicModule } from 'ionic-angular';
-import { HomePage } from "./home";
-import { MenuPage } from "./pages/menu/menu"; 
+import { HomePage } from './home';
+import { MenuPage } from './pages/menu/menu';
 
-const pages:Array<any> = [
+const pages: Array<any> = [
   HomePage,
   MenuPage
 ];

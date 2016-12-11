@@ -9,7 +9,8 @@
     "ionic:serve-custom": "ionic-app-scripts serve --nobrowser --address localhost",
     "json-server:start": "json-server --watch api/db.json",
     "start": "concurrently --kill-others \"npm run json-server:start\" \"npm run ionic:serve-custom\"",
-    "test": "ng test --code-coverage"
+    "test": "ng test --code-coverage",
+    "lint": "tslint"
   },
   "dependencies": {
     "@angular/common": "2.1.1",
@@ -46,6 +47,7 @@
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.2.1",
     "karma-remap-istanbul": "^0.2.1",
+    "tslint": "^4.0.2",
     "typescript": "2.0.6"
   }
 }

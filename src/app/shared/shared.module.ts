@@ -4,15 +4,14 @@ import { Http } from '@angular/http';
 import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { provideStore, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { EventServices } from './providers';
+import { EventServices, DirectoryServices } from './providers';
 import { EventActions } from './actions';
 import { EventEffects } from './effects';
 import { EventsReducer } from './reducer';
-import { MyApp } from '../app.component';
 
-const providers: Array<any> = [TranslateService, , EventActions, EventServices];
+const providers: Array<any> = [TranslateService, , EventActions, EventServices, DirectoryServices];
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
