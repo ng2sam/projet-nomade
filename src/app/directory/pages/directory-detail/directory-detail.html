@@ -14,5 +14,10 @@
 
 
 <ion-content padding>
-
+<div *ngIf="contact">
+  {{ contact.name }} <br>
+</div>
+<div id="mapContainer">
+ <page-map #mapPage [mapData]="contact"></page-map>
+</div>
 </ion-content>

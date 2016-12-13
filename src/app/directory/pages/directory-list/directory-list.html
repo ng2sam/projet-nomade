@@ -3,6 +3,6 @@
   <ion-list-header>
     {{ contactCat.categorie }}
   </ion-list-header>
-  <ion-item *ngFor="let contact of contactCat.contacts">{{ contact.name }}</ion-item>
+  <ion-item *ngFor="let contact of contactCat.contacts" (click)="onSelect.emit(contact)">{{ contact.name }}</ion-item>
   </div>
 </ion-list>

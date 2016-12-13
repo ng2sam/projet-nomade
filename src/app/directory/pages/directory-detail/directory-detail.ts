@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
+import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { MapPage } from '../map/map';
+//declare var google;
 /*
   Generated class for the DirectoryDetail page.
 
@@ -12,11 +13,24 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'directory-detail.html'
 })
 export class DirectoryDetailPage {
+  contact:any;
 
-  constructor(public navCtrl: NavController) {}
+  loaded: boolean = false;
+  @ViewChild('mapPage') MapPage: MapPage;
 
-  ionViewDidLoad() {
-    console.log('Hello DirectoryDetailPage Page');
+  constructor(private navCtrl: NavController, private params: NavParams) {}
+
+  ngOnInit() {
+    this.contact = this.params.get('param');
+    console.log(this.MapPage)
+    setTimeout(()=>{
+      this.MapPage.loadMap();
+    },2000)
+    
+     
+    console.log("test",this.MapPage);
+    
+    console.log('Hello DirectoryDetailPage Page', this.contact);
   }
 
 }

@@ -11,6 +11,7 @@ export class DirectoryListPage {
   @Input() selectedContact;
 
   @Output() onSelect = new EventEmitter();
+  
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {

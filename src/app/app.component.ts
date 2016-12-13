@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, NavController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from './home';
 import { DirectoryPage } from './directory';
-
+import { MapPage } from './directory/pages'; 
 
 @Component({
   templateUrl: 'app.html',
 })
 export class MyApp {
   rootPage = DirectoryPage;
+  @ViewChild('appNav') nav: NavController
 
   constructor(platform: Platform, public translate: TranslateService) {
     platform.ready().then(() => {
@@ -33,4 +34,9 @@ export class MyApp {
     this.translate.use(userLang);
 
   }
+
+   ngOnInit() {
+      // Let's navigate from TabsPage to Page1
+      // this.nav.push(MapPage);
+   }
 }
