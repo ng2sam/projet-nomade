@@ -11,7 +11,7 @@ import { EventActions } from './actions';
 import { EventEffects } from './effects';
 import { EventsReducer } from './reducer';
 
-const providers: Array<any> = [TranslateService, , EventActions, EventServices, DirectoryServices];
+const providers: Array<any> = [TranslateService, EventActions, EventServices, DirectoryServices];
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
