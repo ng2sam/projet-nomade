@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';*/
 import { MyApp } from './app.component';
 import { SharedModule } from './shared';
 import { HomeModule } from './home';
+import { EventModule } from './event';
 import { DirectoryModule } from './directory';
 /*import { AboutPage, ContactPage, HomePage, TabsPage, EventPage, EventListPage } from '../pages';
 import { EventService  } from '../providers';
@@ -45,7 +46,8 @@ export function createTranslateLoader(http: Http) {
     IonicModule.forRoot(MyApp, ionicAppConfig),
     SharedModule,
     //HomeModule,
-    DirectoryModule,
+    //DirectoryModule,
+    EventModule
     // SharedModule,EventModule, /*, TabsModule, EventModule,*/ //seulement les module top-nivo
     /*IonicModule.forRoot(MyApp, ionicAppConfig)
     EffectsModule.runAfterBootstrap(EventEffects),

@@ -12,12 +12,12 @@ import 'rxjs/add/operator/map';
 export class DirectoryServices {
     API_URL:string;
     constructor(private _http: Http, platform: Platform) {
-        if(platform.is('android')){
-           // this.API_URL = '/android_asset/data/directory.json';
+        if(platform.is('android') || platform.is('ios')){
+           this.API_URL = 'data/directory.json';
         }else {
-       // this.API_URL = '/assets/data/directory.json';
+            this.API_URL = '/assets/data/directory.json';
         }
-        this.API_URL = 'data/directory.json';
+        
      }
      
     getContacts(): Observable<any[]> {

@@ -8,8 +8,8 @@ import { NavController } from 'ionic-angular';
 })
 export class EventListPage {
 
-  // @Input() events;
-  // @Input() selectedEvent;
+   @Input() events;
+   @Input() selectedEvent;
 
   @Output() onSelect = new EventEmitter();
 

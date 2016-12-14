@@ -5,14 +5,14 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
 import { HomePage } from './home';
-import { DirectoryPage } from './directory';
+import { EventPage } from './event';
 import { MapPage } from './directory/pages'; 
 
 @Component({
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = DirectoryPage;
+  rootPage = EventPage;
   @ViewChild('appNav') nav: NavController
 
   constructor(platform: Platform, public translate: TranslateService) {

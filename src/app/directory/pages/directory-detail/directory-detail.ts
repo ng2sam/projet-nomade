@@ -15,22 +15,17 @@ import { MapPage } from '../map/map';
 export class DirectoryDetailPage {
   contact:any;
 
-  loaded: boolean = false;
   @ViewChild('mapPage') MapPage: MapPage;
 
   constructor(private navCtrl: NavController, private params: NavParams) {}
 
   ngOnInit() {
     this.contact = this.params.get('param');
-    console.log(this.MapPage)
+
     setTimeout(()=>{
       this.MapPage.loadMap();
-    },2000)
+    },1000)
     
-     
-    console.log("test",this.MapPage);
-    
-    console.log('Hello DirectoryDetailPage Page', this.contact);
   }
 
 }
