@@ -7,14 +7,19 @@
 <ion-header style="height:20%" >
 
   <ion-navbar color="primary" style="height:100%">
-    <ion-title style="padding-bottom: 20%;">event-detail</ion-title>
+    <ion-title style="padding-bottom: 20%;font-size:30px;">event-detail</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-
+          <page-event-form
+            [event]="event | async"
+            (back)="goBack()"
+            (save)="save($event)"
+        ></page-event-form>
+<!--
 <ion-list *ngIf="event">
     <ion-list-header>
       Event info
@@ -47,5 +52,5 @@
       {{ event.name }}
       </ion-note>
   </ion-item>
-</ion-list>
+</ion-list>-->
 </ion-content>

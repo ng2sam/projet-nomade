@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { EventActions } from '../shared/actions';
 import { IEvent } from '../shared/models';
 import { AppState } from '../shared/providers';
-import { EventDetailPage } from './pages'
+import { EventDetailPage } from './pages';
 
 @Component({
   selector: 'page-event',
@@ -46,11 +46,10 @@ export class EventPage {
   select($event) {
       console.log($event);
       this.selectedEvent = $event;
-      this.gotoDetail(this.selectedEvent)
+      this.gotoDetail(<number>this.selectedEvent.id);
   }
 
-  gotoDetail(event:any) {
-      // this.router.navigate(['/detail/', this.selectedEvent.id]);
-      this.navCtrl.push(EventDetailPage, {param: event});
+  gotoDetail(eventId: number) {
+      this.navCtrl.push(EventDetailPage, {param: eventId});
   }
 }

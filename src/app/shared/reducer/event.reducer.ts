@@ -23,9 +23,19 @@ import * as _ from 'lodash';
     default:
       return state;
     }*/
+const initialState: IEvent = {
+    id: 0,
+    name: '',
+    date: null,
+    eventType: null, // 0 public, 1 semi-public, 2 privé
+    organisatorId: null // recu id user ?
+};
 
 export function EventsReducer (state: IEvent[] = [], action: Action) {
     switch (action.type) {
+        case EventActions.RESET_BLANK_EVENT: {
+            return initialState;
+        }
         case EventActions.LOAD_EVENTS_SUCCESS: {
             return action.payload;
         }

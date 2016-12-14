@@ -1,20 +1,22 @@
 import {NgModule} from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { EventPage } from './event';
-import { EventListPage } from './pages/event-list/event-list';
-import { EventDetailPage } from './pages/event-detail/event-detail';
+import { EventDetailPage, EventFormPage, EventListPage } from './pages';
 
 const pages: Array<any> = [
   EventPage,
   EventListPage,
-  EventDetailPage
+  EventDetailPage,
+  EventFormPage
 ];
 
 @NgModule({
   imports: [
     /*SharedModule,*/
         IonicModule.forRoot(EventPage),
-        IonicModule.forRoot(EventListPage),
+        /*IonicModule.forRoot(EventListPage),
+        IonicModule.forRoot(EventDetailPage),
+        IonicModule.forRoot(EventFormPage),*/
     /*EffectsModule.runAfterBootstrap(EventEffects),
     StoreModule.provideStore({ events: EventsReducer })*/
   ],

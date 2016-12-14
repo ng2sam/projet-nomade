@@ -1,0 +1,9 @@
+
+<div *ngIf="event | async">
+{{event.name}}     
+ <label>name: </label>
+<input [(ngModel)]="event.name" placeholder="name" />
+    <button (click)="back.emit()">Back</button>
+<button (click)="save.emit(event)">Save</button>
+</div>
+dddd

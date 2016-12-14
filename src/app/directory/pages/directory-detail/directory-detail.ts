@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MapPage } from '../map/map';
 //declare var google;
@@ -12,8 +12,8 @@ import { MapPage } from '../map/map';
   selector: 'page-directory-detail',
   templateUrl: 'directory-detail.html'
 })
-export class DirectoryDetailPage {
-  contact:any;
+export class DirectoryDetailPage implements OnInit {
+  contact: any;
 
   @ViewChild('mapPage') MapPage: MapPage;
 
@@ -22,10 +22,9 @@ export class DirectoryDetailPage {
   ngOnInit() {
     this.contact = this.params.get('param');
 
-    setTimeout(()=>{
+    setTimeout(() => {
       this.MapPage.loadMap();
-    },1000)
-    
+    }, 1000);
   }
 
 }

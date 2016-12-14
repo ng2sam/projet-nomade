@@ -14,9 +14,9 @@ const pages: Array<any> = [
   imports: [
     /*SharedModule,*/
     IonicModule.forRoot(DirectoryPage),
-    IonicModule.forRoot(DirectoryListPage),
+    /*IonicModule.forRoot(DirectoryListPage),
     IonicModule.forRoot(MapPage),
-    IonicModule.forRoot(DirectoryDetailPage),
+    IonicModule.forRoot(DirectoryDetailPage),*/
   ],
   declarations: [...pages],
   providers: [],
