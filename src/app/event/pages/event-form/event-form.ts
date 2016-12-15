@@ -29,7 +29,7 @@ export class EventFormPage {
    ngOnInit() {
     this.form = this.fb.group({
       name: this.fb.group({
-        name: [this._event[0].name, Validators.minLength(3)]
+        name: [this._event.name, Validators.minLength(3)]
       })
     });
    }

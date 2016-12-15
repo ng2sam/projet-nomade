@@ -23,7 +23,7 @@ export class EventDetailPage implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>,
     private _eventActions: EventActions,
     private params: NavParams) {
-    this.event = this.store.select('events');
+    this.event = this.store.select('event');
   }
 
   ngOnInit() {

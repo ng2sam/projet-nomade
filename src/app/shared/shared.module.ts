@@ -9,7 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { EventServices, DirectoryServices } from './providers';
 import { EventActions } from './actions';
 import { EventEffects } from './effects';
-import { EventsReducer } from './reducer';
+import { EventsReducer, EventReducer } from './reducer';
 
 
 const providers: Array<any> = [TranslateService, EventActions, EventServices, DirectoryServices];
@@ -27,7 +27,7 @@ export function createTranslateLoader(http: Http) {
       deps: [Http]
     }),
      EffectsModule.runAfterBootstrap(EventEffects),
-     StoreModule.provideStore({ events: EventsReducer }),
+     StoreModule.provideStore({ events: EventsReducer, event: EventReducer }),
      StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   declarations: [],
