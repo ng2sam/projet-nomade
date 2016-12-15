@@ -46,7 +46,7 @@ export class EventDetailPage implements OnInit, OnDestroy {
 
   goBack(savedEvent: IEvent = null) {
     this.close.emit(savedEvent);
-   // if (this.editMode) { window.history.back(); }
+   // if (this.editMode) {  }
   }
 
   save(event) {
