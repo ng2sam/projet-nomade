@@ -14,7 +14,7 @@ export class MapPage /*implements OnInit*/ {
   latLngOrigin: number;
   latLngDestination:number;
   defaultLatLng: {lat:number, lng:number} = {lat:46.189768, lng:6.148815};
-  defaultOriginLatLng: {lat:number, lng:number} = {lat:446.186124299999996, lng:6.134409799999999};
+  defaultOriginLatLng: {lat:number, lng:number} = {lat:46.186124299999996, lng:6.134409799999999};
 
   constructor(public modalCtrl: ModalController) {
     
@@ -38,7 +38,7 @@ export class MapPage /*implements OnInit*/ {
   
   loadMap(){
     this.latLngOrigin = new google.maps.LatLng(46.186124299999996, 6.134409799999999);
-    console.log(this.latLngOrigin)
+    console.log("loSD",this.latLngOrigin)
     let mapOptions = {
       center: this.latLngOrigin,
       zoom: 15,

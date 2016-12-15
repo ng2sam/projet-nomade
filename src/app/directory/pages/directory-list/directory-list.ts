@@ -9,6 +9,8 @@ import { NavController } from 'ionic-angular';
 export class DirectoryListPage {
   @Input() contacts;
   @Input() selectedContact;
+  listFilter: string ='';
+  pet:string = "kittens";
 
   @Output() onSelect = new EventEmitter();
   

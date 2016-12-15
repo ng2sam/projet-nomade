@@ -37,7 +37,6 @@ export class DirectoryPage {
   }
 
   gotoDetail(contact:any) {
-      // this.router.navigate(['/detail/', this.selectedEvent.id]);
       this.navCtrl.push(DirectoryDetailPage, {param: contact});
   }
 

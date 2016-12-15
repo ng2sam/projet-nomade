@@ -1,6 +1,8 @@
 [
     {
         "categorie": "SOCIAL ET JURIDIQUE",
+        "color": "#ffccbc",
+        "mdiClass": "mdi mdi-scale-balance",
         "contacts": [
             {
                 "id": 1,
@@ -8,8 +10,8 @@
                 "description": "Défense / appui des requérants d’asile et cours de français",
                 "adress": "Chemin de Poussy 1, 1214 Vernier",
                 "tel": "022 930 00 89",
-                "lat":46.217614,
-                "lng":6.096575
+                "lat": 46.217614,
+                "lng": 6.096575
             },
             {
                 "id": 2,
@@ -17,8 +19,8 @@
                 "description": "Service social et consultations juridiques",
                 "adress": "Rue de Carouge 53, 1211 Genève",
                 "tel": "022 708 04 44",
-                "lat":46.193407,
-                "lng":6.144055
+                "lat": 46.193407,
+                "lng": 6.144055
             },
             {
                 "id": 3,
@@ -26,8 +28,8 @@
                 "description": "Promotion du dialogue entre Suisses et immigrés. Consultations juridiques",
                 "adress": "",
                 "tel": "022 304 48 60",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 4,
@@ -35,13 +37,15 @@
                 "description": "Service social et consultations juridiques",
                 "adress": "Rue du Village-Suisse 14, 1211 Genève",
                 "tel": "022 807 07 00",
-                "lat":46.200680,
-                "lng":6.135418
+                "lat": 46.200680,
+                "lng": 6.135418
             }
         ]
     },
-   {
+    {
         "categorie": "SANTE",
+        "color": "#ffcdd2",
+        "mdiClass": "mdi mdi-heart-pulse",
         "contacts": [
             {
                 "id": 5,
@@ -49,8 +53,8 @@
                 "description": "Consultation médicale pour personnes étant ou ayant été dans le processus d’asile",
                 "adress": "",
                 "tel": "022 372 33 33",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 6,
@@ -58,8 +62,8 @@
                 "description": "Médecine des voyages et migration",
                 "adress": "Rue Gabrielle-Perret-Gentil 6, 1205 Genève",
                 "tel": "022 372 96 10",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 7,
@@ -67,13 +71,15 @@
                 "description": "Unité mobile des soins communautaires et de prise en charge médico-psycho-sociale pour toute personne en situation précaire",
                 "adress": "",
                 "tel": "022 382 53 11",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             }
         ]
     },
-   {
+    {
         "categorie": "SOUTIEN PSYCHOLOGIQUE",
+        "color": "#e1bee7",
+        "mdiClass": "mdi mdi-voice",
         "contacts": [
             {
                 "id": 8,
@@ -91,8 +97,10 @@
             }
         ]
     },
-   {
+    {
         "categorie": "ECOLE ET EDUCATION",
+        "color": "#c5cae9",
+        "mdiClass": "mdi mdi-school",
         "contacts": [
             {
                 "id": 10,
@@ -100,8 +108,8 @@
                 "description": "Informations et appui aux parents. Cours de français",
                 "adress": "",
                 "tel": "022 733 12 00",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 11,
@@ -109,13 +117,15 @@
                 "description": "Accueil et appui des élèves migrants.",
                 "adress": "",
                 "tel": "022 388 53 00",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             }
         ]
     },
-   {
+    {
         "categorie": "INTEGRATION",
+        "color": "#b2dfdb",
+        "mdiClass": "mdi mdi-account-multiple",
         "contacts": [
             {
                 "id": 12,
@@ -123,8 +133,8 @@
                 "description": "Promotion de l’intégration des étrangers. Appui aux projets émanant d’associations",
                 "adress": "",
                 "tel": "022 327 84 99",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 13,
@@ -132,8 +142,8 @@
                 "description": "Administration cantonale responsable de la régularisation des conditions de séjour et de travail à Genève",
                 "adress": "",
                 "tel": "022 388 53 00",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 14,
@@ -141,13 +151,15 @@
                 "description": "Administration fédérale réglant les conditions à remplir pour être admis en Suisse, y séjourner et y travailler.",
                 "adress": "",
                 "tel": "031 325 11 11",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             }
         ]
     },
-   {
+    {
         "categorie": "CULTURE ET FORMATION D'ADULTES",
+        "color": "#f0f4c3",
+        "mdiClass": "mdi mdi-school",
         "contacts": [
             {
                 "id": 15,
@@ -155,8 +167,8 @@
                 "description": "Lieu de rencontres et d’échanges pour femmes migrantes, cours de français et programme d’insertion professionnelle",
                 "adress": "",
                 "tel": "022 344 03 39",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 16,
@@ -164,8 +176,8 @@
                 "description": "Espace de rencontre interculturel et cours de français",
                 "adress": "",
                 "tel": "022 340 71 11",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             },
             {
                 "id": 17,
@@ -173,8 +185,8 @@
                 "description": "Cours de français et activités pour femmes migrantes",
                 "adress": "",
                 "tel": "022 777 77 07",
-                "lat":0,
-                "lng":0
+                "lat": 0,
+                "lng": 0
             }
         ]
     }

@@ -24,7 +24,7 @@ export class DirectoryDetailPage implements OnInit {
 
     setTimeout(() => {
       this.MapPage.loadMap();
-    }, 1000);
+    }, 2000);
   }
 
 }

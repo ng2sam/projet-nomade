@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { DirectoryPage } from './directory';
 import { DirectoryDetailPage, DirectoryListPage, MapPage } from './pages';
+import { DirectoryFilter } from './pipes';
 
 const pages: Array<any> = [
   DirectoryPage,
@@ -9,6 +10,7 @@ const pages: Array<any> = [
   DirectoryListPage,
   MapPage
 ];
+ const pipes: Array<any> = [DirectoryFilter]
 
 @NgModule({
   imports: [
@@ -18,7 +20,7 @@ const pages: Array<any> = [
     IonicModule.forRoot(MapPage),
     IonicModule.forRoot(DirectoryDetailPage),*/
   ],
-  declarations: [...pages],
+  declarations: [...pages, ...pipes],
   providers: [],
   entryComponents: [...pages],
   exports: [

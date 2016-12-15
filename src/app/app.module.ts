@@ -45,8 +45,8 @@ export function createTranslateLoader(http: Http) {
   imports: [
     IonicModule.forRoot(MyApp, ionicAppConfig),
     SharedModule,
-    //HomeModule,
-    //DirectoryModule,
+    HomeModule,
+    DirectoryModule,
     EventModule
     // SharedModule,EventModule, /*, TabsModule, EventModule,*/ //seulement les module top-nivo
     /*IonicModule.forRoot(MyApp, ionicAppConfig)
