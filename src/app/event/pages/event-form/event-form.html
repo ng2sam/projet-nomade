@@ -1,17 +1,17 @@
 
-<!--<div *ngFor="let e of event ">
-{{e.name}}     
+<div *ngIf="event ">
+{{event.name}}     
  <label>name: </label>
-<input [(ngModel)]="e.name" placeholder="name" />
+<input [(ngModel)]="event.name" placeholder="name" />
     <button (click)="back.emit()">Back</button>
 <button (click)="save.emit(event)">Save</button>
-</div>-->
-    <form [formGroup]="form">
+</div>
+   <!--<form [formGroup]="form">
       <div formGroupName="name">
         <input formControlName="name" placeholder="Name">
       </div>
       <button>Submit</button>
     </form>
     <p>Value: {{ form.value | json }}</p>
-    <p>Validation status: {{ form.status }}</p>
+    <p>Validation status: {{ form.status }}</p>-->
 dddd
