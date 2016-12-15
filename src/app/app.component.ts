@@ -13,7 +13,7 @@ import { MapPage } from './directory/pages';
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = DirectoryPage;
+  rootPage = EventPage;
   @ViewChild('appNav') nav: NavController
 
   constructor(platform: Platform, public translate: TranslateService) {

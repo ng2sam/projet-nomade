@@ -1,10 +1,19 @@
 {
   "events": [
     {
-      "id": "1",
+      "id": 1,
       "name": "json-servers",
+      "description": "premire object event",
       "date": "Tue Dec 06 2016 15:42:32 GMT+0100 (Europe de l’Ouest)",
       "eventType": 0,
+      "organisatorId": 1
+    },
+    {
+      "id": 2,
+      "name": "event privé",
+      "description": "premire object event privé couleur violet",
+      "date": "Tue Dec 22 2016 15:32:32 GMT+0100 (Europe de l’Ouest)",
+      "eventType": 1,
       "organisatorId": 1
     }
   ]

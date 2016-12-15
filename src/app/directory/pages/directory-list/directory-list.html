@@ -30,7 +30,8 @@
   </div>
 
   <ion-list *ngSwitchCase="'kittens'">
-    <ion-card *ngFor="let contactCat of contacts" (click)="onSelect.emit(contactCat)" [style.background-color]="contactCat.color">
+    <ion-card *ngFor="let contactCat of contacts" (click)="onSelect.emit(contactCat)" 
+      [style.background-color]="contactCat.color" >
 
       <ion-card-content>
       <ion-row no-padding>

@@ -1,7 +1,15 @@
 
-<ion-list inset>
-    <ion-item *ngFor="let event of events" >
-      <div item-left (click)="onSelect.emit(event)">{{ event.name }}</div>
-      <div item-right>{{ event.date | date:'yMMMMd' }}</div>
-    </ion-item>
-  </ion-list>
+
+
+
+<ion-list>
+  <ion-item *ngFor="let event of events"  (click)="onSelect.emit(event)">
+    <ion-avatar item-left style="position: relative;">
+    <i class="mdi mdi-calendar-clock mdi-36px" style="position: absolute;left:2.5px; top: 2px;z-index: 10;" ></i>
+    <img id="myImage" src="http://placehold.it/350x350/00e676" style="position: relative; z-index: 1;">
+    </ion-avatar>
+    <h2>{{ event.name }}</h2>
+    <h3>{{ event.date | date:'yMMMMd' }}</h3>
+    <p>{{ event.description }}</p>
+  </ion-item>
+</ion-list>

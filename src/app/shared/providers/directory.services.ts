@@ -22,7 +22,7 @@ export class DirectoryServices {
      
     getContacts(): Observable<any[]> {
         return this._http.get(this.API_URL)
-        .map(res => res.json())
+        .map(res => {console.log(res.json()); return res.json()})
         .catch((this.handleError));
     }
 
