@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { EventActions } from '../../../shared/actions';
 import { IEvent } from '../../../shared/models';
 import { AppState } from '../../../shared/providers';
-
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'page-event-detail',
@@ -17,7 +17,9 @@ export class EventDetailPage implements OnInit, OnDestroy {
   idEvent: Subscription;
   event: Observable<any>;
   editMode = false;
-
+  public form = new FormGroup({
+   name: new FormControl('fff')
+  });
   @Output() close = new EventEmitter();
 
   constructor(private store: Store<AppState>,

@@ -16,6 +16,7 @@
 <ion-content>
           <page-event-form
             [event]="event | async"
+            [form]="form"
             (back)="goBack()"
             (save)="save($event)"
         ></page-event-form>
