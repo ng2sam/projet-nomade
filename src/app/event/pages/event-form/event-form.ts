@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { IEvent } from '../../../shared/models';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-event-form',
@@ -11,11 +12,11 @@ export class EventFormPage implements OnInit {
   @Input() public form: FormGroup;
   @Input() set event(value) {
     this._event = Object.assign({}, value);
-    if(value){
-       this.form.patchValue(this._event);
+    if (value) {
+      this.form.patchValue(this._event);
     }
-   
-    console.log("valueForm",  value);
+
+    console.log("valueForm", value);
   }
   // get a appliquer partout
   get event() {
@@ -28,15 +29,25 @@ export class EventFormPage implements OnInit {
 
   constructor(public navCtrl: NavController, private fb: FormBuilder) {
 
-   }
+  }
 
-   ngOnInit() {
-   /* this.form = this.fb.group({
-      name: this.fb.group({
-        name: ['', Validators.minLength(3)]
-      })
-    });*/
-   }
+  ngOnInit() {
+     this.form = this.fb.group({
+         name: ['', [Validators.minLength(3), Validators.required]]
+     });
+  }
+
+  onSubmit({ value, valid }: { value: IEvent, valid: boolean }){
+    console.log("submit");
+    console.log(value, valid);
+    if(valid){
+      this._event.name = value.name;
+      this.save.emit(this._event);
+    }
+    //this._event.name = this.form.controls['name':''];
+   // this.save.emit(this._event);
+
+  }
 
 
 }

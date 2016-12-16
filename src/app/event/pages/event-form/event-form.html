@@ -6,11 +6,10 @@
     <button (click)="back.emit()">Back</button>
 <button (click)="save.emit(event)">Save</button>
 </div>-->
-    <form [formGroup]="form">
-      <div formGroupName="name">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)" >
         <input formControlName="name" placeholder="Name">
-      </div>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
+      <button (click)="back.emit()">Annuler</button>
     </form>
     <p>Value: {{ form.value | json }}</p>
     <p>Validation status: {{ form.status }}</p>

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { NavParams } from 'ionic-angular';
+import { NavParams, NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
@@ -17,14 +17,15 @@ export class EventDetailPage implements OnInit, OnDestroy {
   idEvent: Subscription;
   event: Observable<any>;
   editMode = false;
-  public form = new FormGroup({
-   name: new FormControl('fff')
+  form = new FormGroup({
+   name: new FormControl('')
   });
-  @Output() close = new EventEmitter();
+  //@Output() close = new EventEmitter();
 
   constructor(private store: Store<AppState>,
     private _eventActions: EventActions,
-    private params: NavParams) {
+    private params: NavParams,
+    public nav : NavController) {
     this.event = this.store.select('event');
   }
 
@@ -47,14 +48,17 @@ export class EventDetailPage implements OnInit, OnDestroy {
   }
 
   goBack(savedEvent: IEvent = null) {
-    this.close.emit(savedEvent);
+   // this.close.emit(savedEvent);
+   this.nav.pop();
    // if (this.editMode) {  }
   }
 
   save(event) {
+    console.log("fdfds",event);
     if (event.id === 0) {
       this.store.dispatch(this._eventActions.addEvent(event));
     } else {
+      console.log("event saved");
       this.store.dispatch(this._eventActions.saveEvent(event));
     }
     this.goBack(event);

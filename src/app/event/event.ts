@@ -30,12 +30,10 @@ export class EventPage {
 
   }
 
-  addEvent() {
-      this.addingEvent = true;
-      this.selectedEvent = null;
-  }
+
 
   close() {
+      console.log("closed");
       this.addingEvent = false;
   }
 
@@ -51,5 +49,8 @@ export class EventPage {
 
   gotoDetail(eventId: number) {
       this.navCtrl.push(EventDetailPage, {param: eventId});
+  }
+  addEvent() {
+     this.navCtrl.push(EventDetailPage); 
   }
 }
