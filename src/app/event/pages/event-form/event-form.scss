@@ -1,3 +1,25 @@
-page-event-form {
+page-event-form {   
+    $label-md-text-color-focused:color($colors, white);
+    $text-input-md-highlight-color: color($colors, white);
+    
+    .eventName {
+        background-color:#3f51b5;
+         .label-md[floating] {
+            color:white;
+        }
+        color:white;
+        font-size: 2.5em;
+    }
+
+
+    
 
 }
+  .toolbar-background {
+    background: rgb(245, 245, 245);
+    box-shadow: 0px 0px 0px #888888;
+  }
+  
+
+
+
