@@ -18,7 +18,9 @@ export class EventDetailPage implements OnInit, OnDestroy {
   event: Observable<any>;
   editMode = false;
   form = new FormGroup({
-   name: new FormControl('')
+    name: new FormControl(''),
+    date: new FormControl(''),
+    description: new FormControl('')
   });
   //@Output() close = new EventEmitter();
 

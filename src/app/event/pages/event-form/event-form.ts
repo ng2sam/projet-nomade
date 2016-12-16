@@ -33,7 +33,9 @@ export class EventFormPage implements OnInit {
 
   ngOnInit() {
      this.form = this.fb.group({
-         name: ['', [Validators.minLength(3), Validators.required]]
+         name: ['', [Validators.minLength(3), Validators.required]],
+         date: [''],
+         description : ['']
      });
   }
 

@@ -18,8 +18,12 @@
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-label floating>Date et heure</ion-label>
+<ion-datetime displayFormat="DD MMM, YYYY HH:mm" formControlName="date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Description</ion-label>
+    <ion-input formControlName="description" type="textarea" ></ion-input>
   </ion-item>
 
 </ion-list>
