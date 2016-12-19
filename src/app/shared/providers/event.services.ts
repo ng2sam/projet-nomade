@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Store } from '@ngrx/store';
+import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { IEvent } from '../models';
+import { EventActions } from '../actions';
+import { AppState } from '../providers';
 
 const API_URL = 'http://localhost:3000/events/';
 
 
 @Injectable()
 export class EventServices {
-
-    constructor(private _http: Http) {
-     }
+      events:  Observable<any>;
+    constructor(private _http: AuthHttp,  private store: Store<AppState>, private _eventActions:EventActions) {
+        // this.events = this.store.select('events');
+    }
 
     getEvents(): Observable<IEvent[]> {
         return this._http.get(API_URL)
@@ -27,7 +32,7 @@ export class EventServices {
     }
 
     saveEvent(event) {
-        if (event.id === 0) {
+        if (event.id === 0 || event.id === null) {
             return this._http.post(API_URL, event)
             .map(res => res.json());
         } else {
@@ -43,7 +48,8 @@ export class EventServices {
 
     private handleError(error: Response) {
         console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        //this.store.dispatch(this._eventActions.loadEventFailed(Observable.throw(error)));
+        return Observable.throw("error");
     }
 
    /* getAll(): Observable<IEvent[]> {

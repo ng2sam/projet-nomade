@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Action} from '@ngrx/store';
-
+import { Observable } from 'rxjs/rx';
 import { IEvent } from '../models';
 
 
@@ -10,6 +10,7 @@ export class EventActions {
 
      static LOAD_EVENTS = '[Event] Load Events';
      static LOAD_EVENTS_SUCCESS = '[Event] Load Events Success';
+     static LOAD_EVENTS_FAILED = '[Event] Load Events Failed';
      static GET_EVENT = '[Event] Get Event';
      static GET_EVENT_SUCCESS = '[Event] Get Event Success';
      static RESET_BLANK_EVENT = '[Event] Reset Blank Event';
@@ -33,6 +34,12 @@ export class EventActions {
         };
     }
 
+    loadEventFailed(error: any): Observable<Action>  {
+        return Observable.of({
+            type: EventActions.LOAD_EVENTS_FAILED,
+            payload: error
+        });
+    }
     getEvent(id): Action {
         return {
             type: EventActions.GET_EVENT,

@@ -5,8 +5,9 @@ import { AppState } from '../providers';
 import * as _ from 'lodash';
 
 const initialState: IEvent = {
-    id: 0,
+    id: null,
     name: '',
+    description:'',
     date: null,
     eventType: null, // 0 public, 1 semi-public, 2 privé
     organisatorId: null // recu id user ?

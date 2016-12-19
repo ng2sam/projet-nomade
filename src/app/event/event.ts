@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 import { Store } from '@ngrx/store';
 import { EventActions } from '../shared/actions';
 import { IEvent } from '../shared/models';
-import { AppState } from '../shared/providers';
+import { AppState, AuthService } from '../shared/providers';
 import { EventDetailPage } from './pages';
 
 @Component({
@@ -16,18 +17,23 @@ export class EventPage {
 
     events:  Observable<any>; // Observable<IEvent[]>;
     addingEvent: boolean = false;
+    logged:boolean = true;
     selectedEvent: IEvent;
-
+    storage: Storage = new Storage();
     constructor(public navCtrl: NavController,
                 private _eventActions: EventActions,
-                private store: Store<AppState>) {
+                private store: Store<AppState>,
+                public auth: AuthService) {
                   this.events = this.store.select('events');
+  
     }
 
   ionViewDidLoad() {
-    console.log('Hello EventPage Page');
     this.store.dispatch(this._eventActions.loadEvents());
-
+                 /*this.auth.authenticatedObservable()
+                  .subscribe(
+                      (data) => this.logged = data
+                  ); */   
   }
 
 

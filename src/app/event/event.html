@@ -11,11 +11,17 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-<ion-content>  
-  <page-event-list
+<ion-content >
+  {{logged}}
+  <div padding *ngIf="!logged">
+  <button ion-button block (click)="auth.login()">Login</button>
+  </div>
+    <div>
+    <page-event-list
       [events]="events | async"
       [selectedEvent]="selectedEvent"
       (onSelect)="select($event)"
   ></page-event-list>
-</ion-content>  
+</div>
+</ion-content>
+
