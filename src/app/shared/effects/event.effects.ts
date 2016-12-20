@@ -22,7 +22,7 @@ export class EventEffects {
     // tslint:disable-next-line:member-ordering
     @Effect() loadEvents$ = this.actions$
         .ofType(EventActions.LOAD_EVENTS)
-        .switchMap(() => this._eventService.getEvents())
+        .switchMap(() => {console.log("LOADEV"); return this._eventService.getEvents()})
         .map(events => this._eventActions.loadEventsSuccess(events))
         .catch(error => this._eventActions.loadEventFailed(error));
 
@@ -58,7 +58,8 @@ export class EventEffects {
            // Observable.concat({ type: 'CLEAR_TOKEN' });
             this.auth.login();
             return Observable.empty();
-        });
+        })
+        //.map(action => action.payload)
 
     @Effect()
     authenticated$ = Observable
@@ -66,12 +67,17 @@ export class EventEffects {
         .do((authResult: any) => {
             this.storage.set('id_token', authResult.idToken);
             this.storage.set('refresh_token', authResult.refreshToken);
-
+            console.log("autsuccess");
             this.auth.successLogin(authResult.idToken);
+            console.log("authResult.idToken",authResult.idToken);
             //this._eventService.getEvents();
             //return Observable.empty();
+            //this._eventActions.loadEvents();
+            //return {type: EventActions.LOAD_EVENTS}
+            //return Observable.empty();
         })
-        .map(() => this._eventActions.loadEvents())
+        .map(() => {return this._eventActions.loadEvents()/*{type: EventActions.LOAD_EVENTS}*/;})
+        //.ignoreElements();
        // .switchMap(() => this._eventService.getEvents())
        // .map(events => {console.log("event",events); return this._eventActions.loadEventsSuccess(events)})
        // .catch(error => {console.log(error); return this._eventActions.loadEventFailed(error)});

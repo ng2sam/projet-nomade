@@ -20,18 +20,24 @@ export class EventDetailPage implements OnInit, OnDestroy {
   form = new FormGroup({
     name: new FormControl(''),
     date: new FormControl(''),
-    description: new FormControl('')
+    description: new FormControl(''),
+    organisator: new FormControl(''),
+    participant: new FormControl('')
   });
+
   //@Output() close = new EventEmitter();
 
   constructor(private store: Store<AppState>,
     private _eventActions: EventActions,
-    private params: NavParams,
+    public params: NavParams,
     public nav : NavController) {
-    this.event = this.store.select('event');
+     this.event = this.store.select('event');
+     console.log("this.event", this.event);
+      console.log("this.params.get('param')",this.params);
   }
 
   ngOnInit() {
+   
     this.idEvent = Observable.of(this.params.get('param'))
       .subscribe(id => {
         if (id) {
@@ -57,10 +63,11 @@ export class EventDetailPage implements OnInit, OnDestroy {
 
   save(event) {
     console.log("fdfds",event);
-    if (event.id === 0) {
+    if (!event.id) {
       this.store.dispatch(this._eventActions.addEvent(event));
+      console.log("event updatedd");
     } else {
-      console.log("event saved");
+      console.log("event added");
       this.store.dispatch(this._eventActions.saveEvent(event));
     }
     this.goBack(event);

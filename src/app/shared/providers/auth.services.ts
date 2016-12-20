@@ -1,8 +1,11 @@
 import { Storage } from '@ionic/storage';
 import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-
+import { Store } from '@ngrx/store';
+import { EventActions } from '../actions';
+import { IEvent } from '../models';
+import { AppState } from '../providers';
 
 // Avoid name not found warnings
 declare var Auth0: any;
@@ -26,18 +29,17 @@ export class AuthService {
     storage: Storage = new Storage();
     refreshSubscription: any;
     user: Object;
-    zoneImpl: NgZone;
     idToken: string;
 
-    constructor(private authHttp: AuthHttp, zone: NgZone) {
-        this.zoneImpl = zone;
-        // Check if there is a profile saved in local storage
-        this.storage.get('profile').then(profile => {
-            this.user = JSON.parse(profile);
-            console.log("this.user",this.user)
-        }).catch(error => {
-            console.log(error);
-        });
+    constructor(private authHttp: AuthHttp,private store: Store<AppState>, private _eventActions:EventActions) {
+
+                // Check if there is a profile saved in local storage
+                this.storage.get('profile').then(profile => {
+                    this.user = JSON.parse(profile);
+                    console.log("this.user",this.user)
+                }).catch(error => {
+                    console.log(error);
+                });
 
         this.storage.get('id_token').then(token => {
             this.idToken = token;
@@ -119,19 +121,13 @@ getProfile(idToken: string): Observable<any>{
         this.lock.show();
     }
 
-    public successLogin(token:string) {
-        // Show the Auth0 Lock widget
-        this.idToken = token;
-        // this.scheduleRefresh();
-             this.lock.hide();
-    }
+
 
     public logout() {
         this.storage.remove('profile');
         this.storage.remove('id_token');
         this.idToken = null;
         this.storage.remove('refresh_token');
-        this.zoneImpl.run(() => this.user = null);
         // Unschedule the token refresh
         this.unscheduleRefresh();
     }
@@ -211,13 +207,22 @@ getProfile(idToken: string): Observable<any>{
         });
 
     }
+    public successLogin(token:string) {
 
-    getUserProfile(email: string) {
-        /*this.authHttp.get('https://ng2sam-1.eu.auth0.com/userinfo')
-            .map((res) => res.json())
-            .subscribe(
-            (data) => data
-            )*/
+     //auth0 ou google-oauth2
+        let t = this.jwtHelper.decodeToken(token);
+        this.storage.set('id_user', t.sub);
 
-            }
+        this.idToken = token;
+        this.store.dispatch(this._eventActions.loadEvents());
+        // this.scheduleRefresh();
+        this.lock.hide();
+    }
+    
+    getUserId(): any {
+        this.storage.get('id_user').then(idUser => {
+            return idUser;
+        })
+        .catch(error=>console.log("get id_user",error));
+    }
 }

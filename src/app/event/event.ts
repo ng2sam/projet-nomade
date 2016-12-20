@@ -50,10 +50,10 @@ export class EventPage {
   select($event) {
       console.log($event);
       this.selectedEvent = $event;
-      this.gotoDetail(<number>this.selectedEvent.id);
+      this.gotoDetail(this.selectedEvent._id);
   }
 
-  gotoDetail(eventId: number) {
+  gotoDetail(eventId: string) {
       this.navCtrl.push(EventDetailPage, {param: eventId});
   }
   addEvent() {

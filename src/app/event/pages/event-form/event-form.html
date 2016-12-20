@@ -10,7 +10,6 @@
 
 
     <form [formGroup]="form" (ngSubmit)="onSubmit(form)" >
-<ion-list>
 
   <ion-item class="eventName">
     <ion-label floating>Nom de l'évenement</ion-label>
@@ -26,9 +25,9 @@
     <ion-input formControlName="description" type="textarea" ></ion-input>
   </ion-item>
 
-</ion-list>
       <button type="submit">Submit</button>
       <button (click)="back.emit()">Annuler</button>
     </form>
+    <br>
     <p>Value: {{ form.value | json }}</p>
     <p>Validation status: {{ form.status }}</p>

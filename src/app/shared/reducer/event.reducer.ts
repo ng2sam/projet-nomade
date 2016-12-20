@@ -5,7 +5,7 @@ import { AppState } from '../providers';
 import * as _ from 'lodash';
 
 const initialState: IEvent = {
-    id: null,
+    _id: null,
     name: '',
     description:'',
     date: null,

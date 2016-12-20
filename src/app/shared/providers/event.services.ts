@@ -32,7 +32,7 @@ export class EventServices {
     }
 
     saveEvent(event) {
-        if (event.id === 0 || event.id === null) {
+        if (event._id === 0 || event._id === null) {
             return this._http.post(API_URL, event)
             .map(res => res.json());
         } else {

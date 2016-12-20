@@ -3,29 +3,7 @@ import { EventActions } from '../actions';
 import { IEvent } from '../models';
 import { AppState } from '../providers';
 import * as _ from 'lodash';
-// (state: IEvent[] = [], {payload, type}: Action) {  
-     /*switch (type) {
-    case EventActions.CREATE_EVENT_SUCCESS:
-      return [ ...state, payload.event ];
 
-    case EventActions.DELETE_EVENT_SUCCESS:
-      return state.filter((event: IEvent) => {
-        return event.id !== payload.event.id;
-      });
-
-    case EventActions.LOAD_EVENTS_SUCCESS:
-      return payload.events || [];
-
-    case EventActions.UPDATE_EVENT_SUCCESS:
-      return state.map((event: IEvent) => {
-        return event.id === payload.event.id ? payload.event : event;
-      });
-
-    default:
-      return state;
-    }*/
-
-// utulier app-stat
 
 
 export function EventsReducer (state: IEvent[] = [], action: Action) {
@@ -48,8 +26,8 @@ export function EventsReducer (state: IEvent[] = [], action: Action) {
             return state;
         }
         case EventActions.DELETE_EVENT_SUCCESS: {
-            return state.filter(hero => {
-                return hero.id !== action.payload.id;
+            return state.filter(event => {
+                return event._id !== action.payload.id;
             });
         }
         default: {
