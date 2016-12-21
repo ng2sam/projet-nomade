@@ -4,6 +4,7 @@ import { IEvent } from '../models';
 import { AppState } from '../providers';
 import * as _ from 'lodash';
 
+
 const initialState: IEvent = {
     _id: null,
     name: '',
@@ -14,6 +15,7 @@ const initialState: IEvent = {
 };
 
 export function EventReducer (state = initialState, action: Action) : IEvent {
+    
     switch (action.type) {
         case EventActions.RESET_BLANK_EVENT: {
             return initialState;

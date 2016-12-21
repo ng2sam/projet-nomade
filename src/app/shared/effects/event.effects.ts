@@ -16,6 +16,7 @@ export class EventEffects {
     private actions$: Actions,
     private _eventService: EventServices,
     private _eventActions: EventActions,
+    //private _errorActions: ErrorActions,
     private auth: AuthService
   ) { }
 
@@ -76,7 +77,7 @@ export class EventEffects {
             //return {type: EventActions.LOAD_EVENTS}
             //return Observable.empty();
         })
-        .map(() => {return this._eventActions.loadEvents()/*{type: EventActions.LOAD_EVENTS}*/;})
+        //.map(() => {return this._eventActions.loadEvents()/*{type: EventActions.LOAD_EVENTS}*/;})
         //.ignoreElements();
        // .switchMap(() => this._eventService.getEvents())
        // .map(events => {console.log("event",events); return this._eventActions.loadEventsSuccess(events)})

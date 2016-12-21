@@ -13,7 +13,7 @@ export class EventFormPage implements OnInit {
   _event;
   storage: Storage = new Storage();
   jwtHelper: JwtHelper = new JwtHelper();
-  userId: number;
+  userId: string;
   @Input() public form: FormGroup;
   @Input() set event(value) {
     this._event = Object.assign({}, value);
@@ -41,22 +41,22 @@ export class EventFormPage implements OnInit {
     }).catch(error => {
       console.log(error);
     });*/
-          this.storage.get('id_user').then(idUser => {
-            this.userId = idUser;
-        });
-      this.userId = this.auth.getUserId();
+      this.auth.getUserId().subscribe(
+        (data) => this.userId = data
+      )
+      
+
+  }
+
+  ngOnInit() {
       this.form = this.fb.group({
       name: ['', [Validators.minLength(3), Validators.required]],
       date: [Date()],
       description: [''],
-      organisatorId:[this.userId],
+      organisatorId:[this.userId, [Validators.minLength(3), Validators.required]],
       participant: [''],
       eventType:['']
     });
-  }
-
-  ngOnInit() {
-
 
   }
 

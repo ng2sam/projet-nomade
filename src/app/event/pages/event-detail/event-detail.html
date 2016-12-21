@@ -4,22 +4,40 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header >
+<ion-header color="primary">
 
-  <ion-navbar color="primary">
-    <ion-title >event-detail</ion-title>
+  <ion-navbar  class="title" >
+    <ion-title ><!--event-detail--></ion-title>
   </ion-navbar>
-
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="https://randomuser.me/api/portraits/men/34.jpg">
+    </ion-avatar>
+    <h2>{{ (event | async)?.organisateur }}</h2>
+  </ion-item>
 </ion-header>
 
 
 <ion-content>
-          <page-event-form
+
+    <ion-item > 
+      <ion-icon name='calendar' item-left></ion-icon>
+    <h2>Date</h2>
+    <p>{{ (event | async)?.date | date:'yMMMMd'  }}</p>
+    </ion-item>
+    <ion-item > 
+      <ion-icon name='calendar' item-left></ion-icon>
+    <h2>Date</h2>
+    <p>{{ (event | async)?.date | date:'yMMMMd'  }}</p>
+    </ion-item>
+          <!--<page-event-form
             [event]="event | async"
             [form]="form"
             (back)="goBack()"
             (save)="save($event)"
-        ></page-event-form>
+        ></page-event-form>-->
+
+      
 <!--
 <ion-list *ngIf="event">
     <ion-list-header>

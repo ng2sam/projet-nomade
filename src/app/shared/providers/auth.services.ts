@@ -219,10 +219,12 @@ getProfile(idToken: string): Observable<any>{
         this.lock.hide();
     }
     
-    getUserId(): any {
+    getUserId(): Observable <string> {
+        return Observable.fromPromise(
         this.storage.get('id_user').then(idUser => {
+            console.log("idUser",idUser);
             return idUser;
-        })
-        .catch(error=>console.log("get id_user",error));
+        })).map((idUser) => idUser)
+        //.catch(error=>console.log("get id_user",error));
     }
 }
