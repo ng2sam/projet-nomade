@@ -10,9 +10,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { EventServices, DirectoryServices, AuthService } from './providers';
-import { EventActions } from './actions';
-import { EventEffects } from './effects';
-import { EventsReducer, EventReducer } from './reducer';
+import { EventActions, ErrorActions } from './actions';
+import { EventEffects, ErrorEffects } from './effects';
+import { EventsReducer, EventReducer, ErrorReducer } from './reducer';
 
 
 
@@ -32,6 +32,7 @@ export function getAuthHttp(http) {
 const providers: Array<any> = [
   TranslateService,
   EventActions,
+  ErrorActions,
   EventServices,
   DirectoryServices,
   Storage,
@@ -50,7 +51,7 @@ const providers: Array<any> = [
       deps: [Http]
     }),
      EffectsModule.runAfterBootstrap(EventEffects),
-     StoreModule.provideStore({ events: EventsReducer, event: EventReducer }),
+     StoreModule.provideStore({ events: EventsReducer, event: EventReducer, error: ErrorReducer }),
      StoreDevtoolsModule.instrumentOnlyWithExtension(),
      ReactiveFormsModule
   ],

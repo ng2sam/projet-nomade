@@ -7,7 +7,7 @@
 <ion-header color="primary">
 
   <ion-navbar  class="title" >
-    <ion-title ><!--event-detail--></ion-title>
+    <ion-title>{{ (event | async)?.name }}</ion-title>
   </ion-navbar>
   <ion-item>
     <ion-avatar item-left>

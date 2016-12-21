@@ -2,22 +2,34 @@ page-event-detail {
     .toolbar-background { width: 0%;}
     .title{     
     height:200px;        
-    background: url('https://s-media-cache-ak0.pinimg.com/736x/71/7b/29/717b29abc74372833c3e784c55c3828a.jpg') no-repeat center fixed; 
+    background:     linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),url('https://s-media-cache-ak0.pinimg.com/736x/71/7b/29/717b29abc74372833c3e784c55c3828a.jpg') no-repeat center fixed; 
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  //  -webkit-filter: blur(10px);
+  //  -webkit-transform: translate3d(0, 0, 0);
     background-size: cover; /* version standardisée */
+  //  z-index: 1;
+
     }
     .toolbar-title-md {
-        padding: 0 12px;
-        margin-bottom: 15rem;
-        font-size: 2rem;
+   // -webkit-filter: none;
+   // -webkit-transform: none;
+       // padding: 0 12px;
+        //margin-top: 50%;
+        font-size: 4rem;
         font-weight: 500;
         color: white;
     }
 .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+   //  z-index: 2000000;
     color: white;
-    margin-bottom: 15rem;
+    margin-bottom: 35%;
     font-size: 2rem;
     font-weight: 500;
     background-color: transparent;
 }
+
+
 }

@@ -16,6 +16,7 @@ import { EventDetailPage } from './pages';
 export class EventPage {
 
     events:  Observable<any>; // Observable<IEvent[]>;
+    error: Observable<any>;
     addingEvent: boolean = false;
     logged:boolean = true;
     selectedEvent: IEvent;
@@ -25,6 +26,7 @@ export class EventPage {
                 private store: Store<AppState>,
                 public auth: AuthService) {
                   this.events = this.store.select('events');
+                  this.error = this.store.select('error');
   
     }
 

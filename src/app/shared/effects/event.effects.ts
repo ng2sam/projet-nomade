@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { EventServices, AuthService } from '../providers';
-import { EventActions } from '../actions';
+import { EventActions, ErrorActions } from '../actions';
 import { Observable } from 'rxjs/rx';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/observable/of';
@@ -16,16 +16,17 @@ export class EventEffects {
     private actions$: Actions,
     private _eventService: EventServices,
     private _eventActions: EventActions,
-    //private _errorActions: ErrorActions,
+    private _errorActions: ErrorActions,
     private auth: AuthService
   ) { }
 
     // tslint:disable-next-line:member-ordering
     @Effect() loadEvents$ = this.actions$
         .ofType(EventActions.LOAD_EVENTS)
-        .switchMap(() => {console.log("LOADEV"); return this._eventService.getEvents()})
+        .switchMap(() => this._eventService.getEvents())
         .map(events => this._eventActions.loadEventsSuccess(events))
         .catch(error => this._eventActions.loadEventFailed(error));
+       //.catch(error => this._errorActions.getError(error))
 
     @Effect() getEvent$ = this.actions$
         .ofType(EventActions.GET_EVENT)
@@ -56,8 +57,9 @@ export class EventEffects {
         .map(action => action.payload)
         .filter(payload => payload && payload ==="error")
         .switchMap(payload => {
-           // Observable.concat({ type: 'CLEAR_TOKEN' });
+             //this._errorActions.getError(payload);
             this.auth.login();
+           
             return Observable.empty();
         })
         //.map(action => action.payload)
