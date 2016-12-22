@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { NavParams, NavController } from 'ionic-angular';
+import { NavParams, NavController, FabContainer } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
@@ -39,16 +39,18 @@ export class EventDetailPage implements OnInit, OnDestroy {
   ngOnInit() {
    
     this.idEvent = Observable.of(this.params.get('param'))
-      .subscribe(id => {
+      .subscribe(
+        (id) => {
         if (id) {
           console.log("id", id);
           this.store.dispatch(this._eventActions.getEvent(id));
-          this.editMode = true;
+          // this.editMode = true;
         } else {
           this.store.dispatch(this._eventActions.resetBlankEvent());
-          this.editMode = false;
+          // this.editMode = false;
         }
-      });
+      }
+      ,(err) => console.log(err));
   }
 
   ngOnDestroy() {
@@ -59,6 +61,12 @@ export class EventDetailPage implements OnInit, OnDestroy {
    // this.close.emit(savedEvent);
    this.nav.pop();
    // if (this.editMode) {  }
+  }
+
+  goEdit(fab: FabContainer) {
+    this.editMode = this.editMode?this.editMode=false:this.editMode=true;
+    fab.close();
+
   }
 
   save(event) {
