@@ -33,17 +33,51 @@
     </ion-fab-list>
   </ion-fab>
   <div id="detailView" [hidden]="editMode">
-    <ion-list scroll="false">
-      <ion-item>
-        <h2>Date</h2>
-        <p>{{ (event | async)?.date | date:'yMMMMd' }}</p>
-      </ion-item>
-      <ion-item>
-        <h2>description</h2>
-        <p>{{ (event | async)?.description }}</p>
-      </ion-item>
-    </ion-list>
+    <div padding>
+      <ion-segment [(ngModel)]="segmentEvent">
+        <ion-segment-button value="segmentDetail">
+          <i class="mdi mdi-information-outline mdi-24px"></i>
+        </ion-segment-button>
+        <ion-segment-button value="segmentParticipant">
+           <i class="mdi mdi-account-check mdi-24px"></i>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="segmentEvent">
+      <ion-list *ngSwitchCase="'segmentDetail'">
+        <ion-item>
+          <h2>Date</h2>
+          <p>{{ (event | async)?.date | date:'yMMMMd' }}</p>
+        </ion-item>
+        <ion-item>
+          <h2>description</h2>
+          <p>{{ (event | async)?.description }}</p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'segmentParticipant'">
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+       <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+         <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
+
   <div id="formView" [hidden]="!editMode">
     <page-event-form [event]="event | async" [form]="form" (back)="goBack()" (save)="save($event)"></page-event-form>
     <button (click)="goEdit(fabContainer)">close edit</button>

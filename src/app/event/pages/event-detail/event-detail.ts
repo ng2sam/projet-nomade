@@ -17,6 +17,7 @@ export class EventDetailPage implements OnInit, OnDestroy {
   idEvent: Subscription;
   event: Observable<any>;
   editMode = false;
+  segmentEvent: string = "segmentDetail";
   form = new FormGroup({
     name: new FormControl(''),
     date: new FormControl(''),

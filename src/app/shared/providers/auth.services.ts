@@ -224,7 +224,7 @@ getProfile(idToken: string): Observable<any>{
         this.storage.get('id_user').then(idUser => {
             console.log("idUser",idUser);
             return idUser;
-        })).map((idUser) => idUser)
+        }).catch(error=>console.log("get id_user",error))).map((idUser) => idUser)
         //.catch(error=>console.log("get id_user",error));
     }
 }

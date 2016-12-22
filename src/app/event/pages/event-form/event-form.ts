@@ -43,7 +43,7 @@ export class EventFormPage implements OnInit {
     });*/
       this.auth.getUserId().subscribe(
         (data) => this.userId = data
-      )
+      ).unsubscribe();
       
 
   }
