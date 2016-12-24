@@ -22,7 +22,8 @@ export class ErrorEffects {
 
     @Effect() getError$ = this.actions$
         .ofType(ErrorActions.GET_ERROR)
-        .map<string>(action => action.payload)
-        .do((payload)=>console.log(payload));
+        .map(action => action.payload)
+        .do((payload)=>console.log(payload))
+        .filter(()=>false);
 
 }

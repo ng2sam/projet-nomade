@@ -38,7 +38,11 @@ export class EventEffects {
         .ofType(EventActions.SAVE_EVENT)
         .map(action => action.payload)
         .switchMap(event => this._eventService.saveEvent(event))
-        .map(event => this._eventActions.saveEventSuccess(event));
+        //.map(event => this._eventActions.saveEventSuccess(event))
+        .mergeMap(
+            (event) => {
+            return Observable.from([this._eventActions.saveEventSuccess(event), this._eventActions.loadEvents() ]);
+            })
 
     @Effect() addEvent$ = this.actions$
         .ofType(EventActions.ADD_EVENT)
@@ -54,12 +58,14 @@ export class EventEffects {
 
     @Effect() errorStatus401$ = this.actions$
         .ofType(EventActions.LOAD_EVENTS_FAILED)
-        .map(action => action.payload)
+        .map(action => {
+          this._errorActions.getError(action.payload);
+          return action.payload
+        })
         .filter(payload => payload && payload ==="error")
         .switchMap(payload => {
-             //this._errorActions.getError(payload);
+            this._errorActions.getError(payload);
             this.auth.login();
-           
             return Observable.empty();
         })
         //.map(action => action.payload)
@@ -79,6 +85,7 @@ export class EventEffects {
             //return {type: EventActions.LOAD_EVENTS}
             //return Observable.empty();
         })
+        .filter(() => false);
         //.map(() => {return this._eventActions.loadEvents()/*{type: EventActions.LOAD_EVENTS}*/;})
         //.ignoreElements();
        // .switchMap(() => this._eventService.getEvents())

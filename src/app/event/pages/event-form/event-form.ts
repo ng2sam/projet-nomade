@@ -1,7 +1,10 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Store } from '@ngrx/store';
 import { NavController } from 'ionic-angular';
 import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
+import { Observable } from 'rxjs/rx';
+import { AppState } from '../../../shared/providers';
 import { IEvent } from '../../../shared/models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../shared/providers';
@@ -11,14 +14,19 @@ import { AuthService } from '../../../shared/providers';
 })
 export class EventFormPage implements OnInit {
   _event;
-  storage: Storage = new Storage();
+  //event:Observable<any>;
+  storEvent;
+  //storage: Storage = new Storage();
   jwtHelper: JwtHelper = new JwtHelper();
   userId: string;
   @Input() public form: FormGroup;
   @Input() set event(value) {
+    console.log("input",value);
+   // this.event = this.store.select('event');
+   // this.form.patchValue(this.value);
     this._event = Object.assign({}, value);
     if (value) {
-      console.log("valu a patch",value);
+      console.log("valu a patch", this._event);
       this.form.patchValue(this._event);
     }
 
@@ -33,7 +41,9 @@ export class EventFormPage implements OnInit {
   @Output() back = new EventEmitter();
   @Output() save = new EventEmitter();
 
-  constructor(public navCtrl: NavController, private fb: FormBuilder, private auth: AuthService) {
+  constructor(public navCtrl: NavController,private store: Store<AppState>,
+     private auth: AuthService) {
+    // this.event = this.store.select('event');
     /*this.storage.get('profile').then(profile => {
       let user = JSON.parse(profile);
       console.log(user);
@@ -43,20 +53,13 @@ export class EventFormPage implements OnInit {
     });*/
       this.auth.getUserId().subscribe(
         (data) => this.userId = data
-      ).unsubscribe();
+      )/*.unsubscribe();*/
       
 
   }
 
   ngOnInit() {
-      this.form = this.fb.group({
-      name: ['', [Validators.minLength(3), Validators.required]],
-      date: [Date()],
-      description: [''],
-      organisatorId:[this.userId, [Validators.minLength(3), Validators.required]],
-      participant: [''],
-      eventType:['']
-    });
+
 
   }
 

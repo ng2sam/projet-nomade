@@ -20,13 +20,14 @@ export class EventDetailPage implements OnInit, OnDestroy {
   segmentEvent: string = "segmentDetail";
   form = new FormGroup({
     name: new FormControl(''),
-    date: new FormControl(''),
+    date: new FormControl(Date()),
     description: new FormControl(''),
     organisator: new FormControl(''),
     participant: new FormControl('')
   });
 
-  //@Output() close = new EventEmitter();
+
+  @Output() close = new EventEmitter();
 
   constructor(private store: Store<AppState>,
     private _eventActions: EventActions,
@@ -36,9 +37,10 @@ export class EventDetailPage implements OnInit, OnDestroy {
      console.log("this.event", this.event);
       console.log("this.params.get('param')",this.params);
   }
-
+   ionViewWillLeave() {
+    this.close.emit(null);
+    }
   ngOnInit() {
-   
     this.idEvent = Observable.of(this.params.get('param'))
       .subscribe(
         (id) => {
@@ -60,6 +62,7 @@ export class EventDetailPage implements OnInit, OnDestroy {
 
   goBack(savedEvent: IEvent = null) {
    // this.close.emit(savedEvent);
+ 
    this.nav.pop();
    // if (this.editMode) {  }
   }
@@ -72,11 +75,11 @@ export class EventDetailPage implements OnInit, OnDestroy {
 
   save(event) {
     console.log("fdfds",event);
-    if (!event.id) {
+    if (!event._id) {
       this.store.dispatch(this._eventActions.addEvent(event));
-      console.log("event updatedd");
-    } else {
       console.log("event added");
+    } else {
+      console.log("event updatedd");
       this.store.dispatch(this._eventActions.saveEvent(event));
     }
     this.goBack(event);
