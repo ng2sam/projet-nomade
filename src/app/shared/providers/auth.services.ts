@@ -3,7 +3,7 @@ import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
-import { EventActions } from '../actions';
+import { EventActions, ErrorActions } from '../actions';
 import { IEvent } from '../models';
 import { AppState } from '../providers';
 
@@ -15,9 +15,11 @@ declare var Auth0Lock: any;
 export class AuthService {
 
     jwtHelper: JwtHelper = new JwtHelper();
-    auth0 = new Auth0({ clientID: 'Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', domain: 'ng2sam-1.eu.auth0.com', 
-    responseType: 'token',
-    callbackURL:  'https://ng2sam-1.eu.auth0.com/mobile' });
+    auth0 = new Auth0({
+        clientID: 'Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', domain: 'ng2sam-1.eu.auth0.com',
+        responseType: 'token',
+        callbackURL: 'https://ng2sam-1.eu.auth0.com/mobile'
+    });
     lock = new Auth0Lock('Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', 'ng2sam-1.eu.auth0.com', {
         auth: {
             redirect: false,
@@ -26,82 +28,51 @@ export class AuthService {
             }
         }
     });
-    storage: Storage = new Storage();
+    private storage: Storage = new Storage();
     refreshSubscription: any;
-    user: Object;
-    idToken: string;
+    public user: any;
+    public idToken: string;
+    public userId: string;
 
-    constructor(private authHttp: AuthHttp,private store: Store<AppState>, private _eventActions:EventActions) {
+    constructor(private authHttp: AuthHttp,
+        private store: Store<AppState>,
+        private _eventActions: EventActions,
+        private _errActions: ErrorActions) {
 
-                // Check if there is a profile saved in local storage
-                this.storage.get('profile').then(profile => {
-                    this.user = JSON.parse(profile);
-                    console.log("this.user",this.user)
-                }).catch(error => {
-                    console.log(error);
-                });
+        // Check if there is a profile saved in local storage
+        this.storage.get('profile').then(profile => {
+            this.user = profile;
+        }).catch(error => {
+            console.log(error);
+        });
 
         this.storage.get('id_token').then(token => {
             this.idToken = token;
         });
 
-        /*this.lock.on('authenticated', authResult => {
-            this.storage.set('id_token', authResult.idToken);
-            this.idToken = authResult.idToken;
-
-            // Fetch profile information
-            this.lock.getProfile(authResult.idToken, (error, profile) => {
-                if (error) {
-                    // Handle error
-                    alert(error);
-                    return;
-                }
-                console.log("profile",profile);
-                profile.user_metadata = profile.user_metadata || {};
-                this.storage.set('profile', JSON.stringify(profile));
-                this.user = profile;
-            });
-
-            this.lock.hide();
-
-            this.storage.set('refresh_token', authResult.refreshToken);
-            this.zoneImpl.run(() => this.user = authResult.profile);
-            // Schedule a token refresh
-            this.scheduleRefresh();
-
-        });*/
 
     }
-getProfile(idToken: string): Observable<any>{
+    setToStorage(authResult: any)/*: Observable<any>*/ {
+
+        this.storage.set('id_token', authResult.idToken);
+        this.storage.set('refresh_token', authResult.refreshToken);
+        this.getProfile(authResult.idToken);
+    }
+    getProfile(idToken: string): Observable<any> {
         return new Observable(observer => {
             this.lock.getProfile(idToken, (err, profile) => {
-            if (err) {
-                observer.error(err);
-            }
-            else {
-                console.log(profile);
-                observer.next(profile);
-                observer.complete();
-            }
+                if (err) {
+                    observer.error(err);
+                }
+                else {
+                    observer.next(profile);
+                    observer.complete();
+                }
             });
         });
     }
     public authenticated() {
-         /*this.storage.get('id_token').then(token => {
-            console.log("tt",token);
-            console.log("tt",tokenNotExpired(null, token));
-            return tokenNotExpired(null, token); // Returns true/false
-        });*/
-       /* return Observable.fromPromise(
-            this.storage.get('id_token').then(token => token)
-        ).subscribe(
-            (token) =>  <boolean>tokenNotExpired(null, token)
-        )*/
-       /* return this.storage.get('id_token').then(token => 
-            this.isAuthenticated(tokenNotExpired(null, token)) // Returns true/false
-        );*/
-        return this.authenticatedObservable().subscribe(data=><boolean>data);
-        //return tokenNotExpired('id_token', this.idToken);
+        return this.authenticatedObservable().subscribe(data => <boolean>data);
     }
 
     public isAuthenticated(value: boolean) {
@@ -112,12 +83,11 @@ getProfile(idToken: string): Observable<any>{
         return Observable.fromPromise(
             this.storage.get('id_token').then(token => token)
         ).map(
-            (token) =>  tokenNotExpired(null, token)
-        )
+            (token) => tokenNotExpired(null, token)
+            )
     }
 
     public login() {
-        // Show the Auth0 Lock widget
         this.lock.show();
     }
 
@@ -207,24 +177,28 @@ getProfile(idToken: string): Observable<any>{
         });
 
     }
-    public successLogin(token:string) {
-
-     //auth0 ou google-oauth2
+    public successLogin(profile: any) {
+        let token: string = profile.idToken;
+        //auth0 ou google-oauth2
+        this.storage.set('profile', profile);
         let t = this.jwtHelper.decodeToken(token);
         this.storage.set('id_user', t.sub);
+        this.userId = t.sub;
 
         this.idToken = token;
-        this.store.dispatch(this._eventActions.loadEvents());
+        //this.store.dispatch(this._eventActions.loadEvents());
+        //this.store.dispatch(this._errActions.loadError());
         // this.scheduleRefresh();
         this.lock.hide();
     }
-    
-    getUserId(): Observable <string> {
-        return Observable.fromPromise(
-        this.storage.get('id_user').then(idUser => {
-            console.log("idUser",idUser);
-            return idUser;
-        }).catch(error=>console.log("get id_user",error))).map((idUser) => idUser)
-        //.catch(error=>console.log("get id_user",error));
+
+    getUserId(): string {
+        /*return Observable.fromPromise(
+             this.storage.get('id_user').then(idUser => {
+                 console.log("idUser", idUser);
+                 return idUser;
+             }).catch(error => console.log("get id_user", error))).map((idUser) => idUser)
+         //.catch(error=>console.log("get id_user",error));*/
+        return <string>this.user.idTokenPayload.sub;
     }
 }

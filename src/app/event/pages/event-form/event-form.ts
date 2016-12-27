@@ -13,20 +13,12 @@ import { AuthService } from '../../../shared/providers';
   templateUrl: 'event-form.html'
 })
 export class EventFormPage implements OnInit {
-  _event;
-  //event:Observable<any>;
-  storEvent;
-  //storage: Storage = new Storage();
-  jwtHelper: JwtHelper = new JwtHelper();
-  userId: string;
+  private _event;
+  private userId: string;
   @Input() public form: FormGroup;
   @Input() set event(value) {
-    console.log("input",value);
-   // this.event = this.store.select('event');
-   // this.form.patchValue(this.value);
     this._event = Object.assign({}, value);
     if (value) {
-      console.log("valu a patch", this._event);
       this.form.patchValue(this._event);
     }
 
@@ -41,26 +33,17 @@ export class EventFormPage implements OnInit {
   @Output() back = new EventEmitter();
   @Output() save = new EventEmitter();
 
-  constructor(public navCtrl: NavController,private store: Store<AppState>,
+  constructor(public navCtrl: NavController, private store: Store<AppState>,
      private auth: AuthService) {
-    // this.event = this.store.select('event');
-    /*this.storage.get('profile').then(profile => {
-      let user = JSON.parse(profile);
-      console.log(user);
-       // this.auth.getUserProfile(user);
-    }).catch(error => {
-      console.log(error);
-    });*/
-      this.auth.getUserId().subscribe(
-        (data) => this.userId = data
-      )/*.unsubscribe();*/
-      
 
+       this.userId = this.auth.getUserId()
   }
 
   ngOnInit() {
+  }
 
-
+  close(){
+    this.navCtrl.pop();
   }
 
   onSubmit({ value, valid }: { value: IEvent, valid: boolean }) {

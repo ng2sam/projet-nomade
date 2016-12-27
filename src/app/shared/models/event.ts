@@ -4,5 +4,5 @@ export interface IEvent {
     date: Date;
     description: string;
     eventType: number; // 0 public, 1 semi-public, 2 privé
-    organisatorId: number;
+    organisateur: number;
 }

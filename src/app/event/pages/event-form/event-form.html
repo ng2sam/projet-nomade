@@ -1,13 +1,3 @@
-<!--<div *ngFor="let e of event ">
-{{e.name}}     
- <label>name: </label>
-<input [(ngModel)]="e.name" placeholder="name" />
-    <button (click)="back.emit()">Back</button>
-<button (click)="save.emit(event)">Save</button>
-</div>-->
-
-
-
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
   <ion-item class="eventName">
@@ -24,9 +14,9 @@
     <ion-input formControlName="description" type="textarea"></ion-input>
   </ion-item>
 
-  <button type="submit">Submit</button>
-  <button (click)="back.emit()">Annuler</button>
+  <button ion-button block type="submit" [disabled]="!form.valid">Submit</button>
 </form>
+<button ion-button block (click)="close()">Annuler</button>
 <br>
 <p>Value: {{ form.value | json }}</p>
 <p>Validation status: {{ form.status }}</p>

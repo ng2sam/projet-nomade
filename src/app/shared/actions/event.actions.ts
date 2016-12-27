@@ -10,10 +10,11 @@ export class EventActions {
 
      static LOAD_EVENTS = '[Event] Load Events';
      static LOAD_EVENTS_SUCCESS = '[Event] Load Events Success';
-     static LOAD_EVENTS_FAILED = '[Event] Load Events Failed';
+     static API_EVENT_FAILED = '[Event Error] Error on Event';
      static GET_EVENT = '[Event] Get Event';
      static GET_EVENT_SUCCESS = '[Event] Get Event Success';
      static RESET_BLANK_EVENT = '[Event] Reset Blank Event';
+      static RESET_BLANK_ERROR = '[Event Error] Reset Blank ERROR';
      static SAVE_EVENT = '[Event] Save Event';
      static SAVE_EVENT_SUCCESS = '[Event] Save Event Success';
     static ADD_EVENT = '[Event] Add Event';
@@ -34,11 +35,11 @@ export class EventActions {
         };
     }
 
-    loadEventFailed(error: any): Observable<Action>  {
-        return Observable.of({
-            type: EventActions.LOAD_EVENTS_FAILED,
+    getEventError(error: any): Action {
+        return {
+            type: EventActions.API_EVENT_FAILED,
             payload: error
-        });
+        };
     }
     getEvent(id): Action {
         return {
@@ -54,12 +55,18 @@ export class EventActions {
         };
     }
 
-    resetBlankEvent(): Action {
+
+    resetBlankEvent(idUser:string): Action {
         return {
-            type: EventActions.RESET_BLANK_EVENT
+            type: EventActions.RESET_BLANK_EVENT,
+            payload : idUser
         };
     }
-
+    resetBlankError(): Action {
+        return {
+            type: EventActions.RESET_BLANK_ERROR
+        };
+    }
     saveEvent(event): Action {
         return {
             type: EventActions.SAVE_EVENT,
@@ -73,6 +80,7 @@ export class EventActions {
             payload: event
         };
     }
+
 
     addEvent(event): Action {
         return {
@@ -88,6 +96,7 @@ export class EventActions {
         };
     }
 
+
     deleteEvent(event): Action {
         return {
             type: EventActions.DELETE_EVENT,
@@ -101,131 +110,6 @@ export class EventActions {
             payload: event
         };
     }
-/*
-// CREATE
-    static CREATE_EVENT = 'CREATE_EVENT';
-    addEvent(event: IEvent): Action {
-        return {
-            type: EventActions.CREATE_EVENT,
-            payload: event
-        }
-    }
 
-    static CREATE_EVENT_SUCCESS = 'CREATE_EVENT_SUCCESS';
-    addEventSuccess(event: IEvent): Action {
-        return {
-            type: EventActions.CREATE_EVENT_SUCCESS,
-            payload: event
-        }
-    }
-
-    static CREATE_EVENT_FAILED = 'CREATE_EVENT_FAILED';
-    addEventFailed(error: any): Action {
-        return {
-            type: EventActions.CREATE_EVENT_FAILED,
-            payload: error
-        }
-    }
-
-// LOAD EVENTS !! A REGARDER PAYLOAD LOAD_EVENTS
-
-    static LOAD_EVENTS = 'LOAD_EVENTS';
-    loadEvent(): Action {
-        return {
-            type: EventActions.LOAD_EVENTS
-        }
-    }
-
-    static LOAD_EVENTS_SUCCESS = 'LOAD_EVENTS_SUCCESS';
-    loadEventSuccess(events: IEvent[]): Action {
-        return {
-            type: EventActions.LOAD_EVENTS_SUCCESS,
-            payload: events
-        }
-    }
-
-    static LOAD_EVENTS_FAILED = 'LOAD_EVENTS_FAILED';
-    loadEventFailed(error: any): Action {
-        return {
-            type: EventActions.LOAD_EVENTS_FAILED,
-            payload: error
-        }
-    }
-
-// UPDATE
-
-    static UPDATE_EVENT = 'UPDATE_EVENT';
-    updateEvent(eventId: number, changes: any): Action {
-        return {
-            type: EventActions.UPDATE_EVENT,
-            payload: { changes, eventId }
-        }
-    }
-
-    static UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
-    updateEventSuccess(event: IEvent): Action {
-        return {
-            type: EventActions.UPDATE_EVENT_SUCCESS,
-            payload: event
-        }
-    }
-
-    static UPDATE_EVENT_FAILED = 'UPDATE_EVENT_FAILED';
-    updateEventFailed(error: any): Action {
-        return {
-            type: EventActions.UPDATE_EVENT_FAILED,
-            payload: error
-        }
-    }
-
-// DELETE 
-
-    static DELETE_EVENT = 'DELETE_EVENT';
-    deleteEvent(taskId: number): Action {
-        return {
-            type: EventActions.DELETE_EVENT,
-            payload: taskId
-        }
-    }
-
-    static DELETE_EVENT_SUCCESS = 'DELETE_EVENT_SUCCESS';
-    deleteEventSuccess(event: IEvent): Action {
-        return {
-            type: EventActions.DELETE_EVENT_SUCCESS,
-            payload: event
-        }
-    }
-
-    static DELETE_EVENT_FAILED = 'DELETE_EVENT_FAILED';
-    deleteEventFailed(error: any): Action {
-        return {
-            type: EventActions.DELETE_EVENT_FAILED,
-            payload: error
-        }
-    }/*
-
-/*    static LOAD_EVENTS_SUCCESS = 'LOAD_EVENTS_SUCCESS';  
-    loadEventsSuccess(events: IEvent[]): Action {  
-        return {
-            type: EventActions.LOAD_EVENTS_SUCCESS,
-            payload: events
-        }
-    }
-
-    static ADD_UPDATE_EVENT_SUCCESS = 'ADD_UPDATE_EVENT_SUCCESS';  
-    addUpdateEventSuccess(event: IEvent): Action {  
-        return {
-            type: EventActions.ADD_UPDATE_EVENT_SUCCESS,
-            payload: event
-        }
-    }
-
-    static DELETE_EVENT_SUCCESS = 'DELETE_EVENT_SUCCESS';  
-    deleteEventSuccess(id: string): Action {  
-        return {
-            type: EventActions.DELETE_EVENT_SUCCESS,
-            payload: id
-        }
-    }*/
 
 }

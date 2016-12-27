@@ -11,14 +11,16 @@ const initialState: IEvent = {
     description:'',
     date: null,
     eventType: null, // 0 public, 1 semi-public, 2 privé
-    organisatorId: null // recu id user ?
+    organisateur: null // recu id user ?
 };
 
 export function EventReducer (state = initialState, action: Action) : IEvent {
     
     switch (action.type) {
         case EventActions.RESET_BLANK_EVENT: {
-            return initialState;
+            let i = initialState;
+            i.organisateur = action.payload;
+            return i;
         }
         case EventActions.GET_EVENT_SUCCESS: {
             return action.payload;

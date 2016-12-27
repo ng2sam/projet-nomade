@@ -1,10 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar color="primary">
     <ion-title>{{ "title" | translate }}</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+
+<ion-content style="background-color:#FFFFFF">
+  <ion-fab right top >
+    <button ion-fab color="danger"><ion-icon name="md-help"></ion-icon></button>
+  </ion-fab>
   <page-menu></page-menu>
 </ion-content>
 

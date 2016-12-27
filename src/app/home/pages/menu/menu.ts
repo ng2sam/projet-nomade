@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { EnvironnementPage } from '../environnement/environnement'
 
 @Component({
   selector: 'page-menu',
@@ -11,6 +12,10 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('Hello MenuPage Page');
+  }
+
+  goEnv() {
+    this.navCtrl.push(EnvironnementPage);
   }
 
 }

@@ -4,7 +4,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { AuthService } from './shared/providers';
-import { HomePage } from './home';
+import { HomePage, EnvironnementPage } from './home';
 import { DirectoryPage } from './directory';
 import { EventPage } from './event';
 import { MapPage } from './directory/pages'; 
@@ -13,7 +13,7 @@ import { MapPage } from './directory/pages';
   templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage = EventPage;
+  rootPage = HomePage;
   @ViewChild('appNav') nav: NavController
 
   constructor(platform: Platform, public translate: TranslateService, private auth: AuthService) {

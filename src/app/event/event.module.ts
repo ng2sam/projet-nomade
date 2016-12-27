@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { EventPage } from './event';
 import { EventDetailPage, EventFormPage, EventListPage } from './pages';
-
+import { TextAvatar } from '../../components/text-avatar/text-avatar';
 const pages: Array<any> = [
   EventPage,
   EventListPage,
@@ -20,7 +20,7 @@ const pages: Array<any> = [
     /*EffectsModule.runAfterBootstrap(EventEffects),
     StoreModule.provideStore({ events: EventsReducer })*/
   ],
-  declarations: [...pages],
+  declarations: [...pages, TextAvatar],
   providers: [],
   entryComponents: [...pages],
   exports: [

@@ -11,12 +11,32 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content >
-  {{error | async  | json}}
-  <div padding *ngIf="!logged">
-  <button ion-button block (click)="auth.login()">Login</button>
+<ion-content style="background-color:rgba(128, 128, 128, 0.32);">
+  <div [hidden]="(error | async)?.name  || (events | async)?.length !== 0"
+      style=" margin: auto;padding-top:50%">
+     <div padding style="text-align:center">
+       Une erreur c'est produite, veuillez verifié votre connexion internet et reéessayé.
+       si l'erreur persiste, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:seyoum.samuel@gmail.com">seyoum.samuel@gmail.com</a>
+     </div>
+     <div padding>
+     <button ion-button block (click)="refresh()">refresh</button>
+     </div>
+    
   </div>
-    <div>
+
+   
+      <!-- {{(events | async | json )}}
+      {{(events | async)?.length}}
+      
+      <hr>
+             {{(error | async | json )}}
+      {{(error | async)?.length}} --> 
+    
+<!-- <div padding [hidden]="(events | async)?.length > 0" style="background-color:rgba(128, 128, 128, 0.32);height:100%">
+  <span style="font-size:40px;width:100%;text-align:center">:/</span>
+  <button ion-button block (click)="refresh()">refresh</button>
+  </div>-->
+    <div [hidden]="(error | async)?.name || (events | async)?.length === 0">
     <page-event-list
       [events]="events | async"
       [selectedEvent]="selectedEvent"

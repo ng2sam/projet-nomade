@@ -10,7 +10,7 @@ import { IEvent } from '../models';
 import { ErrorActions } from '../actions';
 import { AppState } from '../providers';
 
-const API_URL = 'http://localhost:3000/events/';
+const API_URL = 'https://migrant-app.herokuapp.com/events/';
 
 
 @Injectable()
@@ -52,10 +52,10 @@ export class EventServices {
     }
 
     private handleError(error: Response) {
-        console.error(error);
+        console.log(error);
        // this.store.dispatch(this._errAction.getError(error));
         //this.store.dispatch(this._eventActions.loadEventFailed(Observable.throw(error)));
-        return Observable.throw("error");
+        return Observable.throw(error.toString());
     }
 
    /* getAll(): Observable<IEvent[]> {

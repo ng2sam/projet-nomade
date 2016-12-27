@@ -18,12 +18,13 @@ export class ErrorEffects {
     // tslint:disable-next-line:member-ordering
     @Effect() loadError$ = this.actions$
         .ofType(ErrorActions.LOAD_ERROR)
-        .do(() => console.log("error store loaded"));
+       // .map(() => this._errorActions.loadError())
+        .filter(()=>false);
 
     @Effect() getError$ = this.actions$
         .ofType(ErrorActions.GET_ERROR)
-        .map(action => action.payload)
-        .do((payload)=>console.log(payload))
+       // .map(action => action.payload)
+       // .map((payload)=>this._errorActions.getError(payload))
         .filter(()=>false);
 
 }
