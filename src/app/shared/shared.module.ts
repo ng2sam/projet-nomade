@@ -5,14 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
-
+import { TextAvatar } from '../../components/text-avatar/text-avatar';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { EventServices, DirectoryServices, AuthService } from './providers';
-import { EventActions, ErrorActions } from './actions';
-import { EventEffects, ErrorEffects } from './effects';
-import { EventsReducer, EventReducer, ErrorReducer } from './reducer';
+import { EventServices, DirectoryServices, AuthService, AssociationServices } from './providers';
+import { EventActions, AssociationActions } from './actions';
+import { EventEffects, AssociationEffects } from './effects';
+import { EventsReducer, EventReducer, AssociationReducer, AssociationsReducer  } from './reducer';
 
 
 
@@ -32,8 +32,9 @@ export function getAuthHttp(http) {
 const providers: Array<any> = [
   TranslateService,
   EventActions,
-  ErrorActions,
+  AssociationActions,
   EventServices,
+  AssociationServices,
   DirectoryServices,
   Storage,
   AuthService,
@@ -50,14 +51,17 @@ const providers: Array<any> = [
       useFactory: (createTranslateLoader),
       deps: [Http]
     }),
-     EffectsModule.runAfterBootstrap(EventEffects),
-     StoreModule.provideStore({ events: EventsReducer, event: EventReducer, error: ErrorReducer }),
+     EffectsModule.run(EventEffects),
+     EffectsModule.run(AssociationEffects),
+     StoreModule.provideStore({ 
+       events: EventsReducer, event: EventReducer, 
+       association: AssociationReducer, associations : AssociationsReducer }),
      StoreDevtoolsModule.instrumentOnlyWithExtension(),
      ReactiveFormsModule
   ],
-  declarations: [],
+  declarations: [TextAvatar],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, ...providers],
-  exports: [TranslateModule, EffectsModule, StoreModule, StoreDevtoolsModule]
+  exports: [TranslateModule, EffectsModule, StoreModule, StoreDevtoolsModule, TextAvatar]
 })
 export class SharedModule {
 }

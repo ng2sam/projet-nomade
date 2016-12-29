@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import { IonicModule } from 'ionic-angular';
+import { SharedModule} from '../shared/shared.module';
 import { EventPage } from './event';
 import { EventDetailPage, EventFormPage, EventListPage } from './pages';
 import { TextAvatar } from '../../components/text-avatar/text-avatar';
@@ -12,7 +13,7 @@ const pages: Array<any> = [
 
 @NgModule({
   imports: [
-    /*SharedModule,*/
+    SharedModule,
         IonicModule.forRoot(EventPage),
         /*IonicModule.forRoot(EventListPage),
         IonicModule.forRoot(EventDetailPage),
@@ -20,7 +21,7 @@ const pages: Array<any> = [
     /*EffectsModule.runAfterBootstrap(EventEffects),
     StoreModule.provideStore({ events: EventsReducer })*/
   ],
-  declarations: [...pages, TextAvatar],
+  declarations: [...pages],
   providers: [],
   entryComponents: [...pages],
   exports: [

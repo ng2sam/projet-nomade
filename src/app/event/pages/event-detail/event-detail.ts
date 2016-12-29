@@ -53,7 +53,7 @@ export class EventDetailPage implements OnInit, OnDestroy {
           // this.editMode = true;
         } else {
            console.log("NON ID");
-          this.store.dispatch(this._eventActions.resetBlankEvent(this.auth.getUserId()));
+          this.store.dispatch(this._eventActions.resetBlankEvent(this.auth.getUser()._id));
           this.editMode = true;
           // this.editMode = false;
         }

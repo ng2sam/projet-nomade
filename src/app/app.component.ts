@@ -4,10 +4,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { AuthService } from './shared/providers';
-import { HomePage, EnvironnementPage } from './home';
+import { HomePage } from './home';
 import { DirectoryPage } from './directory';
 import { EventPage } from './event';
 import { MapPage } from './directory/pages'; 
+import { AssociationPage } from './association'; 
 
 @Component({
   templateUrl: 'app.html',

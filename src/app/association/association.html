@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Associations
+    </ion-title>
+    <ion-buttons end color="primary">
+      <!-- <button>
+          <ion-icon name="add" ></ion-icon>
+      </button>-->
+      <ion-item class="item-avatar-profile" no-lines> 
+        <ion-avatar item-right style="position: relative;" *ngIf="user?.name">
+          <div *ngIf="!user.picture">
+          <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="user.name"></span>
+          <img id="myImage" text-avatar [srcColor]="user.name" style="position: relative; z-index: 1;">
+          </div>
+          <div class="item-avatar-profile" *ngIf="user.picture">
+            <img [src]="user.picture">
+          </div>
+        </ion-avatar>
+      </ion-item>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- {{(associations | async | json )}}-->
+  <div *ngIf="user">
+  <div *ngIf="user.pays && user.locale">
+    <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($association)"></page-association-list>
+  </div>
+  <div *ngIf="!user.pays || !user.locale">
+    {{user | json}}
+    <button ion-button block (click)="updateProfile()">mettre à jours le profile</button>
+  </div>
+  </div>
+</ion-content>

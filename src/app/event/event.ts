@@ -3,7 +3,7 @@ import { Storage } from '@ionic/storage';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/rx';
 import { Store } from '@ngrx/store';
-import { EventActions, ErrorActions } from '../shared/actions';
+import { EventActions } from '../shared/actions';
 import { IEvent } from '../shared/models';
 import { AppState, AuthService } from '../shared/providers';
 import { EventDetailPage } from './pages';
@@ -23,7 +23,6 @@ export class EventPage {
     storage: Storage = new Storage();
     constructor(public navCtrl: NavController,
         private _eventActions: EventActions,
-        private _errorActions: ErrorActions,
         private store: Store<AppState>,
         public auth: AuthService) {
         this.events = this.store.select('events');
@@ -32,8 +31,7 @@ export class EventPage {
     }
 
     ionViewDidLoad() {
-
-        this.store.dispatch(this._errorActions.loadError());
+        
         this.store.dispatch(this._eventActions.loadEvents());
         /*this.auth.authenticatedObservable()
          .subscribe(

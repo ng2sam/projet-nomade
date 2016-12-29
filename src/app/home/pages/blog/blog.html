@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar no-border-bottom color="danger">
+    <ion-title>
+      Bienvenu en Suisse !
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top color="danger">
+    <ion-segment [(ngModel)]="menu" color="white">
+      <ion-segment-button value="tous">
+        Tous
+      </ion-segment-button>
+      <ion-segment-button value="accueil">
+        Accueil
+      </ion-segment-button>
+      <ion-segment-button value="asile">
+        Asile
+      </ion-segment-button>
+      <ion-segment-button value="environnement">
+        Environnement
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="menu">
+    <ion-list *ngSwitchCase="'tous'">
+      <ion-card>
+        <img src="http://www.ville-geneve.ch/fileadmin/public/images/themes_et_demarches/environnement_urbain_et_espaces_verts/CONTENU-verre-dBAUMANN.jpg">
+        <ion-card-content>
+        <ion-item>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Environnement'"></span>
+            <img text-avatar [srcColor]="'Environnement'" style="position: relative; z-index: 1;">
+          </ion-avatar>
+           <p>Comment les ordures sont-elles triées en Suisse ?</p>
+        </ion-item> 
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <img src="https://www.rts.ch/2016/04/14/12/07/7645375.image?w=1100&h=618">
+        <ion-card-content>
+        <ion-item>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'asile'"></span>
+            <img text-avatar [srcColor]="'asile'" style="position: relative; z-index: 1;">
+          </ion-avatar>
+           <p>Les différents permis</p>
+        </ion-item> 
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'accueil'">
+      Accueil
+    </ion-list>
+    <ion-list *ngSwitchCase="'environnement'">
+       <ion-card>
+        <img src="http://www.ville-geneve.ch/fileadmin/public/images/themes_et_demarches/environnement_urbain_et_espaces_verts/CONTENU-verre-dBAUMANN.jpg">
+        <ion-card-content>
+        <ion-item>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Environnement'"></span>
+            <img text-avatar [srcColor]="'Environnement'" style="position: relative; z-index: 1;">
+          </ion-avatar>
+           <p>Comment les ordures sont-elles triées en Suisse ?</p>
+        </ion-item> 
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngSwitchCase="'asile'">
+      <ion-card>
+        <img src="https://www.rts.ch/2016/04/14/12/07/7645375.image?w=1100&h=618">
+        <ion-card-content>
+        <ion-item>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'asile'"></span>
+            <img text-avatar [srcColor]="'asile'" style="position: relative; z-index: 1;">
+          </ion-avatar>
+           <p>Les différents permis</p>
+        </ion-item> 
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>

@@ -36,7 +36,7 @@ export class EventFormPage implements OnInit {
   constructor(public navCtrl: NavController, private store: Store<AppState>,
      private auth: AuthService) {
 
-       this.userId = this.auth.getUserId()
+       this.userId = this.auth.getUser()._id;
   }
 
   ngOnInit() {

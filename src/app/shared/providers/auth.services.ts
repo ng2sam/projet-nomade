@@ -3,8 +3,8 @@ import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
-import { EventActions, ErrorActions } from '../actions';
-import { IEvent } from '../models';
+import { EventActions } from '../actions';
+import { IEvent, IUser } from '../models';
 import { AppState } from '../providers';
 
 // Avoid name not found warnings
@@ -30,18 +30,34 @@ export class AuthService {
     });
     private storage: Storage = new Storage();
     refreshSubscription: any;
-    public user: any;
+    private user: IUser;
     public idToken: string;
     public userId: string;
 
-    constructor(private authHttp: AuthHttp,
+    constructor(private _http: AuthHttp,
         private store: Store<AppState>,
-        private _eventActions: EventActions,
-        private _errActions: ErrorActions) {
+        private _eventActions: EventActions) {
 
         // Check if there is a profile saved in local storage
         this.storage.get('profile').then(profile => {
-            this.user = profile;
+
+            let t = profile.idTokenPayload.sub.split("|");
+            let splittedId = null;
+            splittedId = t[1];
+
+            this.user = {
+                _id: splittedId,
+                picture: null,
+                locale: null,
+                mineur: null,
+                name: null,
+                email: null,
+                nonAccompagne: null,
+                pays: null
+            };
+            //console.log(this.user);
+            this.setUserProfile();
+            //this.user = profile;
         }).catch(error => {
             console.log(error);
         });
@@ -182,8 +198,25 @@ export class AuthService {
         //auth0 ou google-oauth2
         this.storage.set('profile', profile);
         let t = this.jwtHelper.decodeToken(token);
-        this.storage.set('id_user', t.sub);
-        this.userId = t.sub;
+        let tsub = t.sub.split("|");
+            let splittedId = null;
+            splittedId = tsub[1];
+
+            this.user = {
+                _id: splittedId,
+                picture: null,
+                locale: null,
+                mineur: null,
+                name: null,
+                email: null,
+                nonAccompagne: null,
+                pays: null
+            };
+            //console.log(this.user);
+            this.setUserProfile();
+        //let t = this.jwtHelper.decodeToken(token);
+       // this.storage.set('id_user', t.sub);
+       // this.userId = t.sub;
 
         this.idToken = token;
         //this.store.dispatch(this._eventActions.loadEvents());
@@ -192,13 +225,35 @@ export class AuthService {
         this.lock.hide();
     }
 
-    getUserId(): string {
-        /*return Observable.fromPromise(
-             this.storage.get('id_user').then(idUser => {
-                 console.log("idUser", idUser);
-                 return idUser;
-             }).catch(error => console.log("get id_user", error))).map((idUser) => idUser)
-         //.catch(error=>console.log("get id_user",error));*/
-        return <string>this.user.idTokenPayload.sub;
+    getUser(): IUser {
+        console.log(this.user);
+        return this.user;
     }
+    // TODO : ngrx
+    saveUserProfile(user: IUser) {
+        return this._http.put('https://migrant-app.herokuapp.com/users/' + user._id, user)
+            .map(res => res.json())
+            .subscribe(
+            (data) => this.setDataToProfile(data)
+            )
+    }
+    setUserProfile() {
+        console.log(this.user);
+        this._http.get('https://migrant-app.herokuapp.com/users/' + this.user._id)
+            .map(res => res.json())
+            .subscribe(
+            (data) => this.setDataToProfile(data)
+            )
+    }
+    setDataToProfile(data: any) {
+        console.log("dd", data);
+        this.user.picture = data.picture;
+        this.user.locale = data.locale;
+        this.user.mineur = data.mineur;
+        this.user.nonAccompagne = data.nonAccompagne;
+        this.user.name = data.name;
+        this.user.email = data.email;
+        this.user.pays = data.pays;
+    }
+
 }

@@ -18,16 +18,17 @@ export class TextAvatar {
 
   @Input()
   set text(txt: string) {
-      console.log("txt", txt);
+    console.log("txt", txt);
     this.element.nativeElement.style.backgroundColor = this.colorGenerator.getColor(txt);
     this.element.nativeElement.textContent = txt.charAt(0).toUpperCase();
 
-    console.log("color",this.element.nativeElement.style.backgroundColor);
-    console.log("value",this.element.nativeElement )
+    console.log("color", this.element.nativeElement.style.backgroundColor);
+    console.log("value", this.element.nativeElement)
   }
   @Input()
-  set srcColor(txt: string){
-    this.element.nativeElement.setAttribute("src", "http://placehold.it/350x350/"+this.colorGenerator.getColor(txt))
+  set srcColor(txt: string) {
+    this.element.nativeElement.setAttribute("src", "https://dummyimage.com/350x350/"
+      + this.colorGenerator.getColor(txt) + "/" + this.colorGenerator.getColor(txt) + "&text=++d")
   }
 
 }

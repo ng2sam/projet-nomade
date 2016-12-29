@@ -11,7 +11,8 @@ const initialState: IEvent = {
     description:'',
     date: null,
     eventType: null, // 0 public, 1 semi-public, 2 privé
-    organisateur: null // recu id user ?
+    organisateur: null, // recu id user ?
+    participants: []
 };
 
 export function EventReducer (state = initialState, action: Action) : IEvent {

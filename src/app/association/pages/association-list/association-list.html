@@ -1,0 +1,11 @@
+  <ion-list>
+    <ion-item *ngFor="let association of associations" (click)="onSelect.emit(association)">
+      <ion-thumbnail item-left style="position: relative;">
+        <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="association.name"></span>
+        <img  text-avatar [srcColor]="association.name" style="position: relative; z-index: 1;">
+      </ion-thumbnail>
+      <h2>{{association.name}}</h2>
+      <p>{{association.description}}</p>
+      <button ion-button clear item-right>Détail</button>
+    </ion-item>
+  </ion-list>

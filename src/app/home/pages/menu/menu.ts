@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { EnvironnementPage } from '../environnement/environnement'
+import { BlogPage } from '../blog/blog'
+import { AssociationPage } from '../../../association/association'
 
 @Component({
   selector: 'page-menu',
@@ -15,7 +16,11 @@ export class MenuPage {
   }
 
   goEnv() {
-    this.navCtrl.push(EnvironnementPage);
+    this.navCtrl.push(BlogPage);
+  }
+
+  goAssoc() {
+    this.navCtrl.push(AssociationPage);
   }
 
 }

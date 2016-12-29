@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { EventServices, AuthService } from '../providers';
-import { EventActions, ErrorActions } from '../actions';
+import { EventActions } from '../actions';
 import { Observable } from 'rxjs/rx';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/observable/of';
@@ -16,7 +16,6 @@ export class EventEffects {
     private actions$: Actions,
     private _eventService: EventServices,
     private _eventActions: EventActions,
-    private _errorActions: ErrorActions,
     private auth: AuthService
   ) { }
 

@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { SharedModule } from './shared';
 import { HomeModule } from './home';
 import { EventModule } from './event';
+import { AssociationModule } from './association';
 import { DirectoryModule } from './directory';
 /*import { AboutPage, ContactPage, HomePage, TabsPage, EventPage, EventListPage } from '../pages';
 import { EventService  } from '../providers';
@@ -47,7 +48,8 @@ export function createTranslateLoader(http: Http) {
     SharedModule,
     HomeModule,
     DirectoryModule,
-    EventModule
+    EventModule,
+    AssociationModule
     // SharedModule,EventModule, /*, TabsModule, EventModule,*/ //seulement les module top-nivo
     /*IonicModule.forRoot(MyApp, ionicAppConfig)
     EffectsModule.runAfterBootstrap(EventEffects),

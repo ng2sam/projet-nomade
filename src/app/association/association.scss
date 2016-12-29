@@ -1,0 +1,13 @@
+page-association {
+  .item-avatar-profile {
+    ion-avatar img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    ion-avatar span {
+      font-size: 30px;
+      color: white;
+    }
+    background-color: transparent;
+  }
+}

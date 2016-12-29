@@ -7,7 +7,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { IEvent } from '../models';
-import { ErrorActions } from '../actions';
 import { AppState } from '../providers';
 
 const API_URL = 'https://migrant-app.herokuapp.com/events/';
@@ -16,7 +15,7 @@ const API_URL = 'https://migrant-app.herokuapp.com/events/';
 @Injectable()
 export class EventServices {
       error:  Observable<any>;
-    constructor(private _http: AuthHttp,  private store: Store<AppState>, private _errAction:ErrorActions) {
+    constructor(private _http: AuthHttp,  private store: Store<AppState>) {
          this.error = this.store.select('error');
         // this.store.dispatch(this._errAction.loadError());
     }
