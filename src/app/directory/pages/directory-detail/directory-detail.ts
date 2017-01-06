@@ -17,14 +17,17 @@ export class DirectoryDetailPage implements OnInit {
 
   @ViewChild('mapPage') MapPage: MapPage;
 
-  constructor(private navCtrl: NavController, private params: NavParams) {}
+  constructor(private navCtrl: NavController, private params: NavParams) {
+    
+  }
 
   ngOnInit() {
     this.contact = this.params.get('param');
 
     setTimeout(() => {
       this.MapPage.loadMap();
-    }, 2000);
+      this.MapPage.setMarker();
+    }, 3000);
   }
 
 }

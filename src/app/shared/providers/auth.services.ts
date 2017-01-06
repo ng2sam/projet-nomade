@@ -1,6 +1,8 @@
 import { Storage } from '@ionic/storage';
 import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
+import { AlertController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
+import { TranslateService } from 'ng2-translate/ng2-translate';
 import { Observable } from 'rxjs/Rx';
 import { Store } from '@ngrx/store';
 import { EventActions } from '../actions';
@@ -36,6 +38,8 @@ export class AuthService {
 
     constructor(private _http: AuthHttp,
         private store: Store<AppState>,
+        public alrt: AlertController,
+        public translate: TranslateService,
         private _eventActions: EventActions) {
 
         // Check if there is a profile saved in local storage
@@ -199,24 +203,24 @@ export class AuthService {
         this.storage.set('profile', profile);
         let t = this.jwtHelper.decodeToken(token);
         let tsub = t.sub.split("|");
-            let splittedId = null;
-            splittedId = tsub[1];
+        let splittedId = null;
+        splittedId = tsub[1];
 
-            this.user = {
-                _id: splittedId,
-                picture: null,
-                locale: null,
-                mineur: null,
-                name: null,
-                email: null,
-                nonAccompagne: null,
-                pays: null
-            };
-            //console.log(this.user);
-            this.setUserProfile();
+        this.user = {
+            _id: splittedId,
+            picture: null,
+            locale: null,
+            mineur: null,
+            name: null,
+            email: null,
+            nonAccompagne: null,
+            pays: null
+        };
+        //console.log(this.user);
+        this.setUserProfile();
         //let t = this.jwtHelper.decodeToken(token);
-       // this.storage.set('id_user', t.sub);
-       // this.userId = t.sub;
+        // this.storage.set('id_user', t.sub);
+        // this.userId = t.sub;
 
         this.idToken = token;
         //this.store.dispatch(this._eventActions.loadEvents());
@@ -255,5 +259,45 @@ export class AuthService {
         this.user.email = data.email;
         this.user.pays = data.pays;
     }
+
+
+    selectLangue() {
+    let alrt = this.alrt.create();
+    alrt.setTitle('Choisissez votre langue');
+
+    alrt.addInput({
+      type: 'radio',
+      label: 'I speak english',
+      value: 'en',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'Anigu waan hadli Soomaali',
+      value: 'so',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'أنا أتكلم العربية',
+      value: 'ar',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'እኔ አማርኛ መናገር',
+      value: 'et',
+      checked: false
+    });
+    
+    alrt.addButton('Cancel');
+    alrt.addButton({
+      text: 'OK',
+      handler: data => {
+        this.translate.use(data);
+      }
+    });
+    alrt.present();
+  }
 
 }

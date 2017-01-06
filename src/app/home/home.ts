@@ -10,12 +10,14 @@ export class HomePage {
 
     eventsMenu:  Observable<any>; // Observable<IEvent[]>;
     selectedEventMenu: string;
+    testTrans:string="title";
 
     constructor(public navCtrl: NavController) {
     }
 
   ionViewDidLoad() {
     console.log('Hello Home Page');
+  
   }
 
 

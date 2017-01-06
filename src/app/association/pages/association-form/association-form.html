@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+  <ion-item class="associationName">
+    <ion-label floating>Nom de l'évenement</ion-label>
+    <ion-input formControlName="name" type="text"></ion-input>
+  </ion-item>
+
+
+  <button ion-button block type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+<button ion-button block (click)="close()">Annuler</button>
+<br>
+<p>Value: {{ form.value | json }}</p>
+<p>Validation status: {{ form.status }}</p>

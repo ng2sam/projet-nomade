@@ -7,6 +7,7 @@ import { AssociationActions } from '../shared/actions';
 import { IAssociation, IUser } from '../shared/models';
 import { AppState, AuthService } from '../shared/providers';
 import { UserModal } from './user-modal';
+import { AssociationDetailPage } from './pages';
 
 @Component({
     selector: 'page-association',
@@ -64,10 +65,10 @@ export class AssociationPage {
     }
 
     gotoDetail(associationId: string) {
-        // this.navCtrl.push(AssociationDetailPage, { param: associationId });
+     this.navCtrl.push(AssociationDetailPage, { param: associationId });
     }
     addAssociation() {
-        // this.navCtrl.push(AssociationDetailPage);
+         this.navCtrl.push(AssociationDetailPage);
     }
     updateProfile() {
         let modal = this.modalCtrl.create(UserModal);

@@ -21,13 +21,13 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content style="background-color:#F5F5F5;">
   <!-- {{(associations | async | json )}}-->
-  <div *ngIf="user">
+  <div *ngIf="user" style="background-color:transparent;">
   <div *ngIf="user.pays && user.locale">
-    <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($association)"></page-association-list>
+    <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($event)"></page-association-list>
   </div>
-  <div *ngIf="!user.pays || !user.locale">
+  <div *ngIf="!user.pays || !user.locale" padding>
     {{user | json}}
     <button ion-button block (click)="updateProfile()">mettre à jours le profile</button>
   </div>

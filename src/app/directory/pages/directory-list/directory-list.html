@@ -1,10 +1,10 @@
 <div>
   <ion-segment [(ngModel)]="pet" style="background-color:#iE8EAF6;color:white;">
     <ion-segment-button value="kittens">
-      Kittens
+      categories
     </ion-segment-button>
     <ion-segment-button value="puppies">
-      Puppies
+      contacts
     </ion-segment-button>
   </ion-segment>
 </div>
@@ -15,7 +15,7 @@
      <ion-searchbar autocorrect="off" [(ngModel)]='listFilter'></ion-searchbar>
     <ion-list *ngFor="let contactCat of contacts" style="margin-top:2px;">
       <ion-list-header style="margin-top:2px;" [style.background-color]="contactCat.color">
-      <ion-row no-padding>
+      <ion-row no-padding style="color:white">
         <ion-col>
             {{ contactCat.categorie }}
         </ion-col>
@@ -29,7 +29,7 @@
     </ion-list>
   </div>
 
-  <ion-list *ngSwitchCase="'kittens'">
+  <ion-list *ngSwitchCase="'kittens'" style="color:white">
     <ion-card *ngFor="let contactCat of contacts" (click)="onSelect.emit(contactCat)" 
       [style.background-color]="contactCat.color" >
 

@@ -14,11 +14,17 @@
 
 <ion-content>
 <ion-list>
-  {{user|json}}
   <ion-item (click)="selectLangue()">
   <i class="mdi mdi-alphabetical mdi-36px" item-left></i>
       <h2>Choisissez votre langue</h2>
-      <p>ceci permettra de cibler la bonne information pour vous</p>
+       <p *ngIf="user.langue">{{user.langue}}</p>
+      <p *ngIf="!user.langue">ceci permettra de cibler la bonne information pour vous</p>
+  </ion-item>
+  <ion-item (click)="selectCountry()">
+  <i class="mdi mdi-alphabetical mdi-36px" item-left></i>
+      <h2>indiquer votre pays d'origine</h2>
+      <p *ngIf="user.pays">{{user.pays}}</p>
+      <p *ngIf="!user.pays">ceci permettra de cibler la bonne information pour vous</p>
   </ion-item>
 </ion-list>
 </ion-content>

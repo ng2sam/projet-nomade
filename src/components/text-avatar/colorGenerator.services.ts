@@ -6,6 +6,7 @@ export class ColorGenerator {
     'ffb74d', 'a1887f', '90a4ae'];
 
   getColor(str: string): string {
+    if (str ==='env') str = 'd';
     return this.COLORS[Math.abs(this.generateHashCode(str)) % this.COLORS.length];
   }
 

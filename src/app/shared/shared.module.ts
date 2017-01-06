@@ -9,7 +9,7 @@ import { TextAvatar } from '../../components/text-avatar/text-avatar';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { EventServices, DirectoryServices, AuthService, AssociationServices } from './providers';
+import { BlogServices, EventServices, DirectoryServices, AuthService, AssociationServices } from './providers';
 import { EventActions, AssociationActions } from './actions';
 import { EventEffects, AssociationEffects } from './effects';
 import { EventsReducer, EventReducer, AssociationReducer, AssociationsReducer  } from './reducer';
@@ -36,6 +36,7 @@ const providers: Array<any> = [
   EventServices,
   AssociationServices,
   DirectoryServices,
+  BlogServices,
   Storage,
   AuthService,
     {

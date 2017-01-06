@@ -1,5 +1,26 @@
 page-directory-detail {
-   #mapContainer { height: 200px; }
-   // #aboutContent { position: relative; }
-   // #directionsPanel { position: absolute; top: 10px; left: 2px; z-index: 99; overflow:hidden; }
+  #mapContainer {
+    height: 300px;
+    width: 100%;
+  }
+
+  ion-navbar .toolbar-background {
+    //background: transparent;
+    opacity: 0.2;
+    background-color: Black;
+  }
+  .bar-button-default-md,
+  .bar-button-clear-md-default,
+  .bar-button-md-default {
+    color: white;
+    background-color: transparent;
+  }
+  ion-content .scroll-content {
+    margin-top: 0px !important;
+  }
+  .toolbar-title-md {
+    color: white;
+  }
+  // #aboutContent { position: relative; }
+  // #directionsPanel { position: absolute; top: 10px; left: 2px; z-index: 99; overflow:hidden; }
 }

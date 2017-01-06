@@ -1,0 +1,123 @@
+<ion-header color="primary">
+  <div id="headerDetailView" [hidden]="editMode">
+    <ion-navbar class="title">
+      <ion-title>{{ (association | async)?.name }}</ion-title>
+    </ion-navbar>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="https://randomuser.me/api/portraits/men/34.jpg">
+      </ion-avatar>
+      <h2>{{ (association | async)?.organisateur }}</h2>
+    </ion-item>
+  </div>
+  <div id="headerEditView" [hidden]="!editMode">
+    <ion-navbar class="title">
+      <ion-title>EDIT MODE</ion-title>
+    </ion-navbar>
+    <ion-item>
+      <ion-avatar item-left style="position: relative;">
+         <span  style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'sam'"></span>
+         <img id="myImage" text-avatar [srcColor]="'sam'" style="position: relative; z-index: 1;">
+      </ion-avatar>
+      <h2>{{ (association | async)?.organisateur }}</h2>
+    </ion-item>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <ion-fab top right edge #fabContainer>
+    <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="goEdit(fabContainer)"><ion-icon name="pen"></ion-icon></button>
+      <button ion-fab><ion-icon name="delete"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <div id="detailView" [hidden]="editMode">
+    <div padding>
+      <ion-segment [(ngModel)]="segmentAssociation">
+        <ion-segment-button value="segmentDetail">
+          <i class="mdi mdi-information-outline mdi-24px"></i>
+        </ion-segment-button>
+        <ion-segment-button value="segmentParticipant">
+           <i class="mdi mdi-account-check mdi-24px"></i>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="segmentAssociation">
+      <ion-list *ngSwitchCase="'segmentDetail'">
+        <ion-item>
+          <h2>Date</h2>
+          <p>{{ (association | async)?.date | date:'yMMMMd' }}</p>
+        </ion-item>
+        <ion-item>
+          <h2>description</h2>
+          <p>{{ (association | async)?.description }}</p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'segmentParticipant'">
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+       <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+         <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/men/34.jpg">
+          </ion-avatar>
+          <h2>Luna</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <div id="formView" [hidden]="!editMode">
+    <page-association-form [association]="association | async" [form]="form" (save)="save($association)"></page-association-form>
+    <button (click)="goEdit(fabContainer)">close edit</button>
+  </div>
+
+
+
+  <!--
+<ion-list *ngIf="association">
+    <ion-list-header>
+      Association info
+</ion-list-header>
+    <ion-item>
+      <i class="mdi mdi-calendar-text mdi-24px" item-left></i>
+      
+      <ion-note item-right>
+      {{ association.name }}
+      </ion-note>
+  </ion-item>
+      <ion-item>
+      <ion-icon name='flask' item-left></ion-icon>
+      nom association
+      <ion-note item-right>
+      {{ association.name }}
+      </ion-note>
+  </ion-item>
+      <ion-item>
+      <ion-icon name='flask' item-left></ion-icon>
+      nom association
+      <ion-note item-right>
+      {{ association.name }}
+      </ion-note>
+  </ion-item>
+      <ion-item>
+      <ion-icon name='flask' item-left></ion-icon>
+      nom association
+      <ion-note item-right>
+      {{ association.name }}
+      </ion-note>
+  </ion-item>
+</ion-list>-->
+</ion-content>

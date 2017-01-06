@@ -1,4 +1,6 @@
 <!--<ion-content id="aboutContent">-->
-  <div #map id="map" ></div> 
-  <!--<div id="directionsPanel" style="float:right;width:30%;height 100%;background-color:white;"></div>-->
+  <div *ngIf="loading" style="height:100%;padding:50%"><ion-spinner></ion-spinner></div>
+  <div #map id="map" [hidden]="loading"></div> 
+
+  
 <!--</ion-content>-->

@@ -62,4 +62,44 @@ export class UserModal {
     });
     alrt.present();
   }
+
+  selectCountry() {
+    let alrt = this.alert.create();
+    alrt.setTitle('Choisissez votre pays');
+
+    alrt.addInput({
+      type: 'radio',
+      label: 'Syrie',
+      value: 'syria',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'Erythrée',
+      value: 'eritrea',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'Afganistan',
+      value: 'afganistan',
+      checked: false
+    });
+    alrt.addInput({
+      type: 'radio',
+      label: 'Somalie',
+      value: 'somalia',
+      checked: false
+    });
+    
+    alrt.addButton('Cancel');
+    alrt.addButton({
+      text: 'OK',
+      handler: data => {
+        this.user.pays = data;
+        this.auth.saveUserProfile(this.user);
+      }
+    });
+    alrt.present();
+  }
 }

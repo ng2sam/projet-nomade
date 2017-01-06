@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Environnement
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content elastic-header>
+ 
+  <div class="background-image" [ngStyle]="{'background-image': 'url(' + article.img + ')'}"></div>
+  <div class="main-content">
+ {{photo}}
+        <h2 [innerHTML]="'blog.'+type+'.'+article.title | translate"></h2>
+        <i [innerHTML]="'blog.'+type+'.'+article.txt | translate"></i>
+  </div>
+ 
+</ion-content>

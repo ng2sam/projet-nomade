@@ -1,0 +1,15 @@
+<ion-list>
+  <ion-item ><span ></span></ion-item>
+ <ion-card *ngFor="let article of articles" (click)="onSelect.emit(article)">
+        <img [src]="article.img">
+        <ion-card-content>
+        <ion-item>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="type"></span>
+            <img text-avatar [srcColor]="type" style="position: relative; z-index: 1;">
+          </ion-avatar>
+           <p [innerHTML]="'blog.'+type+'.'+article.title | translate"></p>
+        </ion-item> 
+        </ion-card-content>
+      </ion-card>
+</ion-list>
