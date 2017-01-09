@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>{{ testTrans | translate }}</ion-title>
+    <ion-title>{{ 'title' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content style="background-color:#FFFFFF">
+  {{user|json}}
   <ion-fab right top >
-    <button ion-fab color="danger"><ion-icon name="md-help"></ion-icon></button>
+    <button *ngIf="_auth.user?.name !== null" (click)="_auth.login()"ion-fab color="primary"><ion-icon name="md-home"></ion-icon></button>
+        <button *ngIf="_auth.user?.name === null" (click)="_auth.login()"ion-fab color="secondary"><ion-icon name="ios-contact-outline"></ion-icon></button>
   </ion-fab>
   <page-menu></page-menu>
 </ion-content>

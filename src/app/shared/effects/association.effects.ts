@@ -75,9 +75,11 @@ export class AssociationEffects {
         .map(action => action.payload)
         .switchMap(payload => {
            if(payload ==="Error"){
+               //this.auth.alertToast("Veuillez vous identifiez");
                this.auth.login();
                return Observable.empty();
            }else{
+               // this.auth.alertToast("Une erreur est survenu, veuilez reesayez");
                return Observable.empty();
            }
         })
@@ -90,7 +92,23 @@ export class AssociationEffects {
            return this.auth.setToStorage(authResult);
         })
         .map((data: any) => {
-            this.auth.successLogin(data);
+            console.log("go-success",data);
+            return this.auth.successLogin(data);
+        })
+        .map((data: any) => {
+            console.log("go-getData",data);
+            return this.auth.setUserProfile(data._id);
+        })
+        .map((data: any) => {
+            console.log("go-setData",data);
+            data.subscribe(
+                (data) => {console.log("setUser",data); return data;},
+                (error) => console.log("ERRSETDAT",error)
+            )
+           
+        })
+        .do(() => {
+        this.auth.lock.hide();
         })
         .filter(()=>false)
 }

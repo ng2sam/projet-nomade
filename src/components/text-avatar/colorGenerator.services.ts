@@ -7,6 +7,8 @@ export class ColorGenerator {
 
   getColor(str: string): string {
     if (str ==='env') str = 'd';
+
+    console.log(str)
     return this.COLORS[Math.abs(this.generateHashCode(str)) % this.COLORS.length];
   }
 

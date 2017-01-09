@@ -1,9 +1,108 @@
 {
-    "title" : "Migrant App -  hagaajinayo is-dhexgalka",   
-    "home": {    
-        "title": "horyaalka",
-        "sub-title": "Cinwaan",
-        "home-text": "this text must explain de purpose of the app and motivate the signup"
-        
+  "title": "Imaanshaha - fududeeyo la qabsashada",
+  "menu":{
+    "directory":{
+      "title":"xiriiro faa'iido leh",
+      "subTitle":"buugga of xiriirada waxtar leh si ay kuu caawiyaan"
+    },
+    "blog":{
+      "title":"Ku soo dhawow Switzerland!",
+      "subTitle":"Guide A si aad toddobaad ee ugu horreeya ee Switzerland"
+    },
+    "association":{
+      "title":"ururada Geneva",
+      "subTitle":"Liiska ururada qaxootiga gargaar"
     }
+  },
+  "blog": {
+    "env": {
+      "title":"deegaanka",
+      "europe": {
+        "title": "Switzerland iyo Europe",
+        "txt": "<p>expliquez que la suisse est en Europe mais n'est pas membre de l'Union Européenne (UE)</p><p> expliquez que c 'est une décision populaire</p><p>La Suisse a des accords avec d’autres pays européens (Schengen / Dublin). Informer sur l’impact de ces accords.</p>"
+      },
+      "canton": {
+        "title": "Hawlgalka ayaa ka mid ah Switzerland iyo gobolada ay",
+        "txt": "<p>Montrer la carte de la Suisse avec les cantons</p><p>Expliquer ce qu’est un canton et ses prérogatives</p>"
+      },
+      "langue": {
+        "title": "Afafka rasmiga ah ee Switzerland",
+        "txt": "<p>Montrer la distribution géographique des 4 langues, les appellations (Suisse alémanique / romande / italienne)</p><p>Montrer un exemple écrit des 4 langues (?)</p>"
+      },
+      "romandie": {
+        "title": "Faransiis ku hadla Switzerland",
+        "txt": "<p>Parler des différents cantons francophones (ou bilingues)</p>"
+      },
+      "geneve": {
+        "title": "Geneva",
+        "txt": "<p>Informer sur les spécificités du canton de Genève (Economique, géographique,...)</p>"
+      },
+      "argent": {
+        "title": "lacag",
+        "txt": "<p>Informer sur les différentes devises</p>"
+      },
+      "magasin": {
+        "title": "dukaamada",
+        "txt": "<p>Parler des grandes enseignes et les horaires </p>"
+      },
+      "coutvie": {
+        "title": "Qiimaha nool / mushaarka",
+        "txt": "<p>Parler du coût moyen d’articles de consommation courants</p><p>parler du salaire médian en Suisse / comparer avec les pays voisins</p><p>Montrer de quoi est constitué le budget d’une personne/ d’une famille indépendante</p>"
+      },
+      "travaille": {
+        "title": "Ka shaqeynta Switzerland",
+        "txt": "<p>Parler de  l’organisation du travail</p><p>Parler des jours de travailles, des vacances et du salaire mensuel</p><p>Rappel des possibilités de travail selon les différents permis</p>"
+      },
+      "religion": {
+        "title": "Diinta / secularism",
+        "txt": "<p>Montrer que toutes les religions existent et cohabitent pacifiquement en Suisse.</p><p>Parler de la liberté de la pratique religieuse dans le respect de certaines règles</p><p>Parler sur le principe de la laïcité, au travail, à l’école, dans l’espace public.</p><p>Informer sur l’aspect privé de la pratique religieuse et des prière dans l'espace public.</p>"
+      },
+      "valeur": {
+        "title": "Qaar ka mid ah qiyamka Swiss",
+        "txt": "<p>Informer sur la culture de la Suisse, la manière de vivre ensemble en suivant certaines règles de vie à connaître pour des personnes arrivant d’une autre culture</p><p>Parler de la place de la femme, le respect de toutes les personnes.</p>"
+      },
+      "ensemble": {
+        "title": "Wada noolaanshaha / xeerarka qaarkood",
+        "txt": "<p>Donner des clés pratiques et utiles pour favoriser l’intégration</p><p>Informer sur les gestes, les attitudes qui facilitent le rapport aux autres (politesse, ponctualité, interdiction de fumer,...)</p><p>Sensibiliser les participants au recours à la justice et à la police en cas de besoin</p><p>Informer sur l’interdiction de la violence également dans la famille</p>"
+      },
+      "integration": {
+        "title": "Integration hawlaha",
+        "txt": "<p>Parler des associations sportives, culturelles</p>"
+      },
+      "ecologie": {
+        "title": "Sidee qashinka baaraandego dalka Switzerland?",
+        "txt": "<P> In Switzerland, wax badan oo ka mid ah qashinka la warshadeeyo. Waxaan helay meel haamaha galaas, caag, bir iyo warqad. Kuwani waa dhan alaabta ceeriin qiimo leh in waxa loo badali karaa waxyaabaha badan oo cusub. waxaa la samayn karaa New tusaale warqad ka wargeysyada jir ah. </p> <H2> Waxa aan ku tuuri kartaa in Biocontainer ah? </H2> <p> Meelaha qaarkood, amarrada noolaha sida hadhaagii miro iyo khudaarta sidoo kale lagu meeleyn karaa in weel gaar ah. qashinka Kuwani noolaha ka dibna dhulka ku noqon. Laakiin dad iska jira, oo hara la kariyey, waxyaabaha caanaha iyo hilibka, waa in aan la dumin doonin galay Biocontainer ku </p> <p> Sidaas awgeed waa lagama maarmaan in la baaro si sax ah qashinka hor inta uusan go'aansan on ay u socdeenna !. Baro la doorbidayo ka hor deriska ama janitors. Kala soocida waxay qashinka waa qayb muhiim ah oo ilaalinta deegaanka. reprocessing The qashinka sidoo kale ka dhigan yahay qaybta dhaqaale oo damaanad shaqooyin badan. </p>"
+      },
+      "ecole": {
+        "title": "The nidaamka dugsiga Geneva ",
+        "txt": "<p>Informer sur la place des enfants, la scolarité obligatoire, le rôle des parents, des adultes face aux enfants</p>"
+      },
+      "tpg": {
+        "title": "gaadiidka Dadweynaha",
+        "txt": "<p>informer sur le système de transport et parler du vélo</p>"
+      }
+    },
+    "asile":{
+      "title":"doonka",
+      "procedure": {
+        "title": "Nidaamka magangelyada ee Switzerland",
+        "txt": "<p>Parler de la chronologie de la procédure et du déroulé de la procédure.</p><p>Parle des auditions, des décisions et des recours possibles.</p>"
+      },    
+      "permis": {
+        "title": "The ogolaanshaha kala duwan",
+        "txt": "<p>parler des permis N, F et B.</p><p></p>Informer sur les différents statuts possibles et les différentes possibilités suivant les différents statuts.<p>Expliquer les différences (séjour, travail, voyage, formations, regroupement familial)</p>"
+      }, 
+      "assistance": {
+        "title": "gargaarka lacagta",
+        "txt": "<p>Présenter l’assistance financière</p>"
+      },  
+      "urgence": {
+        "title": "Gargaarka degdegga ah",
+        "txt": "<p>Présenter l’aide d’urgence</p>"
+      }
+    }
+  }
 }
+
+ 
+        

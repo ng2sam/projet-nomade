@@ -26,9 +26,10 @@ export class BlogPage {
   }
 
   select($event) {
+    $event.article.type = $event.type;
     console.log($event);
-    this.selectedArticle = $event;
-    this.gotoDetail(this.selectedArticle)
+    this.selectedArticle = $event.article;
+    this.gotoDetail(this.selectedArticle);
   }
 
   gotoDetail(article: any) {

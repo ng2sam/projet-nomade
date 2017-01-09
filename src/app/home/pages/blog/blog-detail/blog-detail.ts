@@ -7,7 +7,6 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class BlogDetailPage implements OnInit {
    article: any;
-  //photo: string = ' http://www.ville-geneve.ch/fileadmin/public/images/themes_et_demarches/environnement_urbain_et_espaces_verts/CONTENU-verre-dBAUMANN.jpg';
   constructor(public navCtrl: NavController,  private _params: NavParams) { }
 
   ngOnInit() {

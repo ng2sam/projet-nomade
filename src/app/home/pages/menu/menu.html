@@ -4,16 +4,16 @@
     <i class="mdi mdi-magnify mdi-26px" style="position: absolute;left:9px; top: 9px;z-index: 10;color:white" ></i>
     <img id="myImage" src="http://placehold.it/350x350/0091ea" style="position: relative; z-index: 1;">
     </ion-avatar>
-    <h2>Contactes utiles</h2>
-    <p >répertoire des contactes utiles pour vous aider</p>
+    <h2>{{ 'menu.directory.title' | translate }}</h2>
+    <p>{{ 'menu.directory.subTitle' | translate }}</p>
   </button>
   <button ion-item (click)="goEnv()">
     <ion-avatar item-left style="position: relative;">
     <i class="mdi mdi-human-greeting mdi-26px" style="position: absolute;left:9px; top: 9px;z-index: 10;color:white" ></i>
     <img id="myImage" src="http://placehold.it/350x350/d50000" style="position: relative; z-index: 1;">
     </ion-avatar>
-    <h2>Bienvenu en suisse !</h2>
-    <p>Un guide pour vos premières semaines en Suisse</p>
+    <h2>{{ 'menu.blog.title' | translate }}</h2>
+    <p>{{'menu.blog.subTitle' | translate }}</p>
   </button>
   <!--<button ion-item  class="item-disabled">-->
     <button ion-item (click)="goAssoc()">
@@ -21,8 +21,8 @@
     <i class="mdi mdi-account-switch mdi-26px" style="position: absolute;left:9px; top: 9px;z-index: 10;color:white" ></i>
     <img id="myImage" src="http://placehold.it/350x350/6200ea" style="position: relative; z-index: 1;">
     </ion-avatar>
-    <h2>Associations genevoises</h2>
-    <p>Liste d'associations venant en aide aux refugiés</p>
+    <h2>{{ 'menu.association.title' | translate }}</h2>
+    <p>{{ 'menu.association.subTitle' | translate }}</p>
   </button>
 <!--<ion-item-divider>
   Item Divider

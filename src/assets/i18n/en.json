@@ -1,87 +1,103 @@
 {
-  "title": "Migrant App -  make integration easy",
+  "title": "Arriving - facilitating integration",
+  "menu":{
+    "directory":{
+      "title":"Useful contacts",
+      "subTitle":"Contact directory useful to help you"
+    },
+    "blog":{
+      "title":"Welcome to Switzerland!",
+      "subTitle":"A guide for your first weeks in Switzerland"
+    },
+    "association":{
+      "title":"Associations Genevoises",
+      "subTitle":"List of associations helping refugees"
+    }
+  },
   "blog": {
     "env": {
+      "title":"Environment",
       "europe": {
-        "title": "La suisse et l'Europe",
+        "title": "Switzerland and Europe",
         "txt": "<p>expliquez que la suisse est en Europe mais n'est pas membre de l'Union Européenne (UE)</p><p> expliquez que c 'est une décision populaire</p><p>La Suisse a des accords avec d’autres pays européens (Schengen / Dublin). Informer sur l’impact de ces accords.</p>"
       },
       "canton": {
-        "title": "Le fonctionnement de la Suisse et ses cantons",
+        "title": "The functioning of Switzerland and its cantons",
         "txt": "<p>Montrer la carte de la Suisse avec les cantons</p><p>Expliquer ce qu’est un canton et ses prérogatives</p>"
       },
       "langue": {
-        "title": "Les langues officielles de la Suisse",
+        "title": "The official languages of Switzerland",
         "txt": "<p>Montrer la distribution géographique des 4 langues, les appellations (Suisse alémanique / romande / italienne)</p><p>Montrer un exemple écrit des 4 langues (?)</p>"
       },
       "romandie": {
-        "title": "La Suisse romande",
+        "title": "French speaking Switzerland",
         "txt": "<p>Parler des différents cantons francophones (ou bilingues)</p>"
       },
       "geneve": {
-        "title": "Genève",
+        "title": "Geneva",
         "txt": "<p>Informer sur les spécificités du canton de Genève (Economique, géographique,...)</p>"
       },
       "argent": {
-        "title": "L’argent",
+        "title": "Money",
         "txt": "<p>Informer sur les différentes devises</p>"
       },
       "magasin": {
-        "title": "Les magasins",
+        "title": "The stores",
         "txt": "<p>Parler des grandes enseignes et les horaires </p>"
       },
-      "cout-vie": {
-        "title": "Le coût de la vie / les salaires",
+      "coutvie": {
+        "title": "The cost of living / wages",
         "txt": "<p>Parler du coût moyen d’articles de consommation courants</p><p>parler du salaire médian en Suisse / comparer avec les pays voisins</p><p>Montrer de quoi est constitué le budget d’une personne/ d’une famille indépendante</p>"
       },
       "travaille": {
-        "title": "Travailler en Suisse",
+        "title": "Wokrking in Switzerland",
         "txt": "<p>Parler de  l’organisation du travail</p><p>Parler des jours de travailles, des vacances et du salaire mensuel</p><p>Rappel des possibilités de travail selon les différents permis</p>"
       },
       "religion": {
-        "title": "Les religions / la laïcité",
+        "title": "Religions / secularism",
         "txt": "<p>Montrer que toutes les religions existent et cohabitent pacifiquement en Suisse.</p><p>Parler de la liberté de la pratique religieuse dans le respect de certaines règles</p><p>Parler sur le principe de la laïcité, au travail, à l’école, dans l’espace public.</p><p>Informer sur l’aspect privé de la pratique religieuse et des prière dans l'espace public.</p>"
       },
       "valeur": {
-        "title": "Certaines valeurs de la Suisse",
+        "title": "Some values of Switzerland",
         "txt": "<p>Informer sur la culture de la Suisse, la manière de vivre ensemble en suivant certaines règles de vie à connaître pour des personnes arrivant d’une autre culture</p><p>Parler de la place de la femme, le respect de toutes les personnes.</p>"
       },
       "ensemble": {
-        "title": "Vivre ensemble / le respect de certaines règles",
+        "title": "Living together / respecting certain rules",
         "txt": "<p>Donner des clés pratiques et utiles pour favoriser l’intégration</p><p>Informer sur les gestes, les attitudes qui facilitent le rapport aux autres (politesse, ponctualité, interdiction de fumer,...)</p><p>Sensibiliser les participants au recours à la justice et à la police en cas de besoin</p><p>Informer sur l’interdiction de la violence également dans la famille</p>"
       },
       "integration": {
-        "title": "L’intégration par des activités",
+        "title": "Integration through activities",
         "txt": "<p>Parler des associations sportives, culturelles</p>"
       },
       "ecologie": {
-        "title": "Comment les ordures sont-elles triées en Suisse ?",
-        "txt": "<p>En Suisse, une grande partie des déchets sont recyclés. On trouve presque partout des conteneurs pour le verre, le plastique, le métal et le papier. Ce sont toutes des matières premières précieuses pouvant être transformées en de nombreux nouveaux produits. Du nouveau papier peut par exemple être fabriqué à partir de vieux journaux.</p><h2>Que peut-on jeter dans un bioconteneur ?</h2><p>À certains endroits, les décrets biologiques comme les restes de fruits et de légumes peuvent être également jetés dans des conteneurs spéciaux. Ces déchets biologiques retournent ensuite à la terre. Mais attention : les restes de repas cuits, les produits laitiers et la viande ne doivent pas être jetés dans le bioconteneur !</p> <p>Il convient donc d’examiner exactement les ordures avant de décider de leur destination. Informez-vous de préférence au préalable auprès des voisins ou des concierges. Le tri des ordures est une composante essentielle de la protection de l’environnement. Le retraitement des ordures représente en outre une branche économique qui garantit de nombreux emplois.</p>"
+        "title": "How are garbage treated in Switzerland?",
+        "txt": "<P> In Switzerland, much of the waste is recycled. Containers for glass, plastic, metal and paper are almost everywhere. These are all valuable raw materials that can be transformed into many new products. For example, new paper can be made from old newspapers. </P> <h2> What can be thrown into a biocontent? </H2> <p> In some places, biological decrees such as fruit remnants and Vegetables can also be thrown into special containers. This biological waste then returns to the land. But beware: the remains of cooked meals, dairy products and meat should not be thrown into the biocontent! </P> <p> It is therefore necessary to examine exactly the garbage before deciding on its destination. Please contact neighbors or concierges beforehand. Garbage sorting is an essential component of protecting the environment. The recycling of garbage is also an economic branch which guarantees many jobs. </P>"
       },
       "ecole": {
-        "title": "Le système scolaire à Genève ",
+        "title": "The school system in Geneva",
         "txt": "<p>Informer sur la place des enfants, la scolarité obligatoire, le rôle des parents, des adultes face aux enfants</p>"
       },
       "tpg": {
-        "title": "Les transports en commun",
+        "title": "Public transport",
         "txt": "<p>informer sur le système de transport et parler du vélo</p>"
       }
     },
     "asile":{
+      "title":"Asylum",
       "procedure": {
-        "title": "Les procédures d’asile en Suisse",
+        "title": "Asylum procedures in Switzerland",
         "txt": "<p>Parler de la chronologie de la procédure et du déroulé de la procédure.</p><p>Parle des auditions, des décisions et des recours possibles.</p>"
       },    
       "permis": {
-        "title": "Les différents permis",
-        "txt": "<pparler des permis N, F et B.</p><p></p>Informer sur les différents statuts possibles et les différentes possibilités suivant les différents statuts.<p>Expliquer les différences (séjour, travail, voyage, formations, regroupement familial)</p>"
+        "title": "The different licenses",
+        "txt": "<p>parler des permis N, F et B.</p><p></p>Informer sur les différents statuts possibles et les différentes possibilités suivant les différents statuts.<p>Expliquer les différences (séjour, travail, voyage, formations, regroupement familial)</p>"
       }, 
       "assistance": {
-        "title": "L’assistance financière",
+        "title": "Financial assistance",
         "txt": "<p>Présenter l’assistance financière</p>"
       },  
       "urgence": {
-        "title": "L’aide d’urgence",
+        "title": "Emergency aid",
         "txt": "<p>Présenter l’aide d’urgence</p>"
       }
     }

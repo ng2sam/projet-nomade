@@ -1,104 +1,104 @@
 {
-  "title": "Arrivant -  faciliter l'intégration",
+  "title": "وصوله - تسهيل التكامل",
   "menu":{
     "directory":{
-      "title":"Contacts utiles",
-      "subTitle":"répertoire des contactes utiles pour vous aider"
+      "title":"اتصالات مفيدة",
+      "subTitle":"دليل اتصالات مفيدة لمساعدتك"
     },
     "blog":{
-      "title":"Bienvenu en suisse !",
-      "subTitle":"Un guide pour vos premières semaines en Suisse"
+      "title":"مرحبا بكم في سويسرا!",
+      "subTitle":"دليل لأسابيع الأولى في سويسرا"
     },
     "association":{
-      "title":"Associations genevoises",
-      "subTitle":"Liste des associations venant en aide aux refugiés"
+      "title":"الجمعيات جنيف",
+      "subTitle":"قائمة الجمعيات تقديم المساعدة للاجئين"
     }
   },
   "blog": {
     "env": {
-      "title":"Environnement",
+      "title":"بيئة",
       "europe": {
-        "title": "La suisse et l'Europe",
+        "title": "سويسرا وأوروبا",
         "txt": "<p>expliquez que la suisse est en Europe mais n'est pas membre de l'Union Européenne (UE)</p><p> expliquez que c 'est une décision populaire</p><p>La Suisse a des accords avec d’autres pays européens (Schengen / Dublin). Informer sur l’impact de ces accords.</p>"
       },
       "canton": {
-        "title": "Le fonctionnement de la Suisse et ses cantons",
+        "title": "تشغيل سويسرا وكانتونات لها",
         "txt": "<p>Montrer la carte de la Suisse avec les cantons</p><p>Expliquer ce qu’est un canton et ses prérogatives</p>"
       },
       "langue": {
-        "title": "Les langues officielles de la Suisse",
+        "title": "اللغات الرسمية في سويسرا",
         "txt": "<p>Montrer la distribution géographique des 4 langues, les appellations (Suisse alémanique / romande / italienne)</p><p>Montrer un exemple écrit des 4 langues (?)</p>"
       },
       "romandie": {
-        "title": "La Suisse romande",
+        "title": "الناطقة بالفرنسية سويسرا",
         "txt": "<p>Parler des différents cantons francophones (ou bilingues)</p>"
       },
       "geneve": {
-        "title": "Genève",
+        "title": "جنيف",
         "txt": "<p>Informer sur les spécificités du canton de Genève (Economique, géographique,...)</p>"
       },
       "argent": {
-        "title": "L'argent",
+        "title": "جنيف",
         "txt": "<p>Informer sur les différentes devises</p>"
       },
       "magasin": {
-        "title": "Les magasins",
+        "title": "مخازن",
         "txt": "<p>Parler des grandes enseignes et les horaires </p>"
       },
       "coutvie": {
-        "title": "Le coût de la vie / les salaires",
+        "title": "تكاليف المعيشة / الأجور",
         "txt": "<p>Parler du coût moyen d’articles de consommation courants</p><p>parler du salaire médian en Suisse / comparer avec les pays voisins</p><p>Montrer de quoi est constitué le budget d’une personne/ d’une famille indépendante</p>"
       },
       "travaille": {
-        "title": "Travailler en Suisse",
+        "title": "العمل في سويسرا",
         "txt": "<p>Parler de  l’organisation du travail</p><p>Parler des jours de travailles, des vacances et du salaire mensuel</p><p>Rappel des possibilités de travail selon les différents permis</p>"
       },
       "religion": {
-        "title": "Les religions / la laïcité",
+        "title": "الدين / العلمانية",
         "txt": "<p>Montrer que toutes les religions existent et cohabitent pacifiquement en Suisse.</p><p>Parler de la liberté de la pratique religieuse dans le respect de certaines règles</p><p>Parler sur le principe de la laïcité, au travail, à l’école, dans l’espace public.</p><p>Informer sur l’aspect privé de la pratique religieuse et des prière dans l'espace public.</p>"
       },
       "valeur": {
-        "title": "Certaines valeurs de la Suisse",
+        "title": "بعض القيم السويسرية",
         "txt": "<p>Informer sur la culture de la Suisse, la manière de vivre ensemble en suivant certaines règles de vie à connaître pour des personnes arrivant d’une autre culture</p><p>Parler de la place de la femme, le respect de toutes les personnes.</p>"
       },
       "ensemble": {
-        "title": "Vivre ensemble / le respect de certaines règles",
+        "title": "الذين يعيشون معا / لقواعد معينة",
         "txt": "<p>Donner des clés pratiques et utiles pour favoriser l’intégration</p><p>Informer sur les gestes, les attitudes qui facilitent le rapport aux autres (politesse, ponctualité, interdiction de fumer,...)</p><p>Sensibiliser les participants au recours à la justice et à la police en cas de besoin</p><p>Informer sur l’interdiction de la violence également dans la famille</p>"
       },
       "integration": {
-        "title": "L'intégration par des activités",
+        "title": "التكامل مع الأنشطة",
         "txt": "<p>Parler des associations sportives, culturelles</p>"
       },
       "ecologie": {
-        "title": "Comment les ordures sont-elles traitées en Suisse ?",
-        "txt": "<p>En Suisse, une grande partie des déchets sont recyclés. On trouve presque partout des conteneurs pour le verre, le plastique, le métal et le papier. Ce sont toutes des matières premières précieuses pouvant être transformées en de nombreux nouveaux produits. Du nouveau papier peut par exemple être fabriqué à partir de vieux journaux.</p><h2>Que peut-on jeter dans un bioconteneur ?</h2><p>À certains endroits, les décrets biologiques comme les restes de fruits et de légumes peuvent être également jetés dans des conteneurs spéciaux. Ces déchets biologiques retournent ensuite à la terre. Mais attention : les restes de repas cuits, les produits laitiers et la viande ne doivent pas être jetés dans le bioconteneur !</p> <p>Il convient donc d’examiner exactement les ordures avant de décider de leur destination. Informez-vous de préférence au préalable auprès des voisins ou des concierges. Le tri des ordures est une composante essentielle de la protection de l’environnement. Le retraitement des ordures représente en outre une branche économique qui garantit de nombreux emplois.</p>"
+        "title": "كيف يتم جمع القمامة معالجتها في سويسرا؟",
+        "txt": "<P> في سويسرا، وإعادة تدويرها الكثير من النفايات. لقد وجدنا في كل مكان تقريبا حاويات للزجاج والبلاستيك والمعادن والورق. وهذه كلها قيمة المواد الخام التي يمكن تحويلها إلى العديد من المنتجات الجديدة. يتم علبة الورق الجديد على سبيل المثال من الصحف القديمة. </p> <H2> ما الذي يمكننا رمي في Biocontainer؟ </H2> <p> في بعض الأماكن، والمراسيم البيولوجية مثل بقايا الفواكه و ويمكن أيضا أن الخضار يتم التخلص منها في حاويات خاصة. هذه النفايات البيولوجية ثم تعود الى الارض. ولكن حذار: بقايا الطعام المطبوخ، لا ينبغي أن يكون طرح منتجات الألبان واللحوم في Biocontainer </p> <P> وبالتالي لا بد من دراسة بالضبط القمامة قبل اتخاذ قرار بشأن وجهتهم !. تعلم يفضل مقدما من الجيران أو عمال النظافة. فرز النفايات هو عنصر أساسي في حماية البيئة. ويمثل إعادة معالجة النفايات أيضا القطاع الاقتصادي الذي يضمن العديد من فرص العمل. </p>"
       },
       "ecole": {
-        "title": "Le système scolaire à Genève ",
+        "title": "የጄኔቫ የትምህርት ሥርዓት",
         "txt": "<p>Informer sur la place des enfants, la scolarité obligatoire, le rôle des parents, des adultes face aux enfants</p>"
       },
       "tpg": {
-        "title": "Les transports en commun",
+        "title": "وسائل النقل العام",
         "txt": "<p>informer sur le système de transport et parler du vélo</p>"
       }
     },
     "asile":{
-      "title":"Asile",
+      "title":"حق اللجوء السياسي",
       "procedure": {
-        "title": "Les procédures d'asile en Suisse",
+        "title": "إجراءات اللجوء في سويسرا",
         "txt": "<p>Parler de la chronologie de la procédure et du déroulé de la procédure.</p><p>Parle des auditions, des décisions et des recours possibles.</p>"
       },    
       "permis": {
-        "title": "Les différents permis",
+        "title": "مختلف تصاريح",
         "txt": "<p>parler des permis N, F et B.</p><p></p>Informer sur les différents statuts possibles et les différentes possibilités suivant les différents statuts.<p>Expliquer les différences (séjour, travail, voyage, formations, regroupement familial)</p>"
       }, 
       "assistance": {
-        "title": "L'assistance financière",
-        "txt": "<p>Présenter l'assistance financière</p>"
+        "title": "المساعدة المالية",
+        "txt": "<p>Présenter l’assistance financière</p>"
       },  
       "urgence": {
-        "title": "L'aide d’urgence",
-        "txt": "<p>Présenter l'aide d’urgence</p>"
+        "title": "مساعدات طارئة",
+        "txt": "<p>Présenter l’aide d’urgence</p>"
       }
     }
   }

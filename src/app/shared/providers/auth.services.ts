@@ -1,6 +1,7 @@
 import { Storage } from '@ionic/storage';
 import { AuthHttp, JwtHelper, tokenNotExpired } from 'angular2-jwt';
-import { AlertController } from 'ionic-angular';
+import { Http, Response } from '@angular/http';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
 import { Observable } from 'rxjs/Rx';
@@ -22,7 +23,10 @@ export class AuthService {
         responseType: 'token',
         callbackURL: 'https://ng2sam-1.eu.auth0.com/mobile'
     });
-    lock = new Auth0Lock('Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', 'ng2sam-1.eu.auth0.com', {
+ options = {
+  language: 'fr'
+};
+    lock = new Auth0Lock('Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', 'ng2sam-1.eu.auth0.com',this.options, {
         auth: {
             redirect: false,
             params: {
@@ -32,15 +36,19 @@ export class AuthService {
     });
     private storage: Storage = new Storage();
     refreshSubscription: any;
-    private user: IUser;
+    public user: IUser;
     public idToken: string;
     public userId: string;
+    public globalError: string;
+    public userLang: string;
 
-    constructor(private _http: AuthHttp,
+
+    constructor(private _http: AuthHttp, public http: Http,
         private store: Store<AppState>,
         public alrt: AlertController,
         public translate: TranslateService,
-        private _eventActions: EventActions) {
+        private _eventActions: EventActions,
+        public toastCtrl: ToastController) {
 
         // Check if there is a profile saved in local storage
         this.storage.get('profile').then(profile => {
@@ -60,15 +68,21 @@ export class AuthService {
                 pays: null
             };
             //console.log(this.user);
-            this.setUserProfile();
+            this.setUserProfile(this.user._id)
+                .subscribe(
+                (data) => this.setDataToProfile(data)
+                )
+
             //this.user = profile;
         }).catch(error => {
-            console.log(error);
+            this.globalError = error;
         });
 
         this.storage.get('id_token').then(token => {
             this.idToken = token;
         });
+
+        this.getStoreLang();
 
 
     }
@@ -95,9 +109,9 @@ export class AuthService {
         return this.authenticatedObservable().subscribe(data => <boolean>data);
     }
 
-    public isAuthenticated(value: boolean) {
+   /* public isAuthenticated(value: boolean) {
         return value;
-    }
+    }*/
 
     public authenticatedObservable() {
         return Observable.fromPromise(
@@ -217,16 +231,12 @@ export class AuthService {
             pays: null
         };
         //console.log(this.user);
-        this.setUserProfile();
-        //let t = this.jwtHelper.decodeToken(token);
-        // this.storage.set('id_user', t.sub);
-        // this.userId = t.sub;
-
         this.idToken = token;
-        //this.store.dispatch(this._eventActions.loadEvents());
-        //this.store.dispatch(this._errActions.loadError());
-        // this.scheduleRefresh();
-        this.lock.hide();
+        this.scheduleRefresh();
+        return this.user;
+
+
+
     }
 
     getUser(): IUser {
@@ -241,16 +251,15 @@ export class AuthService {
             (data) => this.setDataToProfile(data)
             )
     }
-    setUserProfile() {
+    setUserProfile(id) {
         console.log(this.user);
-        this._http.get('https://migrant-app.herokuapp.com/users/' + this.user._id)
+        return this.http.get('https://migrant-app.herokuapp.com/users/' + id)
             .map(res => res.json())
-            .subscribe(
-            (data) => this.setDataToProfile(data)
-            )
+
     }
     setDataToProfile(data: any) {
         console.log("dd", data);
+        
         this.user.picture = data.picture;
         this.user.locale = data.locale;
         this.user.mineur = data.mineur;
@@ -258,46 +267,69 @@ export class AuthService {
         this.user.name = data.name;
         this.user.email = data.email;
         this.user.pays = data.pays;
+        return this.user;
+        //onsole.log("SUCCESS", this.user);
+
     }
 
 
     selectLangue() {
-    let alrt = this.alrt.create();
-    alrt.setTitle('Choisissez votre langue');
+        let alrt = this.alrt.create();
+        alrt.setTitle('Choisissez votre langue');
 
-    alrt.addInput({
-      type: 'radio',
-      label: 'I speak english',
-      value: 'en',
-      checked: false
-    });
-    alrt.addInput({
-      type: 'radio',
-      label: 'Anigu waan hadli Soomaali',
-      value: 'so',
-      checked: false
-    });
-    alrt.addInput({
-      type: 'radio',
-      label: 'أنا أتكلم العربية',
-      value: 'ar',
-      checked: false
-    });
-    alrt.addInput({
-      type: 'radio',
-      label: 'እኔ አማርኛ መናገር',
-      value: 'et',
-      checked: false
-    });
-    
-    alrt.addButton('Cancel');
-    alrt.addButton({
-      text: 'OK',
-      handler: data => {
-        this.translate.use(data);
-      }
-    });
-    alrt.present();
-  }
+        alrt.addInput({
+            type: 'radio',
+            label: 'I speak english',
+            value: 'en',
+            checked: false
+        });
+        alrt.addInput({
+            type: 'radio',
+            label: 'Anigu waan hadli Soomaali',
+            value: 'so',
+            checked: false
+        });
+        alrt.addInput({
+            type: 'radio',
+            label: 'أنا أتكلم العربية',
+            value: 'ar',
+            checked: false
+        });
+        alrt.addInput({
+            type: 'radio',
+            label: 'እኔ አማርኛ መናገር',
+            value: 'et',
+            checked: false
+        });
+
+        alrt.addButton('Cancel');
+        alrt.addButton({
+            text: 'OK',
+            handler: data => {
+                this.storage.set('lang', data);
+                this.translate.use(data);
+                this.setStoreLang(data);
+                console.log(this.userLang);
+            }
+        });
+        alrt.present();
+    }
+
+    setStoreLang(lang: string){
+        this.storage.set('lang', lang);
+        this.userLang = lang;
+    }
+
+    getStoreLang(){
+ this.storage.get('lang').then(data => this.userLang = data)
+    }
+
+    alertToast(message: string) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000
+        });
+        toast.present();
+    }
 
 }

@@ -1,9 +1,14 @@
 <ion-header>
   <ion-navbar no-border-bottom color="danger">
     <ion-buttons start>
-      <button ion-button icon-only (click)="auth.selectLangue()">
+   <!--   <button ion-button icon-only (click)="auth.selectLangue()">
         <ion-icon name="md-chatboxes"></ion-icon>
-      </button>
+      </button> -->
+    <button id="notification-button" ion-button icon-only (click)="auth.selectLangue()">
+        <ion-icon name="md-chatboxes" >
+          <ion-badge id="notifications-badge" color="primary">{{auth.userLang}}</ion-badge>
+        </ion-icon>              
+    </button>
     </ion-buttons>
     <ion-title>
       Bienvenu en Suisse !

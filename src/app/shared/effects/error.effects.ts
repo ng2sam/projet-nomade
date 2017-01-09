@@ -23,8 +23,8 @@ export class ErrorEffects {
 
     @Effect() getError$ = this.actions$
         .ofType(ErrorActions.GET_ERROR)
-       // .map(action => action.payload)
-       // .map((payload)=>this._errorActions.getError(payload))
-        .filter(()=>false);
+        .map(action => action.payload)
+        .map((payload)=>this._errorActions.getError(payload))
+       // .filter(()=>false);
 
 }

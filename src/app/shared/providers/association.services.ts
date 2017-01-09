@@ -7,16 +7,17 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { IAssociation } from '../models';
-import { AppState } from '../providers';
+import { AppState, AuthService } from '../providers';
+import { ErrorActions } from '../actions';
 
 const API_URL = 'https://migrant-app.herokuapp.com/associations/';
 
 
 @Injectable()
 export class AssociationServices {
-      error:  Observable<any>;
-    constructor(private _http: AuthHttp,  private store: Store<AppState>) {
-         this.error = this.store.select('error');
+      error: string;
+    constructor(private _http: AuthHttp,  private store: Store<AppState>, private _errAction:ErrorActions) {
+        //this.error = this.store.select('error');
         // this.store.dispatch(this._errAction.loadError());
     }
 
@@ -52,10 +53,13 @@ export class AssociationServices {
 
     private handleError(error: Response) {
         console.log(error);
-       // this.store.dispatch(this._errAction.getError(error));
+        //this.store.dispatch(this._errAction.getError(error.toString()));
         //this.store.dispatch(this._associationActions.loadAssociationFailed(Observable.throw(error)));
+        this.error = error.toString();
+      
         return Observable.throw(error.toString());
-    }
+        //return Observable.from([ Observable.throw(error.toString()), this.store.dispatch(this._errAction.getError(error.toString()))]);
+}
 
 
 }

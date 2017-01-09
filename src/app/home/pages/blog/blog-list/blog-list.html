@@ -1,6 +1,6 @@
 <ion-list>
   <ion-item ><span ></span></ion-item>
- <ion-card *ngFor="let article of articles" (click)="onSelect.emit(article)">
+ <ion-card *ngFor="let article of articles" (click)="onSelect.emit({article:article, type:type})">
         <img [src]="article.img">
         <ion-card-content>
         <ion-item>

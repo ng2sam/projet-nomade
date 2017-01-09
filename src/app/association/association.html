@@ -4,9 +4,6 @@
       Associations
     </ion-title>
     <ion-buttons end color="primary">
-      <!-- <button>
-          <ion-icon name="add" ></ion-icon>
-      </button>-->
       <ion-item class="item-avatar-profile" no-lines> 
         <ion-avatar item-right style="position: relative;" *ngIf="user?.name">
           <div *ngIf="!user.picture">
@@ -22,14 +19,26 @@
   </ion-navbar>
 </ion-header>
 <ion-content style="background-color:#F5F5F5;">
+    {{user | json}}
   <!-- {{(associations | async | json )}}-->
-  <div *ngIf="user" style="background-color:transparent;">
-  <div *ngIf="user.pays && user.locale">
+  <!--<div *ngIf="user?.name" style="background-color:transparent;">-->
+    <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($event)"></page-association-list>
+
+     <!-- <div id="guardAssociation" *ngIf="!isLogged" style="height:100%;width:100%;position:relative;">
+        <i class="mdi mdi-shield-outline"  style="position:absolute;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);font-size: 250px;color: lightgrey;"></i> 
+      </div>-->
+      <guard-stat [hidden]="(associations| async)?.length > 0" (click)="refresh()"></guard-stat>
+      <!--<div id="refreshAssociation" *ngIf="!isLogged && !associations | async" style="position:absolute;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);font-size: 250px;color: lightgrey;">
+        <i class="mdi mdi-refresh"></i> 
+      </div>-->
+ 
+ <!--<div *ngIf="user.pays && user.locale">
     <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($event)"></page-association-list>
   </div>
   <div *ngIf="!user.pays || !user.locale" padding>
     {{user | json}}
     <button ion-button block (click)="updateProfile()">mettre à jours le profile</button>
-  </div>
-  </div>
+  </div>-->
+ <!--fdsfdsfdsfsdfds <button (click)="refresh()">dfdsf</button>
+  </div>-->
 </ion-content>

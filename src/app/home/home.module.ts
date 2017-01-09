@@ -5,7 +5,7 @@ import { HomePage } from './home';
 import { MenuPage } from './pages/menu/menu';
 import { BlogPage, BlogListPage, BlogDetailPage } from './pages';
 import { DirectoryModule} from '../directory';
-import { ElasticHeader } from '../../components/elastic-header/elastic-header';
+
 import { TextAvatar } from '../../components/text-avatar/text-avatar';
 const pages: Array<any> = [
   HomePage,
@@ -22,7 +22,7 @@ const pages: Array<any> = [
     IonicModule.forRoot(HomePage),
     //IonicModule.forRoot(MenuPage),
   ],
-  declarations: [...pages,   ElasticHeader],
+  declarations: [...pages],
   providers: [],
   entryComponents: [...pages],
   exports: [

@@ -1,7 +1,7 @@
 [
     {
         "categorie": "SOCIAL ET JURIDIQUE",
-        "color": "#ffccbc",
+        "color": "#FF5722",
         "mdiClass": "mdi mdi-scale-balance",
         "contacts": [
             {
@@ -19,8 +19,8 @@
                 "description": "Service social et consultations juridiques",
                 "adress": "Rue de Carouge 53, 1211 Genève",
                 "tel": "022 708 04 44",
-                "lat": 46.193407,
-                "lng": 6.144055
+                "lat": 46.191611,
+                "lng": 6.134854
             },
             {
                 "id": 3,
@@ -28,8 +28,8 @@
                 "description": "Promotion du dialogue entre Suisses et immigrés. Consultations juridiques",
                 "adress": "",
                 "tel": "022 304 48 60",
-                "lat": 0,
-                "lng": 0
+                "lat": 46.191591,
+                "lng": 6.135036
             },
             {
                 "id": 4,
@@ -44,7 +44,7 @@
     },
     {
         "categorie": "SANTE",
-        "color": "#ffcdd2",
+        "color": "#F44336",
         "mdiClass": "mdi mdi-heart-pulse",
         "contacts": [
             {
@@ -78,7 +78,7 @@
     },
     {
         "categorie": "SOUTIEN PSYCHOLOGIQUE",
-        "color": "#e1bee7",
+        "color": "#9C27B0",
         "mdiClass": "mdi mdi-voice",
         "contacts": [
             {
@@ -99,7 +99,7 @@
     },
     {
         "categorie": "ECOLE ET EDUCATION",
-        "color": "#c5cae9",
+        "color": "#3F51B5",
         "mdiClass": "mdi mdi-school",
         "contacts": [
             {
@@ -124,7 +124,7 @@
     },
     {
         "categorie": "INTEGRATION",
-        "color": "#b2dfdb",
+        "color": "#009688",
         "mdiClass": "mdi mdi-account-multiple",
         "contacts": [
             {
@@ -158,7 +158,7 @@
     },
     {
         "categorie": "CULTURE ET FORMATION D'ADULTES",
-        "color": "#f0f4c3",
+        "color": "#E91E63",
         "mdiClass": "mdi mdi-school",
         "contacts": [
             {

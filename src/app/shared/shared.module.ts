@@ -6,11 +6,14 @@ import { Storage } from '@ionic/storage';
 import { AuthConfig, AuthHttp } from 'angular2-jwt';
 import { TranslateService, TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate/ng2-translate';
 import { TextAvatar } from '../../components/text-avatar/text-avatar';
+import { ColorGenerator } from '../../components/text-avatar/colorGenerator.services';
+import { ElasticHeader } from '../../components/elastic-header/elastic-header';
+import { GuardStat } from '../../components/guard/guard-stat';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { BlogServices, EventServices, DirectoryServices, AuthService, AssociationServices } from './providers';
-import { EventActions, AssociationActions } from './actions';
+import { EventActions, AssociationActions, ErrorActions } from './actions';
 import { EventEffects, AssociationEffects } from './effects';
 import { EventsReducer, EventReducer, AssociationReducer, AssociationsReducer  } from './reducer';
 
@@ -33,12 +36,14 @@ const providers: Array<any> = [
   TranslateService,
   EventActions,
   AssociationActions,
+  ErrorActions,
   EventServices,
   AssociationServices,
   DirectoryServices,
   BlogServices,
   Storage,
   AuthService,
+  ColorGenerator,
     {
       provide: AuthHttp,
       useFactory: getAuthHttp,
@@ -60,9 +65,9 @@ const providers: Array<any> = [
      StoreDevtoolsModule.instrumentOnlyWithExtension(),
      ReactiveFormsModule
   ],
-  declarations: [TextAvatar],
+  declarations: [TextAvatar, GuardStat, ElasticHeader],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, ...providers],
-  exports: [TranslateModule, EffectsModule, StoreModule, StoreDevtoolsModule, TextAvatar]
+  exports: [TranslateModule, EffectsModule, StoreModule, StoreDevtoolsModule, TextAvatar, GuardStat, ElasticHeader]
 })
 export class SharedModule {
 }

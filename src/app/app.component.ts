@@ -30,17 +30,18 @@ export class MyApp {
   }
 
   translationConfig() {
-    let userLang = navigator.language.split('-')[0];
-    userLang = /(fr|en)/gi.test(userLang) ? userLang : 'fr';
-    console.log(navigator.language.split('-')[0]);
-    console.log(userLang);
     this.translate.setDefaultLang('fr');
+    let userLang = navigator.language.split('-')[0];
+    if(this.auth.userLang !== ''){
+       userLang = this.auth.userLang;
+    }
+userLang = /(fr|en|so|et|ar)/gi.test(userLang) ? userLang : 'fr';
+    console.log(userLang);
+    
+    this.auth.setStoreLang(userLang);
     this.translate.use(userLang);
-
   }
 
    ngOnInit() {
-      // Let's navigate from TabsPage to Page1
-      // this.nav.push(MapPage);
    }
 }

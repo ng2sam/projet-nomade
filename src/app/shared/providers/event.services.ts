@@ -57,74 +57,7 @@ export class EventServices {
         return Observable.throw(error.toString());
     }
 
-   /* getAll(): Observable<IEvent[]> {
-        return this._http.get(this._apiUrl+"/events")
-            .map((res: Response) =>res.json()) 
-            .catch(this.handleError);
-    }
 
-    getById(id: number): Observable<IEvent> {
-        return this._http.get(this._apiUrl +"/event/${id}")
-                .map((response: Response) => <IEvent> response.json())
-                .do(data => console.log('All: ' +  JSON.stringify(data)))
-                .catch(this.handleError);
-    }
-
-    add(event: IEvent): Observable<IEvent> {
-    //let headers = new Headers({ 'Content-Type': 'application/json' });
-    //let options = new RequestOptions({ headers: headers });
-
-    return this._http.post(this._apiUrl +"/event", { event })
-            .map((response: Response) => <IEvent> response.json())
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
-            .catch(this.handleError);
-    }
-
-    // passer les changements ?
-    update(id:number, event: IEvent): Observable<IEvent> {
-    //let headers = new Headers({ 'Content-Type': 'application/json' });
-    //let options = new RequestOptions({ headers: headers });
-
-    return this._http.post(this._apiUrl + "/event/${event.id}", { event })
-            .map((response: Response) => <IEvent> response.json())
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
-            .catch(this.handleError);
-    }
-
-    delete(event: IEvent): Observable<IEvent> {
-    //let headers = new Headers({ 'Content-Type': 'application/json' });
-    //let options = new RequestOptions({ headers: headers });
-
-    return this._http.delete(this._apiUrl + "/event/${event.id}")
-            .map((response: Response) => <IEvent> response.json())
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
-            .catch(this.handleError);
-    }
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
-    }*/
-
-// --
-/*
-  addEvent(event: IEvent): void {
-    this.store.dispatch(
-      this._eventAction.addEvent(event)
-    );
-  }
-
-  deleteEvent(event: IEvent): void {
-    this.store.dispatch(
-      this._eventAction.deleteEvent(event.id)
-    );
-  }
-
-  updateEvent(event: IEvent, changes: any): void {
-    this.store.dispatch(
-      this._eventAction.updateEvent(event.id, changes)
-    );
-
-  }*/
 
 }
 
