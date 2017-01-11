@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 
 
 const initialState: IEvent = {
-    _id: "0",
+    _id: null,
     name: '',
     description:'',
     date: null,

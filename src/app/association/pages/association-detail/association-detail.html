@@ -1,10 +1,19 @@
-<ion-header style="background-color:#2196f3;">
-  <ion-navbar class="title" >
-    <ion-title>{{ (association | async)?.name }}</ion-title>
+<ion-header no-shadow>
+  <ion-navbar transparent hideBackButton>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content elastic-header>
-  <div class="background-image"></div>
+    <ion-fab right bottom >
+   <button ion-fab color="danger"><ion-icon name="md-heart"></ion-icon></button>
+  </ion-fab>
+  <div class="background-image">
+        <button class="customIcon" ion-button (click)="goBack()">
+            <ion-icon  name="arrow-back"></ion-icon>
+        </button>
+
+  </div>
   <div class="main-content">
     <div style="min-height:50px;padding: 20px;background-color:#2196f3;color:white">
       <h2>{{ (association | async)?.name }}</h2>
@@ -12,12 +21,21 @@
       <p>{{ (association | async)?.schedule }}</p>
     </div>
     <hr>
+    <div padding>
+    <ion-chip>
+      <ion-icon name="md-female" color="primary"></ion-icon>
+      <ion-label>Femmes avec et sans enfants</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon name="md-happy" color="primary"></ion-icon>
+      <ion-label>Mineur non-accompagné</ion-label>
+    </ion-chip>
+    </div><hr>
     <div style="padding: 20px;">
       <h3>Contact</h3>
       <p>Adresse : {{ (association | async)?.adress }}</p>
-      <p>Adresse : {{ (association | async)?.adress }}</p>
-      <p>Adresse : {{ (association | async)?.tel }}</p>
-      <p>Adresse : {{ (association | async)?.website }}</p>
+      <p>N° téléphone : {{ (association | async)?.tel }}</p>
+      <p>site internet : {{ (association | async)?.website }}</p>
     </div>
     <hr>
     <div style="padding: 20px;">

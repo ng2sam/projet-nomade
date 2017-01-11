@@ -55,9 +55,11 @@ export class EventFormPage implements OnInit {
       this._event.name = value.name;
       this._event.date = value.date;
       this._event.description = value.description;
-      this._event.organisatorId = this.userId;
-      this._event.participants = [this.userId, this.userId]
+      this._event.organisateur = this.userId;
+      this._event.eventType =value.eventType;
+     // this._event.participants = [this.userId, this.userId]
         this.save.emit(this._event);
+        this.close();
     }
     //this._event.name = this.form.controls['name':''];
     // this.save.emit(this._event);

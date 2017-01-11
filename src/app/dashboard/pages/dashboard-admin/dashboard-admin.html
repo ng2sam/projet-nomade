@@ -1,0 +1,54 @@
+<div style="padding-top:20px;" padding>
+
+  <h3 style="color:#00695c">Notification</h3>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="md-mail" item-left></ion-icon>
+      messsage non-lus
+      <ion-badge item-right>23</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-calendar" item-left></ion-icon>
+      évenements cette semaine
+      <ion-badge item-right>2</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="ios-people" item-left></ion-icon>
+      nouveau followers cette semaine
+      <ion-badge item-right>3</ion-badge>
+    </ion-item>
+  </ion-list>
+ 
+  <h3 style="color:#00695c">Messagerie</h3>
+  <ion-list>
+    <ion-list-header>Aujourd'hui<span item-right style="color: #00bfa5">voir tous</span></ion-list-header>
+    <ion-item class="item-avatar-profile">
+      <ion-avatar item-left style="position: relative;">
+        <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Samuel'"></span>
+        <img text-avatar [srcColor]="'Samuel'" style="position: relative; z-index: 1;">
+      </ion-avatar>
+      <h2>Samuel</h2>
+      <p>This town ain't big enough for the two of us!</p>
+      <ion-note item-right>12:23</ion-note>
+    </ion-item>
+    <ion-list-header>Cette semaine<span item-right  style="color: #00bfa5">voir tous</span></ion-list-header>
+    <ion-item class="item-avatar-profile">
+      <ion-avatar item-left style="position: relative;">
+        <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Paule'"></span>
+        <img text-avatar [srcColor]="'Paule'" style="position: relative; z-index: 1;">
+      </ion-avatar>
+      <h2>Paule</h2>
+      <p>This town ain't big enough for the two of us!</p>
+      <ion-note item-right>Lundi, 15:43</ion-note>
+    </ion-item>
+    <ion-item class="item-avatar-profile">
+      <ion-avatar item-left style="position: relative;">
+        <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'admin'"></span>
+        <img text-avatar [srcColor]="'admin'" style="position: relative; z-index: 1;">
+      </ion-avatar>
+      <h2>admin</h2>
+      <p>This town ain't big enough for the two of us!</p>
+      <ion-note item-right>Mercredi, 17:23</ion-note>
+    </ion-item>
+  </ion-list>
+</div>

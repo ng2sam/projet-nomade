@@ -1,0 +1,42 @@
+<!--
+  Generated template for the Dashboard page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-shadow>
+
+  <ion-navbar transparent hideBackButton>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content elastic-header>
+       <ion-fab bottom right  #fabContainer>
+    <button ion-fab color="teal"><ion-icon name="md-settings"></ion-icon></button>
+    <ion-fab-list side="top" >
+      <button ion-fab ><ion-icon name="md-mail"></ion-icon></button>
+      <button ion-fab (click)="goEvent(fabContainer)"><ion-icon name="md-calendar"></ion-icon></button>
+      <button ion-fab><ion-icon name="ios-people"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="background-image">
+
+        <button class="customIcon" ion-button (click)="goBack()">
+            <ion-icon  name="arrow-back"></ion-icon>
+        </button>
+  </div>
+  <div class="main-content">
+
+    <div style="min-height:50px;padding: 20px;background-color:#00796b;color:white">
+      <h2>{{user?.name}}</h2>
+    </div>
+    <div style="min-height:10px;padding: 2px;padding-left:20px;background-color:#00897b;color:white">
+      <p><strong>{{user?.role}}</strong></p>
+    </div>
+       <page-dashboard-admin></page-dashboard-admin>
+  </div>
+ 
+</ion-content>

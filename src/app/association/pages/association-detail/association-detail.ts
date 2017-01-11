@@ -65,12 +65,9 @@ export class AssociationDetailPage implements OnInit, OnDestroy {
     this.idAssociation.unsubscribe();
   }
 
-  goBack(savedAssociation: IAssociation = null) {
-    // this.close.emit(savedAssociation);
-    console.log("fddsfsdf");
-   // this.nav.pop();
-    // if (this.editMode) {  }
-  }
+goBack(){
+  this.nav.pop();
+}
   
 
   goEdit(fab: FabContainer) {
@@ -88,7 +85,7 @@ export class AssociationDetailPage implements OnInit, OnDestroy {
       console.log("association updatedd");
       this.store.dispatch(this._associationActions.saveAssociation(association));
     }
-    this.goBack(association);
+   // this.goBack(association);
   }
 
 }

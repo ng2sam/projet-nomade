@@ -1,6 +1,6 @@
 <div>
-  <ion-segment [(ngModel)]="pet" style="background-color:#iE8EAF6;color:white;">
-    <ion-segment-button value="kittens">
+  <ion-segment [(ngModel)]="pet" style="background-color:#3F51B5;" no-border-top>
+    <ion-segment-button value="kittens" >
       categories
     </ion-segment-button>
     <ion-segment-button value="puppies">
@@ -24,7 +24,7 @@
         </ion-col>
       </ion-row>
       </ion-list-header>
-      <ion-item *ngFor="let contact of contactCat.contacts | directoryFilter:listFilter" (click)="onSelect.emit(contact)">{{ contact.name }}</ion-item>
+      <ion-item *ngFor="let contact of contactCat.contacts | directoryFilter:listFilter" (click)="onSelect.emit({contact:contact,color:contactCat.color})">{{ contact.name }}</ion-item>
       
     </ion-list>
   </div>

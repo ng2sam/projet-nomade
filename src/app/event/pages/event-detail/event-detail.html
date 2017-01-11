@@ -1,4 +1,100 @@
-<ion-header color="primary">
+<ion-header no-shadow>
+  <ion-navbar transparent hideBackButton>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content elastic-header [hidden]="editMode">
+  <ion-fab bottom right #fabContainer>
+    <button ion-fab color="purple"><ion-icon name="md-settings"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="goEdit(fabContainer)"><ion-icon name="md-create"></ion-icon></button>
+      <button ion-fab><ion-icon name="md-trash"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="background-image">
+    <button class="customIcon" ion-button (click)="close()">
+            <ion-icon  name="arrow-back"></ion-icon>
+        </button>
+  </div>
+  <div class="main-content">
+    <div id="detailMod" [hidden]="editMode">
+      <div style="min-height:50px;padding: 20px;background-color:#673ab7;color:white">
+        <h2>{{ (event | async)?.name }}</h2>
+        <p>{{ (event | async)?.description }}</p>
+        <p style="font-size:2em;">{{ (event | async)?.date | date }}</p>
+      </div>
+      <div padding style="background-color:#7e57c2">
+        <ion-item class="item-avatar-profile" style="background-color:transparent" text-wrap>
+          <ion-avatar item-left style="position: relative;">
+            <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'AMIC'"></span>
+            <img text-avatar [srcColor]="'AMIC'" style="position: relative; z-index: 1;">
+          </ion-avatar>
+          <h2 style="color:white;font-weight: bolder;">{{(event | async)?.organisateur}}</h2>
+        </ion-item>
+      </div>
+      <hr>
+      <div style="padding: 20px;">
+        <h3 style="color:#673ab7">Personne de contact</h3>
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="https://randomuser.me/api/portraits/women/34.jpg">
+          </ion-avatar>
+          <h2>{{ (event | async)?.organisateur }}</h2>
+        </ion-item>
+      </div>
+      <hr>
+      <div style="padding: 20px;">
+        <h3 style="color:#673ab7">Participants</h3>
+        <ion-list>
+          <ion-item class="item-avatar-profile">
+            <ion-avatar item-left style="position: relative;">
+              <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Luna'"></span>
+              <img text-avatar [srcColor]="'Luna'" style="position: relative; z-index: 1;">
+            </ion-avatar>
+            <h2>Luna</h2>
+          </ion-item>
+          <ion-item class="item-avatar-profile">
+            <ion-avatar item-left style="position: relative;">
+              <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Samuel'"></span>
+              <img text-avatar [srcColor]="'Samuel'" style="position: relative; z-index: 1;">
+            </ion-avatar>
+            <h2>Samuel</h2>
+          </ion-item>
+          <ion-item class="item-avatar-profile">
+            <ion-avatar item-left style="position: relative;">
+              <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Aline'"></span>
+              <img text-avatar [srcColor]="'Aline'" style="position: relative; z-index: 1;">
+            </ion-avatar>
+            <h2>Aline</h2>
+          </ion-item>
+          <ion-item class="item-avatar-profile">
+            <ion-avatar item-left style="position: relative;">
+              <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Farouk'"></span>
+              <img text-avatar [srcColor]="'Farouk'" style="position: relative; z-index: 1;">
+            </ion-avatar>
+            <h2>Farouk</h2>
+          </ion-item>
+          <ion-item class="item-avatar-profile">
+            <ion-avatar item-left style="position: relative;">
+              <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="'Lee'"></span>
+              <img text-avatar [srcColor]="'Lee'" style="position: relative; z-index: 1;">
+            </ion-avatar>
+            <h2>Lee</h2>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+  <!--<div id="editMod" [hidden]="!editMode">
+  <page-event-form [event]="event | async" [form]="form" (save)="save($event)"></page-event-form>
+  </div>-->
+</ion-content>
+<ion-content id="editMod" [hidden]="!editMode" class="no-scroll">
+  <div style="padding:10px">
+    <page-event-form [event]="event | async" [form]="form" (save)="save($event)"></page-event-form>
+  </div>
+</ion-content>
+<!--<ion-header color="teal">
   <div id="headerDetailView" [hidden]="editMode">
     <ion-navbar class="title">
       <ion-title>{{ (event | async)?.name }}</ion-title>
@@ -85,39 +181,4 @@
   </div>
 
 
-
-  <!--
-<ion-list *ngIf="event">
-    <ion-list-header>
-      Event info
-</ion-list-header>
-    <ion-item>
-      <i class="mdi mdi-calendar-text mdi-24px" item-left></i>
-      
-      <ion-note item-right>
-      {{ event.name }}
-      </ion-note>
-  </ion-item>
-      <ion-item>
-      <ion-icon name='flask' item-left></ion-icon>
-      nom event
-      <ion-note item-right>
-      {{ event.name }}
-      </ion-note>
-  </ion-item>
-      <ion-item>
-      <ion-icon name='flask' item-left></ion-icon>
-      nom event
-      <ion-note item-right>
-      {{ event.name }}
-      </ion-note>
-  </ion-item>
-      <ion-item>
-      <ion-icon name='flask' item-left></ion-icon>
-      nom event
-      <ion-note item-right>
-      {{ event.name }}
-      </ion-note>
-  </ion-item>
-</ion-list>-->
-</ion-content>
+</ion-content>-->

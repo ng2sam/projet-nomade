@@ -13,9 +13,14 @@
   <div id="mapContainer">
     <page-map #mapPage [mapData]="contact" *ngIf="contact"></page-map>
   </div>
-  <div *ngIf="contact">
+  <div *ngIf="contact" [style.background-color]="colorContact" class="contactHeader">
     <h3>{{ contact.name }}</h3>
-    <p>{{ contact.description}}
+    <p>{{ contact.description}}</p>
+  </div>
+  <div *ngIf="contact" style="padding: 20px;">
+      <h3 [style.color]="colorContact">Contact</h3>
+      <p>Adresse : {{ contact.adress }}</p>
+      <p>N° téléphone : {{ contact.tel }}</p>
   </div>
   <div id="directionsPanel"></div>
 </ion-content>

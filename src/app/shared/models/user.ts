@@ -3,6 +3,7 @@ export interface IUser {
     name: string;
     email: string;
     picture: string;
+    role:string;
     mineur: boolean;
     nonAccompagne: boolean;
     pays:string;

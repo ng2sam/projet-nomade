@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/rx';
 import { AuthService  } from '../shared/providers/';
 import { ColorGenerator } from '../../components/text-avatar/colorGenerator.services'
 import { IUser  } from '../shared/models/';
+import { DashboardPage } from '../dashboard/dashboard';
 
 @Component({
   selector: 'page-home',
@@ -74,6 +75,10 @@ export class HomePage {
   select(event) {
       console.log(event);
       this.selectedEventMenu = event;
+  }
+
+  goDashboard(){
+      this.navCtrl.push(DashboardPage);
   }
 
 }

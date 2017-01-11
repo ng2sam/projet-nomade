@@ -1,15 +1,20 @@
-
-
-
-
+<span style="margin:10px;line-height: 40px;">Aujourd'hui</span>
 <ion-list>
-  <ion-item *ngFor="let event of events"  (click)="onSelect.emit(event)">
-    <ion-avatar item-left style="position: relative;">
-    <i class="mdi mdi-calendar-clock mdi-36px" style="position: absolute;left:2.5px; top: 2px;z-index: 10;" ></i>
-    <img id="myImage" src="http://placehold.it/350x350/00e676" style="position: relative; z-index: 1;">
-    </ion-avatar>
+  <ion-item *ngFor="let event of events" (click)="onSelect.emit(event)">
+<ion-badge item-left color="secondary" *ngIf="+event.eventType < 1">publique</ion-badge>
+      <ion-badge item-left color="danger" *ngIf="+event.eventType > 0">privé</ion-badge>
     <h2>{{ event.name }}</h2>
-    <h3>{{ event.date | date:'yMMMMd' }}</h3>
     <p>{{ event.description }}</p>
+    <ion-note item-right>{{event.date | date:'dd MMM y'}}</ion-note>
+  </ion-item>
+</ion-list>
+<span style="margin:10px;line-height: 40px;">Cette semaine</span>
+<ion-list>
+  <ion-item *ngFor="let event of events" (click)="onSelect.emit(event)">
+    <ion-badge item-left color="secondary" *ngIf="+event.eventType < 1">publique</ion-badge>
+    <ion-badge item-left color="danger" *ngIf="+event.eventType > 0">privé</ion-badge>
+    <h2>{{ event.name }}</h2>
+    <p>{{ event.description }} </p>
+    <ion-note item-right>{{event.date | date:'dd MMM y'}}</ion-note>
   </ion-item>
 </ion-list>

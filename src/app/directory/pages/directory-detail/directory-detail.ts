@@ -14,15 +14,16 @@ import { MapPage } from '../map/map';
 })
 export class DirectoryDetailPage implements OnInit {
   contact: any;
-
+  colorContact: string;
   @ViewChild('mapPage') MapPage: MapPage;
 
   constructor(private navCtrl: NavController, private params: NavParams) {
-    
+
   }
 
   ngOnInit() {
-    this.contact = this.params.get('param');
+    this.contact = this.params.get('param').contact;
+    this.colorContact = this.params.get('param').color;
 
     setTimeout(() => {
       this.MapPage.loadMap();

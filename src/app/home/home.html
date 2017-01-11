@@ -6,10 +6,9 @@
 
 
 <ion-content style="background-color:#FFFFFF">
-  {{user|json}}
   <ion-fab right top >
-    <button *ngIf="_auth.user?.name !== null" (click)="_auth.login()"ion-fab color="primary"><ion-icon name="md-home"></ion-icon></button>
-        <button *ngIf="_auth.user?.name === null" (click)="_auth.login()"ion-fab color="secondary"><ion-icon name="ios-contact-outline"></ion-icon></button>
+    <button *ngIf="_auth.user?.name !== null" (click)="goDashboard()"ion-fab color="teal"><ion-icon name="md-home"></ion-icon></button>
+        <button *ngIf="_auth.user?.name === null" (click)="_auth.login()"ion-fab color="primary"><ion-icon name="ios-contact"></ion-icon></button>
   </ion-fab>
   <page-menu></page-menu>
 </ion-content>

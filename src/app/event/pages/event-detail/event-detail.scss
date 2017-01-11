@@ -1,23 +1,17 @@
 page-event-detail {
-  .toolbar-background {
+  /*.toolbar-background {
     width: 0%;
   }
   .title {
     height: 200px;
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://s-media-cache-ak0.pinimg.com/736x/71/7b/29/717b29abc74372833c3e784c55c3828a.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
-    /* pour anciens Chrome et Safari */
-    //  -webkit-filter: blur(10px);
-    //  -webkit-transform: translate3d(0, 0, 0);
+
     background-size: cover;
-    /* version standardisée */
-    //  z-index: 1;
+
   }
   .toolbar-title-md {
-    // -webkit-filter: none;
-    // -webkit-transform: none;
-    // padding: 0 12px;
-    //margin-top: 50%;
+
     font-size: 4rem;
     font-weight: 500;
     color: white;
@@ -25,7 +19,7 @@ page-event-detail {
   .bar-button-default-md,
   .bar-button-clear-md-default,
   .bar-button-md-default {
-    //  z-index: 2000000;
+  
     color: white;
     margin-bottom: 35%;
     font-size: 2rem;
@@ -39,5 +33,53 @@ page-event-detail {
   ion-avatar span {
     font-size: 30px;
     color: white;
+  }*/
+.background-image {
+        background-image: url("https://cdn.vectorstock.com/i/thumb-large/74/78/7457478.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 50vw;
+    }
+ 
+    .main-content {
+       // padding: 20px;
+           width: 100%;
+        background-color: white;
+        position: absolute;
+    }
+
+ion-navbar .toolbar-background {
+    background: transparent;
+}
+
+ion-content .scroll-content {
+    margin-top:0px !important;
+}
+  .customIcon {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    box-shadow : none;
+    background-color: transparent;}
+
+ion-header{
+        z-index: 0;
+}
+  .item-avatar-profile {
+    ion-avatar img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    ion-avatar span {
+      font-size: 30px;
+      color: white;
+    }
+    background-color: transparent;
+  }
+
+  
+      .no-scroll .scroll-content{
+     overflow: hidden;
+
   }
 }

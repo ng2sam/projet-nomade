@@ -1,3 +1,4 @@
+
 <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
 
   <ion-item class="eventName">
@@ -13,10 +14,17 @@
     <ion-label floating>Description</ion-label>
     <ion-input formControlName="description" type="textarea"></ion-input>
   </ion-item>
-
-  <button ion-button block type="submit" [disabled]="!form.valid">Submit</button>
+ <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select formControlName="eventType">
+      <ion-option value="0">Public</ion-option>
+      <ion-option value="1">Privé</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-input hidden formControlName="organisateur" type="text"></ion-input>
+  <button color="purple" ion-button block type="submit" [disabled]="!form.valid">Enregistrer</button>
 </form>
-<button ion-button block (click)="close()">Annuler</button>
+<button color="purple" ion-button block (click)="close()">Annuler</button>
 <br>
 <p>Value: {{ form.value | json }}</p>
 <p>Validation status: {{ form.status }}</p>

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="purple">
     <ion-title>
       Associations
     </ion-title>
@@ -19,7 +19,6 @@
   </ion-navbar>
 </ion-header>
 <ion-content style="background-color:#F5F5F5;">
-    {{user | json}}
   <!-- {{(associations | async | json )}}-->
   <!--<div *ngIf="user?.name" style="background-color:transparent;">-->
     <page-association-list [associations]="associations | async" [selectedAssociation]="selectedAssociation" (onSelect)="select($event)"></page-association-list>

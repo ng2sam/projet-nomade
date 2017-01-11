@@ -11,4 +11,32 @@ page-association-detail {
         background-color: white;
         position: absolute;
     }
+    ion-chip ion-icon {
+
+    width: 32px;
+   height: 32px;
+    margin-left: -12px;
+    vertical-align: top;
+   border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 18px;
+    }
+ion-navbar .toolbar-background {
+    background: transparent;
+}
+
+ion-content .scroll-content {
+    margin-top:0px !important;
+}
+  .customIcon {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500;
+    box-shadow : none;
+    background-color: transparent;}
+
+ion-header{
+        z-index: 0;
+}
 }

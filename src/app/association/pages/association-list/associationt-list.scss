@@ -7,4 +7,26 @@ page-association-list {
     font-size: 55px;
     color: white;
   }
+  .item-avatar-profile {
+    ion-avatar img {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    ion-avatar span {
+      font-size: 30px;
+      color: white;
+    }
+    background-color: transparent;
+  }
+    ion-chip ion-icon {
+
+    width: 32px;
+   height: 32px;
+    margin-left: -12px;
+    vertical-align: top;
+   border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 18px;
+    }
 }

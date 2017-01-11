@@ -32,12 +32,12 @@ export class MyApp {
   translationConfig() {
     this.translate.setDefaultLang('fr');
     let userLang = navigator.language.split('-')[0];
-    if(this.auth.userLang !== ''){
+    /*if(this.auth.userLang !== ''){
        userLang = this.auth.userLang;
-    }
-userLang = /(fr|en|so|et|ar)/gi.test(userLang) ? userLang : 'fr';
+     
+    }*/
+    userLang = /(fr|en|so|et|ar)/gi.test(userLang) ? userLang : 'fr';
     console.log(userLang);
-    
     this.auth.setStoreLang(userLang);
     this.translate.use(userLang);
   }

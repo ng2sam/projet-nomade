@@ -23,16 +23,22 @@ export class AuthService {
         responseType: 'token',
         callbackURL: 'https://ng2sam-1.eu.auth0.com/mobile'
     });
- options = {
-  language: 'fr'
-};
-    lock = new Auth0Lock('Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', 'ng2sam-1.eu.auth0.com',this.options, {
+
+    lock = new Auth0Lock('Y76wLooWM3ZCxO8aMUSooQdwpsYUoc4s', 'ng2sam-1.eu.auth0.com', {
         auth: {
             redirect: false,
             params: {
                 scope: 'openid offline_access email',
             }
-        }
+        },
+  language: 'fr',
+  theme: {
+      primaryColor: '#81d4fa',
+    logo: 'https://static.wixstatic.com/media/212bca_6af750d8acae4bea85c0dd1a191683c0.png/v1/fill/w_462,h_219,al_c,lg_1/212bca_6af750d8acae4bea85c0dd1a191683c0.png'
+  },
+languageDictionary: {
+    title: "Arrivant App"
+  } 
     });
     private storage: Storage = new Storage();
     refreshSubscription: any;
@@ -62,6 +68,7 @@ export class AuthService {
                 picture: null,
                 locale: null,
                 mineur: null,
+                role:null,
                 name: null,
                 email: null,
                 nonAccompagne: null,
@@ -224,6 +231,7 @@ export class AuthService {
             _id: splittedId,
             picture: null,
             locale: null,
+            role:null,
             mineur: null,
             name: null,
             email: null,
@@ -265,6 +273,7 @@ export class AuthService {
         this.user.mineur = data.mineur;
         this.user.nonAccompagne = data.nonAccompagne;
         this.user.name = data.name;
+        this.user.role = data.role[0];
         this.user.email = data.email;
         this.user.pays = data.pays;
         return this.user;

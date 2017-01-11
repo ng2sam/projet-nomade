@@ -10,20 +10,17 @@
         </ion-icon>              
     </button>
     </ion-buttons>
-    <ion-title>
-      Bienvenu en Suisse !
+    <ion-title style="color:white;font-size: 2rem;font-weight: 500;" [innerHTML]="'menu.blog.title' | translate">
     </ion-title>
   </ion-navbar>
   <ion-toolbar no-border-top color="danger">
     <ion-segment [(ngModel)]="menu" color="white">
       <ion-segment-button value="tous">
-        Tous
+        -
       </ion-segment-button>
-      <ion-segment-button value="asile">
-        Asile
+      <ion-segment-button value="asile" [innerHTML]="'blog.asile.title' | translate">
       </ion-segment-button>
-      <ion-segment-button value="environnement">
-        Environnement
+      <ion-segment-button value="environnement" [innerHTML]="'blog.env.title' | translate">
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>

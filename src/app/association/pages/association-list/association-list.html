@@ -1,11 +1,24 @@
-  <ion-list>
-    <ion-item *ngFor="let association of associations" (click)="onSelect.emit(association)">
-      <ion-thumbnail item-left style="position: relative;">
+  <div style="margin-top:20px;">
+  <ion-card *ngFor="let association of associations" (click)="onSelect.emit(association)">
+
+  <ion-item class="item-avatar-profile" style="background-color:#e8eaf6" text-wrap>
+<ion-avatar item-left style="position: relative;">
         <span style="position: absolute;left:25%; top: 15%;z-index: 10;" text-avatar [text]="association.name"></span>
-        <img  text-avatar [srcColor]="association.name" style="position: relative; z-index: 1;">
-      </ion-thumbnail>
-      <h2>{{association.name}}</h2>
-      <p>{{association.description}}</p>
-    <!--  <button ion-button clear item-right>Détail-{{association._id}}</button>-->
-    </ion-item>
-  </ion-list>
+        <img text-avatar [srcColor]="association.name" style="position: relative; z-index: 1;">
+      </ion-avatar>
+    <h2>{{association.name}}</h2>
+  </ion-item>
+  <ion-card-content >
+    <p>{{association.description}}</p>
+      <ion-chip>
+      <ion-icon name="md-female" color="primary"></ion-icon>
+      <ion-label>Femmes avec et sans enfants</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon name="md-happy" color="primary"></ion-icon>
+      <ion-label>Mineur non-accompagné</ion-label>
+    </ion-chip>
+  </ion-card-content>
+
+</ion-card>
+</div>

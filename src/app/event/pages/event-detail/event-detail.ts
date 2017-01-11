@@ -22,8 +22,9 @@ export class EventDetailPage implements OnInit, OnDestroy {
     name: new FormControl('', [Validators.required]),
     date: new FormControl(Date(), [Validators.required]),
     description: new FormControl(''),
-    organisator: new FormControl('', [Validators.required]),
-    participant: new FormControl('')
+    eventType: new FormControl(0),
+    organisateur: new FormControl('')/*,
+    participant: new FormControl('')*/
   });
 
 
@@ -89,6 +90,10 @@ export class EventDetailPage implements OnInit, OnDestroy {
       this.store.dispatch(this._eventActions.saveEvent(event));
     }
     this.goBack(event);
+  }
+
+  close(){
+    this.nav.pop();
   }
 
 }

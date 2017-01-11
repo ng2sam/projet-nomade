@@ -1,13 +1,32 @@
 page-home {
   .toolbar-md {
     min-height: 300px;
-    background: linear-gradient( rgba(69, 127, 202, 0.6), rgba( 100, 100, 100, 0.6)), url('https://t3.ftcdn.net/jpg/01/23/22/90/240_F_123229093_6NDt2J5adGaQcvEMpFEbFcqkiZo7P9ML.jpg') no-repeat center fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
+    //background: linear-gradient( rgba(69, 127, 202, 0.6), rgba( 100, 100, 100, 0.6)), 
+   // url('https://t3.ftcdn.net/jpg/01/23/22/90/240_F_123229093_6NDt2J5adGaQcvEMpFEbFcqkiZo7P9ML.jpg') no-repeat center fixed;
+   background-image:  url('https://s-media-cache-ak0.pinimg.com/736x/a5/d7/25/a5d725b34544f1fd57de01a34aed769c.jpg');
+  background-position:  center -300px;
+  
+
+  background-repeat: no-repeat;
+ 
+  background-attachment: fixed;
+
+  background-size: cover;
+  
+
+  background-color: #464646;   
+ 
   }
   .toolbar-background {
     width: 0%;
   }
+.toolbar-content-md {
+  margin-top: -50%;
+
+}
+.toolbar-title-md {
+  font-size:1.5em;
+}
   ion-fab[top] {
     top: -25px;
   }
