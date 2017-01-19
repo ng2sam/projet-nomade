@@ -1,20 +1,9 @@
-Ionic 2 App Base
+Ionic 2 projet
 =====================
 
-This is the base template for Ionic 2 starter apps.
 
-## Using this project
+## Preview in IonicView
 
-You'll need the Ionic CLI with support for v2 apps:
+appid: BFD6DAF2
 
-```bash
-$ npm install -g ionic
-```
 
-Then run:
-
-```bash
-$ ionic start myApp
-```
-
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
